@@ -1,10 +1,10 @@
 const mongoose  = require('mongoose');
-const dbConfig = require('../utils/config');
-mongoose.connect(dbConfig.dbURL, {useNewUrlParser: true});
+const dbConfig = require('./config');
+mongoose.connect(dbConfig.dbURL, {useNewUrlParser: true,useFindAndModify:false,useCreateIndex: true});
 
 const dbConnection = mongoose.connection;
 dbConnection.once('open', ()=>{
-    console.log("rahul ki faltu akalmandi uski gaand mai daal do");
+    console.log("connection done");
 })
 
 module.exports = mongoose;

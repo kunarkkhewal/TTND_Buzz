@@ -1,7 +1,7 @@
 const router = require('express').Router();
 var passport = require('passport');
 var jwt = require('jsonwebtoken');
-
+const chalk =  require('chalk')
 
 router.get(
     '/auth/google',
@@ -13,9 +13,11 @@ router.get(
     passport.authenticate('google', {failureRedirect: '/', session: false}),
     function(req,res){
         let UserDetails = req.user;
+        console.log(chalk.red(req.user))
         console.log("userDetails",UserDetails);
-        var token = jwt.sign(UserDetails, 'SecretKey',(err,token)=>{
-            console.log("token is =>>>>>>",token)
+        
+        jwt.sign(UserDetails.toJSON(), 'SecretKey',{ expiresIn: '12h' }, (err,token)=>{
+            console.log(chalk.cyan("token is =>>>>>>",token));
         });
 
         res.send(UserDetails);
