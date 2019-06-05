@@ -1,6 +1,6 @@
 const router = require('express').Router();
-var passport = require('passport');
-var jwt = require('jsonwebtoken');
+const passport = require('passport');
+const jwt = require('jsonwebtoken');
 const chalk =  require('chalk')
 
 router.get(
