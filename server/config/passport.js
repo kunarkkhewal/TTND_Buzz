@@ -19,18 +19,25 @@ passport.use(
         },
         function (accessToken, refreshToken, profile, done) {
 
-            // userOperations.findOne({googleId})
+            let googleId = profile.id;
+            userOperations.findOne(googleId).then(data => {
+                if (!data) {
+                    var userData = new User({
+                        username: profile._json.name,
+                        emailId: profile._json.email,
+                        googleId: profile._json.sub,
+                        thumbnail: profile._json.picture,
+                    });
+                    userOperations.createUser(userData).then(res=>done(null, userData));
+                }
+                else{
+                    done(null, data)
+                }
+            })
+            .catch(err=>console.log(`error in catch at passport ${err}`));
 
             console.log("profile data is ", profile._json);
-            var userData = new User({
-                username: profile._json.name,
-                emailId: profile._json.email,
-                googleId: profile._json.sub,
-                thumbnail: profile._json.picture,
-            });
-            userOperations.createUser(userData)
 
-            done(null, userData);
         }
     )
 );
