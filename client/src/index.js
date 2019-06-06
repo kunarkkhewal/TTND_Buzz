@@ -4,12 +4,13 @@ import App from './App';
 import './index.css';
 import { Route, Switch } from "react-router-dom";
 import { BrowserRouter } from "react-router-dom";
+// import { Provider } from 'react-redux';
+// import store from './store';
 
 ReactDOM.render(
-  <BrowserRouter>
-    <Switch>
-      <Route path ="/" component={App}/>
-    </Switch>
-  </BrowserRouter>,
+  // <Provider store={store}>
+      <App/>
+  // </Provider> 
+  ,
   document.getElementById('root')
 );

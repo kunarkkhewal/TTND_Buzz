@@ -1,26 +1,32 @@
 const router = require('express').Router();
 const passport = require('passport');
 const jwt = require('jsonwebtoken');
-const chalk =  require('chalk')
+const chalk = require('chalk')
 
 router.get(
     '/auth/google',
-    passport.authenticate('google', {scope:['profile', 'email']})
+    passport.authenticate('google', { scope: ['profile', 'email'] })
 );
 
 router.get(
     '/auth/google/callback',
-    passport.authenticate('google', {failureRedirect: '/', session: false}),
-    function(req,res){
+    passport.authenticate('google', { failureRedirect: '/', session: false }),
+    function (req, res) {
         let UserDetails = req.user;
-        console.log(chalk.red(req.user))
-        console.log("userDetails",UserDetails);
-        
-        jwt.sign(UserDetails.toJSON(), 'SecretKey',{ expiresIn: '12h' }, (err,token)=>{
-            console.log(chalk.cyan("token is =>>>>>>",token));
+
+        const userData = UserDetails.toJSON();
+
+        jwt.sign(userData, 'SecretKey', (err, token) => {
+            console.log(chalk.cyan("token is =>>>>>>", token));
+            if (err) {
+                console.log(chalk.red(err));
+            }
+            else {
+                res.redirect(`http://localhost:3000/token?q=${token}`);
+            }
         });
 
-        res.send(UserDetails);
+        // res.send(UserDetails)
     }
 );
 

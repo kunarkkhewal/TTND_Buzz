@@ -28,6 +28,8 @@ passport.use(
                         googleId: profile._json.sub,
                         thumbnail: profile._json.picture,
                     });
+                    // console.log(`data=${data}`);
+                    // console.log(`userdata=${userData}`)
                     userOperations.createUser(userData).then(res=>done(null, userData));
                 }
                 else{
@@ -35,8 +37,6 @@ passport.use(
                 }
             })
             .catch(err=>console.log(`error in catch at passport ${err}`));
-
-            console.log("profile data is ", profile._json);
 
         }
     )
