@@ -12,5 +12,9 @@ const complaintSchema = new Schema({
     attachment: String,
     status: {type:String, enum: status, required: true},
     issueId: Number,
-    AssignedTo: String
+    assignedTo: String
 })
+
+const complaintModel = mongoose.model('Complaints',complaintSchema);
+
+module.exports = complaintModel; 
