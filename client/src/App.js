@@ -1,16 +1,17 @@
 import React, { Component } from 'react';
-import queryString from 'query-string';
-import logo from './logo.svg';
 import './App.css';
 import Router from './Routes';
+import { BrowserRouter } from 'react-router-dom';
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <Router/>
+        <BrowserRouter>
+          <Router />
+        </BrowserRouter>
       </div>
-    ) 
+    )
   }
 }
 export default App;
