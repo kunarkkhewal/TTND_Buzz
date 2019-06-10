@@ -1,27 +1,26 @@
 import React from 'react';
-import SideNavBar from '../SideNavBar';
+import SideNavBar from '../utils/SideNavBar/SideNavBar';
+import './Buzz.css'
+import Header from '../utils/Header/Header';
 
-class Buzz extends React.Component{
+class Buzz extends React.Component {
+
     
-    logout = ()=>{
-        localStorage.removeItem('token');
-        this.props.history.push('/')
-    }
 
-    render(){
-        return(
+    render() {
+        return (
             <div>
-                <header>
-                    <nav>
-                        <button onClick={this.logout}>Logout</button>
-                    </nav>
-                    <img src="" alt=""/>
-                </header>
                 <main>
-                    <div>buzz Component</div>
-                    <aside><SideNavBar/></aside>
                     <section>
-                        <form action=""></form>
+                        <form action="" method="POST">
+                            <textarea name="buzz" id="buzz" cols="30" rows="10" placeholder='Share your thoughts'></textarea>
+                            <select name="category" id="category">
+                                <option value="Activity">Activity</option>
+                                <option value="Lost and Found">Lost and Found</option>
+                            </select>
+                            <input type="file" name="attachment" id="attachment" />
+                            <input type="submit" value="Post" />
+                        </form>
                         <article></article>
                     </section>
                 </main>

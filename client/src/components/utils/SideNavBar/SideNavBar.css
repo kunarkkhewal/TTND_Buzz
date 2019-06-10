@@ -1,0 +1,8 @@
+div.sideNavBar{
+    background-color: #FFFFFF;
+}
+
+ul li {
+    border: 0.5px solid #e9e6e6;
+    list-style: none;
+}

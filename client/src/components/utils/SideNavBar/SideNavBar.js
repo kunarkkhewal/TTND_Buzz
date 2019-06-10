@@ -1,19 +1,20 @@
 import React, { Component } from 'react';
 import {Link} from 'react-router-dom';
+import './SideNavBar.css';
 
 class SideNavBar extends Component {
     render() {
         return (
-            <div>
+            <div className='sideNavBar'>
                 <ul>
                     <li>
-                        <Link to='/buzz'>Buzz</Link>
+                        <Link to='/dashboard/buzz'>Buzz</Link>
                     </li>
                     <li>
-                        <Link to='/complaints'>Complaints</Link>
+                        <Link to='/dashboard/complaints'>Complaints</Link>
                     </li>
                     <li>
-                        <Link to='/resolved'>Resolve</Link>
+                        <Link to='/dashboard/resolve'>Resolve</Link>
                     </li>
                 </ul>
             </div>

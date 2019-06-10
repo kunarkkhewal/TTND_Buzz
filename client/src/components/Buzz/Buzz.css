@@ -1,0 +1,29 @@
+
+main{
+    background-color: #F4F8FB;
+    display: flex;
+    /* justify-content: space-evenly; */
+} 
+ 
+aside{
+    width: 25%;
+    /* margin: 5%; */
+}
+
+form{
+    display: block;
+    /* margin: 5%; */
+}
+
+form textarea{
+    display: block;
+    width: 100%;
+}
+
+form select{
+    display: inline;
+}
+
+form input:file{
+
+}

@@ -1,25 +1,14 @@
 import React from 'react';
-import SideNavBar from '../SideNavBar';
+import SideNavBar from '../utils/SideNavBar/SideNavBar';
+import Header from '../utils/Header/Header';
 
 class Complaint extends React.Component{
-    
-    logout = ()=>{
-        localStorage.removeItem('token');
-        this.props.history.push('/')
-    }
 
     render(){
         return(
             <div>
-                <header>
-                    <nav>
-                        <button onClick={this.logout}>Logout</button>
-                    </nav>
-                    <img src="" alt=""/>
-                </header>
                 <main>
-                    <div>buzz Component</div>
-                    <aside><SideNavBar/></aside>
+                    <div>Complaint Component</div>
                     <section>
                         <form action=""></form>
                         <article></article>
