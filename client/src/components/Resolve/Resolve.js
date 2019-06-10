@@ -1,7 +1,7 @@
 import React from 'react';
 import SideNavBar from '../SideNavBar';
 
-class Buzz extends React.Component{
+class Resolve extends React.Component{
     
     logout = ()=>{
         localStorage.removeItem('token');
@@ -30,4 +30,4 @@ class Buzz extends React.Component{
     }
 }
 
-export default Buzz;
+export default Resolve;
