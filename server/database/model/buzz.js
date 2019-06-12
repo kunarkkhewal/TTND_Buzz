@@ -6,9 +6,10 @@ const buzzSchema = new Schema({
     description: {type: String, required: true},
     category: {type: String, enum:categoryType, required: true},
     attachment: String,
-    createdAt: Date.now,
-    like: Number,
-    dislike: Number
+    email: String,
+    createdAt: {type: Date, default: Date.now}, 
+    like: [{userId: {type: String}}],
+    dislike: [{userId: {type: String}}]
 });
 
 const buzzModel = mongoose.model('Buzz', buzzSchema);

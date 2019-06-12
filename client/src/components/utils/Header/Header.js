@@ -15,7 +15,7 @@ class Header extends React.Component {
                 <nav>
                     <img src={companylogo} alt='logo' className='companylogo'></img>
                     <button onClick={this.logout}>Logout</button>
-                    <i class="fas fa-sign-out-alt"></i>
+                    {/* <i class="fas fa-sign-out-alt"></i> */}
                 </nav>
                 <img src={companybanner} alt='companybanner' className='companybanner'></img>
             </header>
