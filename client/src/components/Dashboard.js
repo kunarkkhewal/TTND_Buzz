@@ -8,11 +8,10 @@ import Header from './utils/Header/Header';
 
 
 class Dashboard extends Component {
-
     render() {
         return (
             <div>
-                <Header/>
+                <Header history={this.props.history}/>
                 <main>
                     <aside>
                         <SideNavBar />
