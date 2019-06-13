@@ -1,5 +1,5 @@
 import React from 'react';
-import SideNavBar from '../utils/SideNavBar/SideNavBar';
+// import SideNavBar from '../utils/SideNavBar/SideNavBar';
 
 class Resolve extends React.Component{
 

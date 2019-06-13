@@ -1,7 +1,4 @@
 import React, { Component } from 'react';
-import queryString from 'query-string';
-// import logo from './logo.svg';
-// import './App.css';
 
 class App extends Component {
     render() {
