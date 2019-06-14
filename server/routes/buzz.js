@@ -5,7 +5,9 @@ const upload = require('../middlewares/multer');
 const cloudinary = require('../config/cloudinary');
 
 router.get('/', (req, res) => {
-
+    buzzOperation.fetchBuzz()
+        .then(data=>{res.send(data)})
+        .catch()
 });
 
 router.post('/', upload.single('attachment'), async (req, res) => {

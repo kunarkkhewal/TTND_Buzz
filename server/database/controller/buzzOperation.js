@@ -4,7 +4,7 @@ createBuzz = buzz => {
     return buzz.save();
 }
 
-fetchBuzz = buzz => {
+fetchBuzz = () => {
     return buzz.find();
 }
 
