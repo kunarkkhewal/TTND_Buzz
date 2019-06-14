@@ -2,6 +2,7 @@ const router = require('express').Router();
 const passport = require('passport');
 const jwt = require('jsonwebtoken');
 const chalk = require('chalk')
+require('dotenv').config();
 
 router.get(
     '/auth/google',
@@ -16,7 +17,7 @@ router.get(
 
         const userData = UserDetails.toJSON();
 
-        jwt.sign(userData, 'SecretKey', (err, token) => {
+        jwt.sign(userData, process.env.SECRET, (err, token) => {
             console.log(chalk.cyan("token is =>>>>>>", token));
             if (err) {
                 console.log(chalk.red(err));

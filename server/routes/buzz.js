@@ -3,14 +3,21 @@ const buzzOperation = require('../database/controller/buzzOperation');
 const Buzz = require('../database/model/buzz')
 const upload = require('../middlewares/multer');
 const cloudinary = require('../config/cloudinary');
+const chalk = require('chalk');
+const verifyToken = require('../middlewares/jwtVerify')
 
-router.get('/', (req, res) => {
+router.get('/', verifyToken, (req, res) => {
     buzzOperation.fetchBuzz()
         .then(data=>{res.send(data)})
         .catch()
+
+        
 });
 
-router.post('/', upload.single('attachment'), async (req, res) => {
+
+
+router.post('/', verifyToken, upload.single('attachment'), async (req, res) => {
+    console.log(chalk.blue(JSON.stringify(req.headers.authentication)))
     let formData = req.body;
     var imageData = ''
     if (req.file) {

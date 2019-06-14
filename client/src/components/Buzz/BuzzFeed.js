@@ -1,14 +1,29 @@
 import React from 'react';
-import axios from 'axios';
+import { connect } from 'react-redux';
+import { showBuzz } from '../../action/buzz.Action';
 
-class BuzzForm extends React.Component {
+class BuzzFeed extends React.Component {
+
+
+    componentDidMount = () => {
+        this.props.showBuzz();
+    }
+
     render() {
         return (
             <div>
-                
+                {console.log('data in feed', this.props.state.BuzzReducer.buzzfeed)}
             </div>
         )
     }
 }
 
-export default BuzzForm
+const mapStateToProps = state => {
+    return { state }
+}
+
+const mapDispatchToProps = {
+    showBuzz
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(BuzzFeed)
