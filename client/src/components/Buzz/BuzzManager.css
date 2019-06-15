@@ -1,10 +1,9 @@
-
 main{
     background-color: #F4F8FB;
     display: flex;
     /* justify-content: space-evenly; */
 } 
- 
+
 aside{
     width: 25%;
     /* margin: 5%; */
@@ -24,6 +23,3 @@ form select{
     display: inline;
 }
 
-form input:file{
-
-}

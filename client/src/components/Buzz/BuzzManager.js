@@ -1,7 +1,7 @@
 import React from 'react';
-import './Buzz.css';
-import BuzzForm from './BuzzForm';
-import BuzzFeed from './BuzzFeed';
+import './BuzzManager.css';
+import BuzzForm from './BuzzForm/BuzzForm';
+import BuzzFeed from './BuzzFeed/BuzzFeed';
 
 class Buzz extends React.Component {
 

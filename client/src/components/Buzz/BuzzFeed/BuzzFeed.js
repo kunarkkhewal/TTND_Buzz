@@ -1,7 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { showBuzz } from '../../action/buzz.Action';
-import BuzzThread from './BuzzThread'
+import { showBuzz } from '../../../action/buzz.Action';
+import './BuzzFeed.css'
+import BuzzThread from '../BuzzThread/BuzzThread'
 
 class BuzzFeed extends React.Component {
 
@@ -12,14 +13,12 @@ class BuzzFeed extends React.Component {
 
     render() {
         return (
-            <div>
-                <ul>
-                    {this.props.feed.map((data)=>{
-                        return(
-                            <BuzzThread feed={data}/>
-                        )
-                    })}
-                </ul>
+            <div className="buzzfeed">
+                {this.props.feed.map((data) => {
+                    return (
+                        <BuzzThread feed={data} />
+                    )
+                })}
                 {console.log('data in feed', this.props.feed)}
             </div>
         )
@@ -27,7 +26,7 @@ class BuzzFeed extends React.Component {
 }
 
 const mapStateToProps = state => {
-    return { feed: state.BuzzReducer.buzzfeed  }
+    return { feed: state.BuzzReducer.buzzfeed }
 }
 
 const mapDispatchToProps = {

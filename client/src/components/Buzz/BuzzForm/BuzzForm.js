@@ -1,7 +1,7 @@
 import React from 'react';
-import './Buzz.css';
+import '../BuzzManager.css';
 import { connect } from 'react-redux';
-import { addBuzz } from '../../action/buzz.Action'
+import { addBuzz } from '../../../action/buzz.Action'
 
 class BuzzForm extends React.Component {
 

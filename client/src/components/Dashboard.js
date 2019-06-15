@@ -3,7 +3,7 @@ import SideNavBar from './utils/SideNavBar/SideNavBar';
 import Complaint from './Complaint/Complaint'
 import Resolve from './Resolve/Resolve';
 import { Route } from 'react-router-dom';
-import Buzz from './Buzz/Buzz';
+import Buzz from './Buzz/BuzzManager';
 import Header from './utils/Header/Header';
 
 
