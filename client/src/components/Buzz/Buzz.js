@@ -10,9 +10,9 @@ class Buzz extends React.Component {
             <div>
                 <main>
                     <section>
-                        <BuzzForm/>
+                        <BuzzForm />
                         <article>
-                            <BuzzFeed/>
+                            <BuzzFeed />
                         </article>
                     </section>
                 </main>

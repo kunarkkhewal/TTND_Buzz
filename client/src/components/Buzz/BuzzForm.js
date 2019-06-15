@@ -22,15 +22,18 @@ class BuzzForm extends React.Component {
         formData.append("category", event.target[1].value);
         formData.append("attachment", event.target[2].files[0]);
 
-
         this.props.addBuzz(formData)
 
         event.target.reset();
+
+        //! Jugad Wala code, ask sir about this
+        //? search solution for reloading
+        setInterval(()=>{window.location.reload()},5000)
     }
 
     render() {
         return (
-            <form onSubmit={this.onSubmit} action="http://localhost:5000/dashboard/buzz" method='POST' encType='multipart/form-data' >
+            <form onSubmit={this.onSubmit} encType='multipart/form-data' >
                 <textarea name="buzz" id="buzz" required cols="30" rows="10" placeholder='Share your thoughts'></textarea>
                 <select name="category" id="category">
                     <option value="Activity">Activity</option>

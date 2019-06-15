@@ -5,7 +5,7 @@ createBuzz = buzz => {
 }
 
 fetchBuzz = () => {
-    return buzz.find();
+    return buzz.find().sort({createdAt: -1});
 }
 
 module.exports = {
