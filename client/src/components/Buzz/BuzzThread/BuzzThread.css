@@ -1,0 +1,8 @@
+ul{
+    border: 1px solid grey;
+}
+
+ul li{
+    color: brown;
+    list-style: none;
+}

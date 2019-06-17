@@ -1,5 +1,5 @@
 import React from 'react';
-
+import './BuzzThread.css'
 class BuzzThread extends React.Component {
     render() {
         const { description, email, category, attachment, createdAt, like, dislike } = this.props.feed;

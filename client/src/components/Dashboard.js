@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import SideNavBar from './utils/SideNavBar/SideNavBar';
-import Complaint from './Complaint/Complaint'
+import Complaint from './Complaint/ComplaintManager'
 import Resolve from './Resolve/Resolve';
 import { Route } from 'react-router-dom';
 import Buzz from './Buzz/BuzzManager';

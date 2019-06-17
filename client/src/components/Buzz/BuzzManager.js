@@ -8,14 +8,8 @@ class Buzz extends React.Component {
     render() {
         return (
             <div>
-                <main>
-                    <section>
-                        <BuzzForm />
-                        <article>
-                            <BuzzFeed />
-                        </article>
-                    </section>
-                </main>
+                <BuzzForm />
+                <BuzzFeed />
             </div>
         )
     }
