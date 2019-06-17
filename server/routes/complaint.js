@@ -5,6 +5,7 @@ const upload = require('../middlewares/multer');
 const cloudinary = require('../config/cloudinary');
 const chalk = require('chalk');
 const verifyToken = require('../middlewares/jwtVerify');
+const findAdmin = require('../middlewares/findAdmin');
 
 router.get('/', verifyToken, (req, res)=>{
     complaintOperation.fetchComplaint()
@@ -25,7 +26,10 @@ router.post('/', verifyToken, upload.single('attachment'), async (req, res)=>{
         }
     }
 
+    // console.log(chalk.red('findAdmin: =', findAdmin.findAdmin()));
     console.log("req.user=>>>>>>>>>>>>>**", req.user)
+    const assignedTo = await findAdmin();
+    console.log(assignedTo);
     let complaintData = new Complaint({
         department: formData.department,
         title: formData.title,
@@ -33,6 +37,7 @@ router.post('/', verifyToken, upload.single('attachment'), async (req, res)=>{
         attachment: imageData,
         emailId: req.user.emailId,
         name: req.user.username,
+        assignedTo: assignedTo[0].emailId
     });
     complaintOperation.createComplaint(complaintData)
         .then(data => {

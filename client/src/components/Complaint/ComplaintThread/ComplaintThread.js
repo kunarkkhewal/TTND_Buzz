@@ -13,6 +13,7 @@ class ComplaintThread extends React.Component{
                 <li>concern:=> {concern}</li>
                 <li>{attachment}</li>
                 <li>{status}</li>
+                <li>Assigned to=::>> {assignedTo}</li>
             </ul>
         )
     }
