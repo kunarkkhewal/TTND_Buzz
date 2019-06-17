@@ -7,9 +7,16 @@ export default function complaintReducer(state= initialState, action){
 
     switch(type){
         case "ADD_COMPLAINT": {
-            return{
+            return {
                 ...state,
                 complaintList:[action.data, ...state.complaintList]
+            };
+        }
+
+        case "SHOW_COMPLAINT": {
+            return {
+                ...state,
+                complaintList: action.data
             };
         }
 

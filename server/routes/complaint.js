@@ -6,8 +6,10 @@ const cloudinary = require('../config/cloudinary');
 const chalk = require('chalk');
 const verifyToken = require('../middlewares/jwtVerify');
 
-router.get('/', (req, res)=>{
-
+router.get('/', verifyToken, (req, res)=>{
+    complaintOperation.fetchComplaint()
+        .then(data=>{res.send(data)})
+        .catch(err=>{res.send(err)})
 });
 
 router.post('/', verifyToken, upload.single('attachment'), async (req, res)=>{

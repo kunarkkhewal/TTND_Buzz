@@ -5,7 +5,7 @@ createComplaint = complaint => {
 }
 
 fetchComplaint = () => {
-    return complaint.find();
+    return complaint.find().sort({createdAt: -1});
 }
 
 module.exports = {

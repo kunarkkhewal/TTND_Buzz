@@ -2,7 +2,7 @@ import axiosInstance from '../utils/axiosInterceptor';
 
 // POST REQUEST FOR BUZZ
 
-export const addBuzzFeedToState = (data) => {
+const addBuzzFeedToState = (data) => {
     console.log("buzz action add");
     return {
         type: "ADD_BUZZ",
@@ -28,7 +28,7 @@ export const addBuzz = formData => dispatch => {
 
 // GET REQUEST FOR BUZZ FEED
 
-export const getBuzzFeedToState = (data) => {
+const getBuzzFeedToState = (data) => {
     console.log("buzz action show");
     return {
         type: "SHOW_BUZZ",
@@ -46,4 +46,3 @@ export const showBuzz = () => dispatch => {
             dispatch(getBuzzFeedToState(res.data));
         });
 }
-

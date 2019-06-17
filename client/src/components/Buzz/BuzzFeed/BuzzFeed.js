@@ -20,6 +20,7 @@ class BuzzFeed extends React.Component {
                     )
                 })}
                 {console.log('data in feed', this.props.feed)}
+                {/* {this.props.showBuzz()} */}
             </div>
         )
     }

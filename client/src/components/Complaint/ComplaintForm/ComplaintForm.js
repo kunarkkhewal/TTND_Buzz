@@ -39,7 +39,7 @@ class ComplaintForm extends React.Component {
                         <option value="Infrastructure">Infrastructure</option>
                         <option value="Others">Others</option>
                     </select>
-                    <input name='title' placeholder='Issue Title' type="text" />
+                    <input name='title' placeholder='Issue Title' type="text" required />
                     <textarea name="concern" id="concern" cols="30" rows="10" placeholder='Concern' required></textarea>
                     <input type="file" name="attachment" accept='image/*' id="attachment" />
                     <input type="submit" value="Submit" />
