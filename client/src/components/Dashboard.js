@@ -22,7 +22,7 @@ class Dashboard extends Component {
                             component={Buzz}
                         />
                         <Route
-                            exact path="/dashboard/complaints"
+                            exact path={`${this.props.match.path}/complaints`}
                             component={Complaint}
                         />
                         <Route

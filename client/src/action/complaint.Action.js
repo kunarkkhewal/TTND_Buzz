@@ -13,7 +13,7 @@ export const addComplaintToState = data => {
 export const addComplaint = complaintData => dispatch => {
     axiosInstance({
         method: 'post',
-        url: 'http://localhost:5000/dashboard/complaint',
+        url: 'http://localhost:5000/dashboard/complaints',
         data: complaintData,
         config: {headers: {'Content-Type': 'multipart/form-data'}}
     })

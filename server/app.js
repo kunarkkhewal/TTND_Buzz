@@ -6,6 +6,7 @@ const bodyParser = require('body-parser');
 const passport = require('passport');
 const PORT = process.env.PORT || 5000;
 const buzz = require('./routes/buzz');
+const complaint = require('./routes/complaint');
 const chalk = require('chalk');
 
 require('dotenv').config();
@@ -19,6 +20,7 @@ app.use(passport.initialize());
 require('./config/passport');
 app.use('/', route);
 app.use('/dashboard/buzz', buzz);
+app.use('/dashboard/complaints', complaint)
 
 
 app.listen(PORT, ()=>{
