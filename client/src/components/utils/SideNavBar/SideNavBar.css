@@ -1,12 +1,34 @@
 div.sideNavBar{
-    background-color: #FFFFFF;
+    margin-top: 25px;
+    background-color: #f4f8fb;
+}
+
+.sideNavBar ul {
+    border: none;
 }
 
 .sideNavBar ul li {
+    margin: 1px;
+    background-color: white;
     border: 1px solid #e9e6e6;
+    height: 40px;
     list-style: none;
+    font-size: 18px;
+    position: relative;
+    /* color: black; */
 }
 
-a{
-    color: black;    
+.link{
+    /* color: black; */
+    display: inline-block;
+    width: 100%;
+    position: absolute;
+    left: 0px;
+    top: 5px;
+    text-decoration: none;
+}
+
+.link:hover{
+    text-decoration: none;
+    color: orange;
 }

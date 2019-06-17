@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { Route, Redirect } from 'react-router-dom';
-import Login from './components/Login';
+import Login from './components/utils/Login/Login';
 import Token from './components/utils/Token';
-import Dashboard from './components/Dashboard';
+import Dashboard from './components/Dashboard/Dashboard';
 
 class Routes extends Component {
 

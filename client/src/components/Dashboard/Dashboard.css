@@ -1,0 +1,19 @@
+div.body{
+    background: #f4f8fb;
+}
+
+main.main{
+    margin: 0 auto;
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-around;
+    
+}
+
+aside.aside{
+    width: 28%;
+}
+
+section.section{
+    width: 60%;
+}

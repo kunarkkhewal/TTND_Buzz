@@ -1,11 +1,20 @@
 import React, { Component } from 'react';
+import './Login.css'
 
 class App extends Component {
+    
+    componentDidMount = () => {
+        if(localStorage.getItem('token')){
+            console.log('in login=>>>>',this.props)
+            this.props.history.push('/dashboard/buzz')
+        }
+    }
+
     render() {
         return (
             <div className="App">
                 <a href="http://localhost:5000/auth/google" class="button">
-                    <div>
+                    <div className="btn-inner">
                         <span className="svgIcon t-popup-svg">
                             <svg
                                 class="svgIcon-use"
@@ -32,17 +41,16 @@ class App extends Component {
                                     />
                                 </g>
                             </svg>
-                            {/* h */}
                         </span>
+                        {/* <span className="svgIcon t-popup-svg">
+                            <img src="../../../Assets/google-removebg-preview.png" alt=""/>
+                        </span> */}
                         <span class="button-label">Sign in with Google</span>
                     </div>
                 </a>
             </div>
         );
     }
-
 }
-
-// const token
 
 export default App;

@@ -1,0 +1,23 @@
+div.App{
+    height: 100vh;
+    background: url('https://media.glassdoor.com/l/5b/1e/b7/80/fun-ttn-d.jpg');
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+a.button{
+    margin-top: 25%;
+    background-color: aliceblue;
+    border: 1px solid black;
+    text-decoration: none;
+
+}
+
+a.button:hover{
+    text-decoration: none;
+}
+
+div.btn-inner{
+    width: 100%;
+}

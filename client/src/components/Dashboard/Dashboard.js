@@ -1,22 +1,23 @@
 import React, { Component } from 'react';
-import SideNavBar from './utils/SideNavBar/SideNavBar';
-import Complaint from './Complaint/ComplaintManager'
-import Resolve from './Resolve/Resolve';
+import SideNavBar from '../utils/SideNavBar/SideNavBar';
+import Complaint from '../Complaint/ComplaintManager'
+import Resolve from '../Resolve/Resolve';
 import { Route } from 'react-router-dom';
-import Buzz from './Buzz/BuzzManager';
-import Header from './utils/Header/Header';
+import Buzz from '../Buzz/BuzzManager';
+import Header from '../utils/Header/Header';
+import './Dashboard.css';
 
 
 class Dashboard extends Component {
     render() {
         return (
-            <div>
+            <div className='body'>
                 <Header history={this.props.history}/>
-                <main>
-                    <aside>
+                <main className='container main'>
+                    <aside className='aside'>
                         <SideNavBar />
                     </aside>
-                    <section>
+                    <section className='section'>
                         <Route
                             exact path={`${this.props.match.path}/buzz`}
                             component={Buzz}
