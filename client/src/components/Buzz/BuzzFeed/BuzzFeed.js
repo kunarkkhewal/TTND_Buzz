@@ -14,24 +14,23 @@ class BuzzFeed extends React.Component {
     render() {
         return (
             <div className="buzzfeed">
-                {this.props.feed.map((data) => {
-                    return (
-                        <BuzzThread feed={data} />
-                    )
-                })}
-                {console.log('data in feed', this.props.feed)}
-                {/* {this.props.showBuzz()} */}
+                
+                    {this.props.feed.map((data) => {
+                        return (
+                            <BuzzThread feed={data} />
+                        )
+                    })}
             </div>
-        )
+            )
+        }
     }
-}
-
+    
 const mapStateToProps = state => {
-    return { feed: state.BuzzReducer.buzzfeed }
-}
-
+    return {feed: state.BuzzReducer.buzzfeed }
+            }
+            
 const mapDispatchToProps = {
-    showBuzz
-}
+                    showBuzz
+                }
 
-export default connect(mapStateToProps, mapDispatchToProps)(BuzzFeed)
+                export default connect(mapStateToProps, mapDispatchToProps)(BuzzFeed)

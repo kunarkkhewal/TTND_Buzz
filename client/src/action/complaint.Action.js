@@ -18,10 +18,11 @@ export const addComplaint = complaintData => dispatch => {
         config: {headers: {'Content-Type': 'multipart/form-data'}}
     })
         .then(res=>{
-            if(res.data.message === 'data saved'){
+            console.log("in action add complaint, res.data, ", res)
+            // if(res.data.message === 'data saved'){
                 console.log('data saved to server and came back');
-                dispatch(addComplaintToState(res.data.data));
-            }
+                dispatch(addComplaintToState(res.data));
+            // }
         });
 }
 

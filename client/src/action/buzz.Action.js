@@ -18,11 +18,15 @@ export const addBuzz = formData => dispatch => {
         config: { headers: { 'Content-Type': 'multipart/form-data' } }
     })
         .then(res => {
-            if (res.data.message === 'data saved') {
+            console.log("axios add buzz in action=> ",res.data)
+            // if (res.data.message === 'data saved') {
                 console.log('data saved to server and comeback');
-                dispatch(addBuzzFeedToState(res.data.data)); //.data from route
-            }
-        });
+                dispatch(addBuzzFeedToState(res.data)); //.data from route
+            // }
+        })
+        .catch(err=>{
+            console.log("action buzz error:=> ",err)
+        })
 }
 
 

@@ -40,7 +40,7 @@ router.post('/', verifyToken, upload.single('attachment'), async (req, res) => {
     buzzOperation.createBuzz(buzzData)
         .then(data => {
             console.log('buzz Data: ', data);
-            res.send(buzzData);
+            res.send(data);
         })
         .catch(err => {
             console.log('buzz Error: ', err)

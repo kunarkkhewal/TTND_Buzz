@@ -42,7 +42,7 @@ router.post('/', verifyToken, upload.single('attachment'), async (req, res)=>{
     complaintOperation.createComplaint(complaintData)
         .then(data => {
             console.log('complaint data: ', data);
-            res.send(formData);
+            res.send(data);
         })
         .catch(err => {
             console.log('complaint error: ',err)
