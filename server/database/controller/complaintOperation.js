@@ -4,8 +4,8 @@ createComplaint = complaint => {
     return complaint.save();
 }
 
-fetchComplaint = () => {
-    return complaint.find().sort({createdAt: -1});
+fetchComplaint = emailId => {
+    return complaint.find({emailId}).sort({createdAt: -1});
 }
 
 module.exports = {

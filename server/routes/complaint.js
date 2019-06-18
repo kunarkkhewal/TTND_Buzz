@@ -8,7 +8,7 @@ const verifyToken = require('../middlewares/jwtVerify');
 const findAdmin = require('..//database/utils/findAdmin');
 
 router.get('/', verifyToken, (req, res)=>{
-    complaintOperation.fetchComplaint()
+    complaintOperation.fetchComplaint(req.user.emailId)
         .then(data=>{res.send(data)})
         .catch(err=>{res.send(err)})
 });
