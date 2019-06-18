@@ -7,7 +7,7 @@ class BuzzThread extends React.Component {
             <ul>
                 <li>{description}</li>
                 <li>{category}</li>
-                <li><img src={attachment} alt="image" /></li>
+                <li><img src={attachment} alt=""  width="200px" height="auto" /></li>
                 <li>{createdAt}</li>
                 <li>{email}</li>
             </ul>

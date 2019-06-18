@@ -34,13 +34,30 @@ class BuzzForm extends React.Component {
                 <div className='formTitle'>Create buzz</div>
                 <form onSubmit={this.onSubmit} encType='multipart/form-data' >
                     <textarea name="buzz" id="buzz" required cols="30" rows="10" placeholder='Share your thoughts'></textarea>
-                    <label htmlFor="category">Category</label>
+                    <div className="lowerBar">
+                        <div className="category">
+                            <label htmlFor="category">Category</label>
+                            <select name="category" id="category">
+                                <option value="Activity">Activity</option>
+                                <option value="Lost and Found">Lost and Found</option>
+                            </select>
+                            <input type="file" name="attachment" accept='image/*' id="attachment" />
+                        </div>
+                        {/* <label htmlFor="category">Category</label>
+                        <select name="category" id="category">
+                            <option value="Activity">Activity</option>
+                            <option value="Lost and Found">Lost and Found</option>
+                        </select>
+                        <input type="file" name="attachment" accept='image/*' id="attachment" /> */}
+                        <input className="submit rounded-lg" type="submit" value="Post" />
+                    </div>
+                    {/* <label htmlFor="category">Category</label>
                     <select name="category" id="category">
                         <option value="Activity">Activity</option>
                         <option value="Lost and Found">Lost and Found</option>
                     </select>
                     <input type="file" name="attachment" accept='image/*' id="attachment" />
-                    <input className="submit rounded-lg" type="submit" value="Post" />
+                    <input className="submit rounded-lg" type="submit" value="Post" /> */}
                 </form>
             </div>
 

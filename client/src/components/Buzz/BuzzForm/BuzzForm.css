@@ -25,29 +25,53 @@ textarea{
     border: none;
 }
 
+div.lowerBar{
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+}
+
+div.category{
+    display: flex;
+    justify-content: flex-start;
+}
+
 label{
-    position: absolute;
-    left: 10px;
-    bottom: -4px;
+    /* position: absolute; */
+    /* left: 10px; */
+    margin: 1% 2%;
+    margin-right: 0;
     font-size: 15px;
 }
 
 select{
-    position: absolute;
+    /* position: absolute;
     left: 80px;
-    bottom: 5px;
+    bottom: 5px; */
     background: none;
-    border: none;
-    width: 80px;
+    border: 1px solid blue;
+    border-radius: 4px;
+    /* width: 80px; */
     color: blue;
+    margin: 0 5px;
+}
+
+select:hover{
+    background-color: blue;
+    color: white;
 }
 
 .submit{
-    position: absolute;
-    right: 10px;
+    /* position: absolute;
+    right: 10px; */
     background-color: transparent;
     border: 1px solid blue;
     width: 80px;
     color: blue;
+}
+
+.submit:hover{
+    background-color: blue;
+    color: white;
 }
 

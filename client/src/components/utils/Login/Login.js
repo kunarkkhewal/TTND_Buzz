@@ -12,7 +12,7 @@ class App extends Component {
 
     render() {
         return (
-            <div className="App">
+            <div className="loginDiv">
                 <a href="http://localhost:5000/auth/google" class="button">
                     <div className="btn-inner">
                         <span className="svgIcon t-popup-svg">
