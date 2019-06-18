@@ -18,6 +18,12 @@ div.sideNavBar{
     /* color: black; */
 }
 
+.sideNavBar ul li:hover{
+    /* border: 1px solid blue; */
+    background-color: blue;
+    color: white;
+}
+
 .link{
     /* color: black; */
     display: inline-block;
@@ -26,9 +32,10 @@ div.sideNavBar{
     left: 0px;
     top: 5px;
     text-decoration: none;
+    font-weight: 500;
 }
 
 .link:hover{
     text-decoration: none;
-    color: orange;
+    color: white;
 }

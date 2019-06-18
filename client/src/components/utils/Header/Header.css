@@ -1,7 +1,11 @@
 nav{
     background-color: #F4F8FB;
     position: relative;
+    /* position: sticky; */
+    /* top: 0; */
     height: 40px;
+    display: flex;
+    justify-content: space-around;
 }
 .companylogo{
     position: absolute;
@@ -15,14 +19,68 @@ nav{
     height: 350px;
     /* left: 10%; */
 }
-nav button{
-    border: none;
-    background-color: transparent;
-    font-size: 20px;
-    font-weight: 600;
-    color: #fa9566;
-    vertical-align: middle;
-    margin-top: 8px;
+
+nav span{
     position: absolute;
     right: 5%;
 }
+
+nav button{
+    border: none;
+    background-color: transparent;
+    vertical-align: middle;
+    margin-top: 5px;
+    margin-left: 15px;
+    border-left: 1px solid grey;
+    padding:  0 10px;
+    /* border-radius: 4px; */
+    /* position: absolute; */
+    /* right: 5%; */
+}
+
+nav button.logout{
+    /* background-color: orange; */
+    color: #fa9566;
+    font-size: 20px;
+    font-weight: 600;
+    border: 1px solid #fa9566;
+    border-radius: 4px;
+}
+
+nav button.logout:hover{
+    border: 1px solid #fa9566;
+    background-color: orange;
+    color: white;
+}
+
+nav span button.img{
+    border: none;
+    display: inline;
+    padding: 0;
+    margin: 0;
+}
+
+nav span button.img img{
+    margin-top: 3px;
+    /* border: none; */
+    width: 35px;
+    height: auto;
+    border-radius: 50%;
+}
+
+.modal-body img{
+    width: 200px;
+    height: auto;
+    border-radius: 50%;
+    margin: 5px 0 10px;
+}
+
+.modal-body{
+    padding-top: 0%;
+}
+
+.modal-header{
+    margin: 0 auto;
+    padding-bottom: 0%;
+}
+

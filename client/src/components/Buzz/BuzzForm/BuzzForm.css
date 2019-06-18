@@ -75,3 +75,14 @@ select:hover{
     color: white;
 }
 
+form{
+    display: block;
+    /* margin: 5%; */
+}
+
+form textarea{
+    display: block;
+    width: 100%;
+}
+
+

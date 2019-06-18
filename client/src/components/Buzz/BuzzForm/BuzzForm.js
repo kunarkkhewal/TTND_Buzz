@@ -29,6 +29,7 @@ class BuzzForm extends React.Component {
     }
 
     render() {
+        console.log('in buzz form cheking state:=>  ', this.props.state)
         return (
             <div className='buzzForm rounded-lg' >
                 <div className='formTitle'>Create buzz</div>
@@ -43,21 +44,8 @@ class BuzzForm extends React.Component {
                             </select>
                             <input type="file" name="attachment" accept='image/*' id="attachment" />
                         </div>
-                        {/* <label htmlFor="category">Category</label>
-                        <select name="category" id="category">
-                            <option value="Activity">Activity</option>
-                            <option value="Lost and Found">Lost and Found</option>
-                        </select>
-                        <input type="file" name="attachment" accept='image/*' id="attachment" /> */}
                         <input className="submit rounded-lg" type="submit" value="Post" />
                     </div>
-                    {/* <label htmlFor="category">Category</label>
-                    <select name="category" id="category">
-                        <option value="Activity">Activity</option>
-                        <option value="Lost and Found">Lost and Found</option>
-                    </select>
-                    <input type="file" name="attachment" accept='image/*' id="attachment" />
-                    <input className="submit rounded-lg" type="submit" value="Post" /> */}
                 </form>
             </div>
 

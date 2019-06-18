@@ -5,7 +5,7 @@ const upload = require('../middlewares/multer');
 const cloudinary = require('../config/cloudinary');
 const chalk = require('chalk');
 const verifyToken = require('../middlewares/jwtVerify');
-const findAdmin = require('../middlewares/findAdmin');
+const findAdmin = require('..//database/utils/findAdmin');
 
 router.get('/', verifyToken, (req, res)=>{
     complaintOperation.fetchComplaint()

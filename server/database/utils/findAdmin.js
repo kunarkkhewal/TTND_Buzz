@@ -1,4 +1,4 @@
-const user = require('../database/model/user');
+const user = require('../model/user');
 
 const findAdmin = () => {
     return user.find({

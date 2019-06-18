@@ -5,6 +5,7 @@ const route = require('./routes/index');
 const bodyParser = require('body-parser');
 const passport = require('passport');
 const PORT = process.env.PORT || 5000;
+const userRoute = require('./routes/user');
 const buzz = require('./routes/buzz');
 const complaint = require('./routes/complaint');
 const chalk = require('chalk');
@@ -19,6 +20,7 @@ app.use(express.static('client/build'));
 app.use(passport.initialize());
 require('./config/passport');
 app.use('/', route);
+app.use('/user', userRoute)
 app.use('/dashboard/buzz', buzz);
 app.use('/dashboard/complaints', complaint)
 
