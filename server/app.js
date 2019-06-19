@@ -8,6 +8,7 @@ const PORT = process.env.PORT || 5000;
 const userRoute = require('./routes/user');
 const buzz = require('./routes/buzz');
 const complaint = require('./routes/complaint');
+const resolve = require('./routes/resolve');
 const chalk = require('chalk');
 
 require('dotenv').config();
@@ -22,7 +23,8 @@ require('./config/passport');
 app.use('/', route);
 app.use('/user', userRoute)
 app.use('/dashboard/buzz', buzz);
-app.use('/dashboard/complaints', complaint)
+app.use('/dashboard/complaints', complaint);
+app.use('/dashboard/resolve', resolve);
 
 
 app.listen(PORT, ()=>{

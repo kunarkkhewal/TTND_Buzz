@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import SideNavBar from '../utils/SideNavBar/SideNavBar';
 import Complaint from '../Complaint/ComplaintManager'
-import Resolve from '../Resolve/Resolve';
+import Resolve from '../Resolve/ResolveManager';
 import { Route } from 'react-router-dom';
 import Buzz from '../Buzz/BuzzManager';
 import Header from '../utils/Header/Header';

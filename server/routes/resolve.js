@@ -1,11 +1,12 @@
 const router = require('express').Router();
+const resolveOperation = require('../database/controller/resolveOperations');
+const verifyToken = require('../middlewares/jwtVerify');
 
-router.get('/', (req, res)=>{
-
+router.get('/', verifyToken,  (req, res)=>{
+    resolveOperation.fetchComplaint()
+        .then(data=>{res.send(data)})
+        .catch(err=>{res.send(err)})
 });
 
-router.post('/', (req, res)=>{
-
-});
 
 module.exports = router;
