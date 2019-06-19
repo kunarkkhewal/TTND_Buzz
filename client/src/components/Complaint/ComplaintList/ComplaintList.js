@@ -24,9 +24,9 @@ class ComplaintForm extends React.Component {
                         </tr>
                     </thead>
                     <tbody>
-                        {this.props.list.map((data) => {
+                        {this.props.list.map((data, index) => {
                             return (
-                                <ComplaintThread list={data} />
+                                <ComplaintThread list={data} key={index} />
                             )
                         })}
                     </tbody>

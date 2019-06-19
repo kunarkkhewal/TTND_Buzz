@@ -15,9 +15,9 @@ class BuzzFeed extends React.Component {
         return (
             <div className="buzzfeed">
 
-                {this.props.feed.map((data) => {
+                {this.props.feed.map((data, index) => {
                     return (
-                        <BuzzThread feed={data} />
+                        <BuzzThread feed={data} key={index} />
                     )
                 })}
             </div>

@@ -8,13 +8,13 @@ class SideNavBar extends Component {
         return (
             <div className='sideNavBar'>
                 <ul >
-                    <li class="rounded-lg">
+                    <li className="rounded-lg">
                         <Link to='/dashboard/buzz' className="link">Buzz</Link>
                     </li>
-                    <li class="rounded-lg">
+                    <li className="rounded-lg">
                         <Link to='/dashboard/complaints' className="link">Complaints</Link>
                     </li>
-                    <li class="rounded-lg">
+                    <li className="rounded-lg">
                         <Link to='/dashboard/resolve' className="link">Resolve</Link>
                     </li>
                 </ul>
