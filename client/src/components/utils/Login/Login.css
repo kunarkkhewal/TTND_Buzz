@@ -1,13 +1,24 @@
-div.loginDiv{
+.loginDiv {
+    position: relative;
     height: 100vh;
-    background: url('https://media.glassdoor.com/l/5b/1e/b7/80/fun-ttn-d.jpg');
-    background-attachment: fixed;
-    background-repeat: no-repeat;
+}
+
+.loginDiv::after {
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    filter: blur(5px);
+    right: 0;
+    background-image: url("https://media.glassdoor.com/l/5b/1e/b7/80/fun-ttn-d.jpg");
+    content: "";
     background-size: cover;
+    box-shadow: inset 0 0 0 100vmax rgba(0, 0, 0, .5);
 }
 
 a.button{
-    margin-top: 25%;
+    margin-top: 0%;
     background-color: aliceblue;
     border: 1px solid black;
     text-decoration: none;
@@ -19,5 +30,37 @@ a.button:hover{
 }
 
 div.btn-inner{
-    width: 100%;
+    width: 70%;
+    margin: 0 auto;
+}
+
+img.card-img-top {
+    width: 20%;
+    margin: 0 auto;
+}
+.card {
+    /* width: 19rem !important; */
+    font-family: 'Roboto', sans-serif;
+    padding: 0px;
+    background-color: #F8F7F4;
+    margin: 0 auto;
+    position:absolute;
+    top: 30%;
+    /* left: 50%; */
+    /* transform: translateY(-50%,-50%); */
+    /* padding-top: 500px; */
+}
+
+.card-body {
+    padding: 0em 0em 2em 0em !important;
+}
+
+.card-title {
+    font-weight: 600;
+    color: black;
+    font-size: 1rem;
+}
+
+div.card.text-center{
+    padding: 50px 0;
 }
