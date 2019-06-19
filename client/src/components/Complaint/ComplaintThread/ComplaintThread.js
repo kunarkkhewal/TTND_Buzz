@@ -1,21 +1,17 @@
 import React from 'react';
 import './ComplaintThread.css';
 
-class ComplaintThread extends React.Component{
-    render(){
-        const {department, title, name, emailId, concern, attachment, status, issueId, assignedTo} = this.props.list;
-        return(
-            <ul>
-                <li>department:=> {department}</li>
-                <li>title:=> {title}</li>
-                <li>{name}</li>
-                <li>{emailId}</li>
-                <li>concern:=> {concern}</li>
-                <li>{attachment}</li>
-                <li>{status}</li>
-                <li>Assigned to=::>> {assignedTo}</li>
-                <li>Issue=::>{issueId}</li>
-            </ul>
+class ComplaintThread extends React.Component {
+    render() {
+        const { department, title, name, emailId, concern, attachment, status, issueId, assignedTo } = this.props.list;
+        return (
+            <tr>
+                <td>{department}</td>
+                <td>{issueId}</td>
+                <td>{assignedTo}</td>
+                <td>{status}</td>
+            </tr>
+
         )
     }
 }

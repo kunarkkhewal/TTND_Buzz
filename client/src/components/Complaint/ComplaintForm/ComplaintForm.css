@@ -1,0 +1,58 @@
+.complaint-form{
+    border: 1px solid lightgrey;
+}
+
+.complaint-form-title{
+    font-size: 20px;
+    text-align: start;
+    padding: 2px 10px;
+    /* border-bottom: 1px solid grey; */
+}
+
+.complaint-form form{
+    background-color: white;
+    margin: 0;
+    padding: 15px;
+}
+
+.form-top{
+    display: flex;
+    justify-content: space-between;
+}
+
+.form-top select {
+    width: 40%;
+    margin: 0;
+}
+
+.form-top input{
+    width: 50%;
+    border-radius: 4px;
+    border: 1px solid lightgray;
+}
+
+.complaint-form form textarea{
+    resize: none;
+    border: 1px solid lightgrey;
+    border-radius: 4px;
+    margin: 15px auto;
+}
+
+.form-bottom{
+    display: flex;
+    justify-content: space-between;
+}
+
+.form-bottom input:nth-child(2){
+    border: 1px solid blue;
+    background-color: transparent;
+    padding: 2px 20px;;
+    color: blue;
+    border-radius: 4px;
+    font-weight: 500;
+}
+
+.form-bottom input:nth-child(2):hover{
+    background-color: blue;
+    color: white;
+}

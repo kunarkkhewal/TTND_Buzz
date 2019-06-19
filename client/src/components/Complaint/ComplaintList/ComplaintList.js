@@ -10,14 +10,28 @@ class ComplaintForm extends React.Component {
         this.props.showComplaintList();
     }
 
-    render(){
-        return(
-            <div>
-                {this.props.list.map((data)=>{
-                    return(
-                        <ComplaintThread list={data}/>
-                    )
-                })}
+    render() {
+        return (
+            <div className="complaint-list">
+                <div className="complaint-title">Your complaints</div>
+                <table className="table table-striped">
+                    <thead className="thead-dark">
+                        <tr>
+                            <th scope="col">Department</th>
+                            <th scope="col">Issue ID</th>
+                            <th scope="col">Assigned To</th>
+                            <th scope="col">Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {this.props.list.map((data) => {
+                            return (
+                                <ComplaintThread list={data} />
+                            )
+                        })}
+                    </tbody>
+                </table>
+
             </div>
         )
     }

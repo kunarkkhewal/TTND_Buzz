@@ -5,13 +5,13 @@ import { addComplaint } from '../../../action/complaint.Action';
 
 class ComplaintForm extends React.Component {
 
-    constructor(props){
+    constructor(props) {
         super(props);
-        this.state={
-            department:'',
-            title:'',
-            concern:'',
-            attachment:''
+        this.state = {
+            department: '',
+            title: '',
+            concern: '',
+            attachment: ''
         }
     }
 
@@ -32,17 +32,23 @@ class ComplaintForm extends React.Component {
 
     render() {
         return (
-            <div>
+            <div className='complaint-form rounded-lg'>
+                <div className="complaint-form-title">Complaint Form</div>
                 <form onSubmit={this.onSubmit} encType='multipart/form-data'>
-                    <select name="department" id="department">
-                        <option value="Hardware">Hardware</option>
-                        <option value="Infrastructure">Infrastructure</option>
-                        <option value="Others">Others</option>
-                    </select>
-                    <input name='title' placeholder='Issue Title' type="text" required />
+                    <div class="form-top">
+                        <select name="department" id="department" required>
+                            <option value="Hardware">Hardware</option>
+                            <option value="Infrastructure">Infrastructure</option>
+                            <option value="Others">Others</option>
+                        </select>
+                        <input name='title' placeholder='Issue Title' type="text" required />
+                    </div>
                     <textarea name="concern" id="concern" cols="30" rows="10" placeholder='Concern' required></textarea>
-                    <input type="file" name="attachment" accept='image/*' id="attachment" />
-                    <input type="submit" value="Submit" />
+                    <div className="form-bottom">
+                        <input type="file" name="attachment" accept='image/*' id="attachment" />
+                        <input type="submit" value="Submit"/>
+                    </div>
+
                 </form>
             </div>
         )
@@ -50,7 +56,7 @@ class ComplaintForm extends React.Component {
 }
 
 const mapStateToProps = state => {
-    return {state}
+    return { state }
 }
 
 const mapDispatchToProps = {
