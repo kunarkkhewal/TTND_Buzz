@@ -14,6 +14,7 @@ class ComplaintThread extends React.Component{
                 <li>{attachment}</li>
                 <li>{status}</li>
                 <li>Assigned to=::>> {assignedTo}</li>
+                <li>Issue=::>{issueId}</li>
             </ul>
         )
     }

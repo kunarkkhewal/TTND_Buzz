@@ -12,7 +12,7 @@ const complaintSchema = new Schema({
     concern: {type: String, required: true},
     attachment: String,
     status: {type:String, enum: status, required: true, default: 'Pending'},
-    issueId: Number,
+    issueId: String,
     assignedTo: String
 })
 

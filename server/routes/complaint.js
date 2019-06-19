@@ -1,4 +1,5 @@
 const router = require('express').Router();
+const nanoid = require('nanoid');
 const complaintOperation = require('../database/controller/complaintOperation');
 const Complaint = require('../database/model/complaint');
 const upload = require('../middlewares/multer');
@@ -14,6 +15,7 @@ router.get('/', verifyToken, (req, res)=>{
 });
 
 router.post('/', verifyToken, upload.single('attachment'), async (req, res)=>{
+    const id = nanoid(9);
     let formData = req.body;
     var imageData = ''
     if(req.file){
@@ -37,7 +39,8 @@ router.post('/', verifyToken, upload.single('attachment'), async (req, res)=>{
         attachment: imageData,
         emailId: req.user.emailId,
         name: req.user.username,
-        assignedTo: assignedTo[0].emailId
+        assignedTo: assignedTo[0].username,
+        issueId: id
     });
     complaintOperation.createComplaint(complaintData)
         .then(data => {
