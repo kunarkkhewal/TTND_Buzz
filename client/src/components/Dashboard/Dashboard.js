@@ -6,13 +6,15 @@ import { Route } from 'react-router-dom';
 import Buzz from '../Buzz/BuzzManager';
 import Header from '../utils/Header/Header';
 import './Dashboard.css';
+import { connect } from 'react-redux';
 
 
 class Dashboard extends Component {
+
     render() {
         return (
             <div className='body'>
-                <Header history={this.props.history}/>
+                <Header history={this.props.history} />
                 <main className='container main'>
                     <aside className='aside'>
                         <SideNavBar />
@@ -26,10 +28,14 @@ class Dashboard extends Component {
                             exact path={`${this.props.match.path}/complaints`}
                             component={Complaint}
                         />
-                        <Route
-                            exact path="/dashboard/resolve"
-                            component={Resolve}
-                        />
+
+                        {(this.props.user[0].role === 'admin') ?
+                            <Route
+                                exact path="/dashboard/resolve"
+                                component={Resolve}
+                            />
+                            : null}
+
                     </section>
                 </main>
             </div>
@@ -37,4 +43,8 @@ class Dashboard extends Component {
     }
 }
 
-export default Dashboard;
+const mapStateToProps = state => {
+    return { user: state.UserReducer.userData }
+}
+
+export default connect(mapStateToProps)(Dashboard);

@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import './SideNavBar.css';
 import "bootstrap/dist/css/bootstrap.min.css";
+import { connect } from 'react-redux';
 
 class SideNavBar extends Component {
     render() {
@@ -14,12 +15,17 @@ class SideNavBar extends Component {
                     <li className="rounded-lg">
                         <Link to='/dashboard/complaints' className="link">Complaints</Link>
                     </li>
-                    <li className="rounded-lg">
+                    {this.props.user[0].role === 'admin' ? <li className="rounded-lg">
                         <Link to='/dashboard/resolve' className="link">Resolve</Link>
-                    </li>
+                    </li> : null}
                 </ul>
             </div>
         )
     }
 }
-export default SideNavBar;
+
+const mapStateToProps = state => {
+    return { user: state.UserReducer.userData }
+}
+
+export default connect(mapStateToProps)(SideNavBar);
