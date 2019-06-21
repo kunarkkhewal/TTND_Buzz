@@ -1,29 +1,37 @@
 import React, { Component } from 'react';
-import { Route, Redirect } from 'react-router-dom';
+import { Route, Redirect, Switch } from 'react-router-dom';
 import Login from './components/utils/Login/Login';
 import Token from './components/utils/Token';
 import Dashboard from './components/Dashboard/Dashboard';
+import Error from './components/Error';
 
 class Routes extends Component {
 
     render() {
         return (
             <div>
-                <Route
-                    exact
-                    path="/"
-                    component={Login}
-                />
+                <Switch>
+                    <Route
+                        exact
+                        path="/"
+                        component={Login}
+                    />
 
-                <Route
-                    path='/token'
-                    component={Token}
-                />
+                    <Route
+                        path='/token'
+                        component={Token}
+                    />
 
-                <PrivateRoute
-                    path={'/dashboard'}
-                    component={Dashboard}
-                />
+                    <PrivateRoute
+                        path={'/dashboard'}
+                        component={Dashboard}
+                    />
+
+                    <Route
+                        path={'/*'}
+                        component={Error}
+                    />
+                </Switch>
             </div>
         )
     }
