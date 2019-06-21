@@ -30,8 +30,8 @@ router.post('/', verifyToken, upload.single('attachment'), async (req, res)=>{
 
     // console.log(chalk.red('findAdmin: =', findAdmin.findAdmin()));
     console.log("req.user=>>>>>>>>>>>>>**", req.user)
-    const assignedTo = await findAdmin();
-    console.log(assignedTo);
+    const assignedToAdmin = await findAdmin();
+    console.log(assignedToAdmin);
     let complaintData = new Complaint({
         department: formData.department,
         title: formData.title,
@@ -39,7 +39,10 @@ router.post('/', verifyToken, upload.single('attachment'), async (req, res)=>{
         attachment: imageData,
         emailId: req.user.emailId,
         name: req.user.username,
-        assignedTo: assignedTo[0].username,
+        assignedTo:{
+            username: assignedToAdmin[0].username,
+            emailId: assignedToAdmin[0].emailId
+        } ,
         issueId: id
     });
     complaintOperation.createComplaint(complaintData)
