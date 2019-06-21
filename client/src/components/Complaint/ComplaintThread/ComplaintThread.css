@@ -1,0 +1,11 @@
+.status-pending{
+    color: red;
+}
+
+.status-in-progress{
+    color: blue;
+}
+
+.status-resolved{
+    color: green;
+}

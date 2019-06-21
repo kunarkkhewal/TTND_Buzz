@@ -9,7 +9,7 @@ class ComplaintThread extends React.Component {
                 <td>{department}</td>
                 <td>{issueId}</td>
                 <td>{assignedTo}</td>
-                <td>{status}</td>
+                <td className={(status==='Pending'? "status-pending" : (status==='In Progress')? "status-in-progress": "status-resolved")}>{status}</td>
             </tr>
 
         )

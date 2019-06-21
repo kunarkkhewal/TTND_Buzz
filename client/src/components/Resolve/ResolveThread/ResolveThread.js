@@ -11,7 +11,7 @@ class ResolveThread extends React.Component {
                 <td>{name}</td>
                 <td>{assignedTo}</td>
                 <td>
-                    <select name="status" value={status}>
+                    <select className= {(status==='Pending'? "status-pending" : (status==='In Progress')? "status-in-progress": "status-resolved")} name="status" value={status}>
                         <option value="Pending">Pending</option>
                         <option value="In Progress">In Progress</option>
                         <option value="Resolved">Resolved</option>

@@ -1,0 +1,19 @@
+.status-pending{
+    color: red;
+    border: none;
+}
+
+.status-in-progress{
+    color: blue;
+    border: none;
+}
+
+.status-resolved{
+    color: green;
+    border: none;
+}
+
+select{
+    /* border: none; */
+    background-color: black;
+}
