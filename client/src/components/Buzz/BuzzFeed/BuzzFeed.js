@@ -15,6 +15,8 @@ class BuzzFeed extends React.Component {
         return (
             <div className="buzzfeed">
 
+                <div className="buzzfeed-header">Recent Buzz</div>
+
                 {this.props.feed.map((data, index) => {
                     return (
                         <BuzzThread feed={data} key={index} />

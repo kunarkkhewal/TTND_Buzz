@@ -1,8 +1,34 @@
-ul{
-    border: 1px solid grey;
+ul.buzz-thread {
+    border-bottom: 1px solid lightgrey;
+    background-color: white;
+    display: flex;
+    justify-content: space-between;
+    font-size: 90%;
 }
 
 ul li{
-    color: brown;
+    /* color: brown; */
     list-style: none;
+}
+
+div.buzz{
+    width: 70%;
+    padding: 2%;
+}
+
+div.buzz li{
+    /* border: 1px solid green; */
+    text-align: start;
+    padding: 1% 2%;
+    word-break: break-all;
+    line-height: 100%;
+}
+
+.buzz-date{
+    padding: 2% 1%;
+}
+
+.buzz-email{
+    font-size: 75%;
+    color: grey;
 }

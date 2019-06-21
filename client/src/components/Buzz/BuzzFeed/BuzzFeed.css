@@ -1,5 +1,13 @@
 .buzzfeed{
     /* background-color: blueviolet; */
-    position: sticky;
-    top: 50px;
+    border: 1px solid lightgrey;
+    border-radius: 4px;
+
+}
+
+.buzzfeed-header{
+    background-color: lightgrey;
+    font-weight: 500;
+    text-align: start;
+    padding: 0 10px;
 }
