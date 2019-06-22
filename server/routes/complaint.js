@@ -17,6 +17,7 @@ router.get('/', verifyToken, (req, res)=>{
 router.post('/', verifyToken, upload.single('attachment'), async (req, res)=>{
     const id = nanoid(9);
     let formData = req.body;
+    console.log(chalk.yellow("in complaint: : :",JSON.stringify(req.body)))
     var imageData = ''
     if(req.file){
         let imagePath = req.file.path;

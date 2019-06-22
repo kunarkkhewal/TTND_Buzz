@@ -1,9 +1,16 @@
 import React from 'react';
 import './ResolveThread.css';
+import { updateComplaint } from '../../../action/resolve.Action';
+import { connect } from 'react-redux';
 
 class ResolveThread extends React.Component {
+
+    handleOnChange = event => {
+        this.props.updateComplaint({status:event.target.value, issueId: this.props.list.issueId});
+    }
+
     render() {
-        const { department, title, name, emailId, concern, attachment, status, issueId, assignedTo:{username} } = this.props.list;
+        const { department, title, name, emailId, concern, attachment, status, issueId, assignedTo: { username } } = this.props.list;
         return (
             <tr>
                 <td>{department}</td>
@@ -11,7 +18,8 @@ class ResolveThread extends React.Component {
                 <td>{name}</td>
                 <td>{username}</td>
                 <td>
-                    <select className= {(status==='Pending'? "status-pending" : (status==='In Progress')? "status-in-progress": "status-resolved")} name="status" value={status}>
+                    {/* {console.log("in resolve thread render")} */}
+                    <select onChange={this.handleOnChange} className={(status === 'Pending' ? "status-pending" : (status === 'In Progress') ? "status-in-progress" : "status-resolved")} name="status" value={status}>
                         <option value="Pending">Pending</option>
                         <option value="In Progress">In Progress</option>
                         <option value="Resolved">Resolved</option>
@@ -23,4 +31,8 @@ class ResolveThread extends React.Component {
     }
 }
 
-export default ResolveThread;
+const mapDispatchToProps = {
+    updateComplaint
+}
+
+export default connect(null, mapDispatchToProps)(ResolveThread);

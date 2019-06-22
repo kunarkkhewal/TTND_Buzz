@@ -20,3 +20,25 @@ export const showComplaintList = () => dispatch => {
             dispatch(getComplaintListToState(res.data))
         })
 }
+
+// PATCH REQUEST FOR STATUS CHANGE
+
+const updateComplaintInState = data => {
+    console.log("resolve action status update:");
+    return{
+        type: "UPDATE_COMPLAINT_STATUS",
+        data
+    }
+}
+
+export const updateComplaint = updatedData => dispatch => {
+    axiosInstance({
+        method: 'PATCH',
+        url: 'http://localhost:5000/dashboard/resolve',
+        data: updatedData
+    })
+        .then(res=>{
+            console.log("complaint updated");
+            dispatch(updateComplaintInState(res.data))
+        })
+}

@@ -11,7 +11,6 @@ class ResolveManager extends React.Component {
     }
 
     render() {
-        // console.log('in resolve manager+++++++++', this.props)
         return (
             <div>
                 <div className="complaint-title">Welcome Admin</div>
