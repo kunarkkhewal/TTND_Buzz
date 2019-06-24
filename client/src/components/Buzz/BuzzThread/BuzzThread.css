@@ -4,6 +4,8 @@ ul.buzz-thread {
     display: flex;
     justify-content: space-between;
     font-size: 90%;
+    line-height: 100%;
+    margin: 0;
 }
 
 ul li{

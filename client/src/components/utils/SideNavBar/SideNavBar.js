@@ -19,6 +19,8 @@ class SideNavBar extends Component {
                         <Link to='/dashboard/resolve' className="link">Resolve</Link>
                     </li> : null}
                 </ul>
+
+                <p>&copy; 2019 To The New Digital</p>
             </div>
         )
     }

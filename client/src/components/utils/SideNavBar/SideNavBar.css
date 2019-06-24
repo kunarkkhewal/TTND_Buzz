@@ -1,10 +1,6 @@
 div.sideNavBar{
-    margin-top: 25px;
+    margin-top: 10px;
     background-color: #f4f8fb;
-}
-
-.sideNavBar ul {
-    border: none;
 }
 
 .sideNavBar ul li {
@@ -12,30 +8,31 @@ div.sideNavBar{
     background-color: white;
     border: 1px solid #e9e6e6;
     height: 40px;
-    list-style: none;
     font-size: 18px;
-    position: relative;
-    /* color: black; */
-}
-
-.sideNavBar ul li:hover{
-    /* border: 1px solid blue; */
-    background-color: blue;
-    color: white;
 }
 
 .link{
-    /* color: black; */
+    
+    color: blue;
     display: inline-block;
     width: 100%;
-    position: absolute;
-    left: 0px;
-    top: 5px;
+    line-height: 40px;
     text-decoration: none;
-    font-weight: 500;
+    font-weight: 500;   
 }
 
 .link:hover{
     text-decoration: none;
-    color: white;
+    color: rgb(243, 162, 40);
+}
+
+.link:active{
+    text-decoration: none;
+    color: rgb(243, 162, 40);
+}
+
+div p{
+    color: lightgrey;
+    font-size: 12px;
+    text-align: start;
 }

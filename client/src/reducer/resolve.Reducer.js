@@ -14,19 +14,16 @@ export default function ResolveReducer(state = initialState, action) {
         }
 
         case "UPDATE_COMPLAINT_STATUS": {
-            
-            state.resolveList.filter(element => {
+            const list = state.resolveList.map(element => {
                 if (action.data.issueId === element.issueId) {
-                    element = action.data;
-                    return{
-                        ...state,
-                        resolveList: action.data
-                    }
+                    return action.data;
+                } else {
+                    return element;
                 }
             })
 
 
-            return state;
+            return { ...state, resolveList: list };
         }
 
         default: {

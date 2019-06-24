@@ -12,7 +12,7 @@ class ResolveManager extends React.Component {
 
     render() {
         return (
-            <div>
+            <div className='resolve'>
                 <div className="complaint-title">Welcome Admin</div>
                 <table className="table table-striped">
                     <thead className="thead-dark">

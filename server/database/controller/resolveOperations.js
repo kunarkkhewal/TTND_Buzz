@@ -6,7 +6,7 @@ fetchComplaint = emailId => {
 }
 
 updateComplaint = (status,issueId) => {
-    return complaint.findOneAndUpdate({issueId}, {$set:{status}})
+    return complaint.findOneAndUpdate({issueId}, {$set:{status}}, {new: true})
 }
 
 module.exports = { fetchComplaint, updateComplaint };
