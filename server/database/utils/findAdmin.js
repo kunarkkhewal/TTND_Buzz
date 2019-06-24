@@ -1,10 +1,10 @@
 const user = require('../model/user');
 
-const findAdmin = () => {
+const findAdmin = department => {
     return user.find({
         $and: [
             {role: 'admin'},
-            // {department: 'hardware'}
+            {department}
         ]
         
         

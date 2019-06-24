@@ -31,7 +31,7 @@ router.post('/', verifyToken, upload.single('attachment'), async (req, res)=>{
 
     // console.log(chalk.red('findAdmin: =', findAdmin.findAdmin()));
     console.log("req.user=>>>>>>>>>>>>>**", req.user)
-    const assignedToAdmin = await findAdmin();
+    const assignedToAdmin = await findAdmin(req.body.department);
     console.log(assignedToAdmin);
     let complaintData = new Complaint({
         department: formData.department,
