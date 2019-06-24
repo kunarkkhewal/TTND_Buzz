@@ -8,10 +8,10 @@ const verifyToken = require('../middlewares/jwtVerify')
 
 router.get('/', verifyToken, (req, res) => {
     buzzOperation.fetchBuzz()
-        .then(data=>{res.send(data)})
+        .then(data => { res.send(data) })
         .catch()
 
-        
+
 });
 
 
@@ -47,8 +47,46 @@ router.post('/', verifyToken, upload.single('attachment'), async (req, res) => {
             console.log('buzz Error: ', err)
             res.send(err);
         })
-
 });
+
+// code for like and dislike
+
+router.patch('/like', verifyToken, async (req, res) => {
+    const buzzData = await buzzOperation.fetchBuzzById(req.body.buzzId);
+    let emailId = req.user.emailId;
+    const { like } = buzzData;
+
+    status = like.filter((item) => { return item.userId === emailId }).length === 0 ? true : false;
+
+    buzzOperation.likeBuzz(
+        req.body.buzzId,
+        req.user.emailId,
+        status
+    ).then(result => {
+        res.send(result);
+    }).catch(err => {
+        res.send(err);
+    })
+});
+
+router.patch('/dislike', verifyToken, async (req, res) => {
+    const buzzData = await buzzOperation.fetchBuzzById(req.body.buzzId);
+    let emailId = req.user.emailId;
+    const { dislike } = buzzData;
+
+    status = dislike.filter((item) => { return item.userId === emailId }).length === 0 ? true : false;
+
+    buzzOperation.dislikeBuzz(
+        req.body.buzzId,
+        req.user.emailId,
+        status
+    ).then(result => {
+        res.send(result);
+    }).catch(err => {
+        res.send(err);
+    })
+});
+
 
 
 module.exports = router;

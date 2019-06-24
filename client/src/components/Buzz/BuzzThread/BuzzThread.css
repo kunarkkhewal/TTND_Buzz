@@ -33,7 +33,7 @@ div.buzz li {
 .buzz-email {
     font-size: 75%;
     color: grey;
-    display: inline-block;
+    display: inline;
     /* margin-top: 3px;; */
     align-self: center;
 }

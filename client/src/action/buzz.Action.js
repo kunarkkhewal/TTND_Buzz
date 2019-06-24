@@ -18,16 +18,14 @@ export const addBuzz = formData => dispatch => {
         config: { headers: { 'Content-Type': 'multipart/form-data' } }
     })
         .then(res => {
-            console.log("axios add buzz in action=> ",res.data)
-            // if (res.data.message === 'data saved') {
-                console.log('data saved to server and comeback');
-                dispatch(addBuzzFeedToState(res.data)); //.data from route
-            // }
+            console.log('data saved to server and comeback');
+            dispatch(addBuzzFeedToState(res.data)); //.data from route
         })
-        .catch(err=>{
-            console.log("action buzz error:=> ",err)
+        .catch(err => {
+            console.log("action buzz error:=> ", err)
         })
 }
+
 
 
 // GET REQUEST FOR BUZZ FEED
@@ -49,4 +47,64 @@ export const showBuzz = () => dispatch => {
             console.log('data fetched from server');
             dispatch(getBuzzFeedToState(res.data));
         });
+}
+
+
+
+// FOR LIKE 
+
+const likeFromDB = data => {
+    return {
+        type: 'PUT_LIKE',
+        data
+    }
+}
+
+export const postLike = buzzId => dispatch => {
+    axiosInstance({
+        method: 'patch',
+        data: buzzId,
+        url: 'http://localhost:5000/dashboard/buzz/like'
+    })
+        .then(
+            res => {
+                console.log('in like action from db')
+                dispatch(likeFromDB(res.data))
+            }
+        )
+        .catch(
+            err => {
+                console.log("err in like", err)
+            }
+        )
+}
+
+
+
+// FOR DISLIKE
+
+const dislikeFromDB = data => {
+    return {
+        type: 'PUT_DISLIKE',
+        data
+    }
+}
+
+export const postDislike = buzzId => dispatch => {
+    axiosInstance({
+        method: 'patch',
+        data: buzzId,
+        url: 'http://localhost:5000/dashboard/buzz/dislike'
+    })
+        .then(
+            res => {
+                console.log('in dislike action from db')
+                dispatch(dislikeFromDB(res.data))
+            }
+        )
+        .catch(
+            err => {
+                console.log("err in dislike", err)
+            }
+        )
 }

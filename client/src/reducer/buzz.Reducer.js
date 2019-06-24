@@ -20,6 +20,21 @@ export default function buzzReducer(state = initialState, action) {
             };
         }
 
+        case "PUT_LIKE": {
+            const buzzLike = state.buzzfeed.map((item) => action.data._id === item._id ? action.data : item);
+            return {
+                ...state,
+                buzzfeed: buzzLike
+            }
+        }
+        case "PUT_DISLIKE": {
+            const buzzDisLike = state.buzzfeed.map((item) => action.data._id === item._id ? action.data : item);
+            return {
+                ...state,
+                buzzfeed: buzzDisLike
+            }
+        }
+
         default: {
             return state;
         }

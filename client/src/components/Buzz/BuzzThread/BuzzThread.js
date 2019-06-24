@@ -1,6 +1,18 @@
 import React from 'react';
 import './BuzzThread.css'
+import {connect} from 'react-redux';
+import {postLike, postDislike} from '../../../action/buzz.Action';
+
 class BuzzThread extends React.Component {
+
+    Like = () => {
+        this.props.postLike({buzzId:this.props.feed._id});
+    }
+
+    Dislike = () => {
+        this.props.postDislike({buzzId:this.props.feed._id});
+    }
+
     render() {
         const { description, email, category, attachment, createdAt, like, dislike, thumbnail } = this.props.feed;
         return (
@@ -14,10 +26,17 @@ class BuzzThread extends React.Component {
                     </div>
                     <li className='buzz-description'>{description}</li>
                     <li><img src={attachment} alt="" width="200px" height="auto" /></li>
+                    <li onClick={this.Like}>like: {like.length}</li>
+                    <li onClick={this.Dislike}>dislike: {dislike.length}</li>
                 </div>
             </ul>
         )
     }
 }
 
-export default BuzzThread;
+const mapDispatchToProps = {
+    postLike,
+    postDislike
+}
+
+export default connect(null, mapDispatchToProps)(BuzzThread);
