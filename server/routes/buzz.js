@@ -35,7 +35,8 @@ router.post('/', verifyToken, upload.single('attachment'), async (req, res) => {
         description: formData.buzz,
         category: formData.category,
         attachment: imageData,
-        email: req.user.emailId
+        email: req.user.emailId,
+        thumbnail: req.user.thumbnail
     });
     buzzOperation.createBuzz(buzzData)
         .then(data => {

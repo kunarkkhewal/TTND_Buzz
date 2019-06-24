@@ -8,17 +8,17 @@ ul.buzz-thread {
     margin: 0;
 }
 
-ul li{
+ul li {
     /* color: brown; */
     list-style: none;
 }
 
-div.buzz{
+div.buzz {
     width: 70%;
     padding: 2%;
 }
 
-div.buzz li{
+div.buzz li {
     /* border: 1px solid green; */
     text-align: start;
     padding: 1% 2%;
@@ -26,11 +26,46 @@ div.buzz li{
     line-height: 100%;
 }
 
-.buzz-date{
+.buzz-date {
     padding: 2% 1%;
 }
 
-.buzz-email{
+.buzz-email {
     font-size: 75%;
     color: grey;
+    display: inline-block;
+    /* margin-top: 3px;; */
+    align-self: center;
+}
+
+.buzz-category {
+    font-size: 90%;
+    color: black;
+    display: inline;
+    align-self: center;
+}
+
+.buzz-description {
+    margin-top: 10px;
+}
+
+.user-info {
+    /* text-align: start; */
+    display: flex;
+    justify-content: flex-start;
+}
+
+/* .user-info:nth-child(3){
+    text-align: end;
+} */
+
+li.user-thumbnail {
+    display: inline;
+    text-align: start;
+}
+
+.user-thumbnail img {
+    width: 25px;
+    height: auto;
+    border-radius: 50%;
 }

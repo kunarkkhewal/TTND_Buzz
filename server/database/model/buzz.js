@@ -9,7 +9,8 @@ const buzzSchema = new Schema({
     email: String,
     createdAt: {type: Date, default: Date.now}, 
     like: [{userId: {type: String}}],
-    dislike: [{userId: {type: String}}]
+    dislike: [{userId: {type: String}}],
+    thumbnail: String
 });
 
 const buzzModel = mongoose.model('Buzz', buzzSchema);
