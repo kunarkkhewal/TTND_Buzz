@@ -28,7 +28,7 @@ textarea{
 
 div.lowerBar{
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     width: 100%;
 }
 
@@ -46,10 +46,12 @@ label{
 
 select{
     background: none;
-    border: none;
+    border: 1px solid lightgray;
+    border-radius: 4px;
     color: blue;
-    margin: 0 5px;
+    margin: 5px 10px 5px 50px;
     outline: none;
+    height: 70%;
 }
 
 select:hover{
@@ -57,16 +59,24 @@ select:hover{
     color: white;
 }
 
-.submit{
-    background-color: transparent;
-    border: 1px solid blue;
-    width: 80px;
+.font-awesome{
+    /* width: 20px; */
+    /* font-size: 50px; */
     color: blue;
 }
 
-.submit:hover{
-    background-color: blue;
-    color: white;
+.font-awesome:hover{
+    /* background-color: blue; */
+    color: orange;
+}
+
+.font-awesome label{
+    font-size: 25px; 
+    margin-right: 50px;
+}
+
+.font-awesome input{
+    display: none;
 }
 
 form{

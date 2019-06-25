@@ -7,7 +7,6 @@
     font-size: 20px;
     text-align: start;
     padding: 2px 10px;
-    /* border-bottom: 1px solid grey; */
 }
 
 .complaint-form form{
@@ -22,9 +21,11 @@
 }
 
 .form-top select {
-    width: 25%;
-    margin: 0;
+    width: 45%;
+    border-radius: 4px;
+    border: 1px solid lightgray;
     outline: none;
+    margin: 0;
 }
 
 .form-top input{
@@ -32,6 +33,7 @@
     border-radius: 4px;
     border: 1px solid lightgray;
     outline: none;
+    padding-left: 5px;
 }
 
 .complaint-form form textarea{
@@ -47,16 +49,20 @@
     justify-content: space-between;
 }
 
-.form-bottom input:nth-child(2){
-    border: 1px solid blue;
-    background-color: transparent;
-    padding: 2px 20px;;
+.font-awesome{
     color: blue;
-    border-radius: 4px;
-    font-weight: 500;
+    margin: 0;
 }
 
-.form-bottom input:nth-child(2):hover{
-    background-color: blue;
-    color: white;
+.font-awesome:hover{
+    color: orange;
+}
+
+.font-awesome label.post-complaint{
+    font-size: 25px; 
+    margin: 0;
+}
+
+.font-awesome input{
+    display: none;
 }

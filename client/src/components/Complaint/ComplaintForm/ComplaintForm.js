@@ -2,6 +2,8 @@ import React from 'react';
 import './ComplaintForm.css';
 import { connect } from 'react-redux';
 import { addComplaint } from '../../../action/complaint.Action';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faChevronCircleRight, faImage } from '@fortawesome/free-solid-svg-icons';
 
 class ComplaintForm extends React.Component {
 
@@ -45,8 +47,19 @@ class ComplaintForm extends React.Component {
                     </div>
                     <textarea name="concern" id="concern" cols="30" rows="10" placeholder='Concern' required></textarea>
                     <div className="form-bottom">
-                        <input type="file" name="attachment" accept='image/*' id="attachment" />
-                        <input type="submit" value="Submit"/>
+                        <div className="font-awesome">
+                            <label htmlFor="attachment">
+                                {image}
+                            </label>
+                            <input type="file" name="attachment" accept='image/*' id="attachment" />
+                        </div>
+                        
+                        <div className="font-awesome">
+                            <label htmlFor="post-complaint" className="post-complaint">
+                                {rightArrow}
+                            </label>
+                            <input id='post-complaint' type="submit" value="Post" />
+                        </div>
                     </div>
 
                 </form>
@@ -54,6 +67,10 @@ class ComplaintForm extends React.Component {
         )
     }
 }
+
+
+const rightArrow = <FontAwesomeIcon icon={faChevronCircleRight} />
+const image = <FontAwesomeIcon icon={faImage} />
 
 const mapStateToProps = state => {
     return { state }

@@ -14,7 +14,7 @@ ul li {
 }
 
 div.buzz {
-    width: 70%;
+    width: 80%;
     padding: 2%;
 }
 
@@ -27,22 +27,54 @@ div.buzz li {
 }
 
 .buzz-date {
-    padding: 2% 1%;
+    padding: 3.5% 2%;
+    font-size: 13px;
+    color: gray;
+    display: inline-block;
 }
 
 .buzz-email {
     font-size: 75%;
     color: grey;
-    display: inline;
-    /* margin-top: 3px;; */
+    display: inline-block;
+    align-self: center;
+    width: 50%;
+    margin-left : 5px;
+}
+
+.buzz-time{
+    font-size: 70%;
+    color: grey;
+    display: inline-block;
+    width: 30%;
     align-self: center;
 }
 
-.buzz-category {
-    font-size: 90%;
-    color: black;
-    display: inline;
+.activity {
+    font-size: 85%;
+    font-weight: 500;
+    background-color: green;
+    color: white;
+    display: inline-block;
     align-self: center;
+    text-align: center;
+    width: 15%;
+    border: 1px solid transparent;
+    border-radius: 4px;
+}
+
+
+.lost-and-found {
+    font-size: 85%;
+    font-weight: 500;
+    background-color: red;
+    color: white;
+    display: inline-block;
+    align-self: center;
+    text-align: center;
+    width: 25%;
+    border: 1px solid transparent;
+    border-radius: 4px;
 }
 
 .buzz-description {
@@ -62,10 +94,16 @@ div.buzz li {
 li.user-thumbnail {
     display: inline;
     text-align: start;
+    margin-right: 5px;
 }
 
 .user-thumbnail img {
     width: 25px;
     height: auto;
     border-radius: 50%;
+}
+
+.reactions{
+    display: flex;
+    justify-content: flex-start;
 }

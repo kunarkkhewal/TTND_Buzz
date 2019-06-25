@@ -1,7 +1,9 @@
 import React from 'react';
 import './BuzzForm.css';
 import { connect } from 'react-redux';
-import { addBuzz } from '../../../action/buzz.Action'
+import { addBuzz } from '../../../action/buzz.Action';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faChevronCircleRight, faImage } from '@fortawesome/free-solid-svg-icons'
 
 class BuzzForm extends React.Component {
 
@@ -37,14 +39,24 @@ class BuzzForm extends React.Component {
                     <textarea name="buzz" id="buzz" required cols="30" rows="10" placeholder='Share your thoughts'></textarea>
                     <div className="lowerBar">
                         <div className="category">
-                            <label htmlFor="category">Category</label>
+                            {/* <label htmlFor="category">Category</label> */}
                             <select name="category" id="category">
                                 <option value="Activity">Activity</option>
                                 <option value="Lost and Found">Lost and Found</option>
                             </select>
-                            <input type="file" name="attachment" accept='image/*' id="attachment" />
+                            <div className="font-awesome">
+                                <label htmlFor="attachment">
+                                    {image}
+                                </label>
+                                <input type="file" name="attachment" accept='image/*' id="attachment" />
+                            </div>
                         </div>
-                        <input className="submit rounded-lg" type="submit" value="Post" />
+                        <div className="font-awesome">
+                            <label htmlFor="post-buzz">
+                                {rightArrow}
+                            </label>
+                            <input id='post-buzz' type="submit" value="Post" />
+                        </div>
                     </div>
                 </form>
             </div>
@@ -52,6 +64,10 @@ class BuzzForm extends React.Component {
         )
     }
 }
+
+const rightArrow = <FontAwesomeIcon icon={faChevronCircleRight} />
+const image = <FontAwesomeIcon icon={faImage} />
+
 
 const mapStateToProps = state => {
     return { state }
