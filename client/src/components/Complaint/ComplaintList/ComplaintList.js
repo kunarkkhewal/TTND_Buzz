@@ -6,6 +6,19 @@ import ComplaintThread from '../ComplaintThread/ComplaintThread'
 
 class ComplaintForm extends React.Component {
 
+    constructor(props) {
+        super(props);
+        this.state = {
+            filter: "All Complaints"
+        }
+    }
+
+    handleOnChange = event => {
+        this.setState({
+            filter: event.target.value  
+        })
+    }
+
     componentDidMount = () => {
         this.props.showComplaintList();
     }
@@ -14,6 +27,12 @@ class ComplaintForm extends React.Component {
         return (
             <div className="complaint-list">
                 <div className="complaint-title">Your complaints</div>
+                <select onChange={this.handleOnChange} name="filter">
+                    <option value="All Complaints">All Complaints</option>
+                    <option value="Pending">Pending</option>
+                    <option value="In Progress">In Progress</option>
+                    <option value="Resolved">Resolved</option>
+                </select>
                 <table className="table table-striped">
                     <thead className="thead-dark">
                         <tr>
@@ -25,9 +44,15 @@ class ComplaintForm extends React.Component {
                     </thead>
                     <tbody>
                         {this.props.list.map((data, index) => {
-                            return (
-                                <ComplaintThread list={data} key={index} />
-                            )
+                            if (this.state.filter === "All Complaints") {
+                                return (
+                                    <ComplaintThread list={data} key={index} />
+                                )
+                            } else if (this.state.filter === data.status) {
+                                return (
+                                    <ComplaintThread list={data} key={index} />
+                                )
+                            }
                         })}
                     </tbody>
                 </table>

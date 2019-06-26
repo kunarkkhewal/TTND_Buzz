@@ -10,9 +10,17 @@ class BuzzFeed extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            skip: 0
+            skip: 0,
+            filter: "Most Recent"
         }
     }
+
+    handleOnChange = event => {
+        this.setState({
+            filter: event.target.value
+        })
+    }
+
 
     setStateFunction = () => {
         const newState = { skip: this.state.skip + 5 };
@@ -38,6 +46,12 @@ class BuzzFeed extends React.Component {
             <div className="buzzfeed">
 
                 <div className="buzzfeed-header">Recent Buzz</div>
+                <select onChange={this.handleOnChange} name="filter">
+                    <option value="Most Recent">Most Recent Buzz</option>
+                    <option value="Activity">Activity Buzz</option>
+                    <option value="Lost and Found">Lost and Found Buzz</option>
+                    <option value="My Buzz">My Buzz</option>
+                </select>
 
                 <InfiniteScroll
                     pageStart={0}
@@ -46,9 +60,22 @@ class BuzzFeed extends React.Component {
                     loader={<div className="loader" key={0}>Loading ...</div>}
                 >
                     {this.props.feed.map((data, index) => {
-                        return (
-                            <BuzzThread feed={data} key={index} />
-                        )
+                        if (this.state.filter === "Most Recent") {
+                            return (
+                                <BuzzThread feed={data} key={index} />
+                            )
+                        } else if (this.state.filter === data.category) {
+                            return (
+                                <BuzzThread feed={data} key={index} />
+                            )
+                        } else if (this.state.filter === "My Buzz") {
+                            if (data.email === this.props.user[0].emailId) {
+                                return (
+                                    <BuzzThread feed={data} key={index} />
+                                )
+                            }
+
+                        }
                     })}
 
                 </InfiniteScroll>
@@ -58,7 +85,10 @@ class BuzzFeed extends React.Component {
 }
 
 const mapStateToProps = state => {
-    return { feed: state.BuzzReducer.buzzfeed }
+    return {
+        feed: state.BuzzReducer.buzzfeed,
+        user: state.UserReducer.userData
+    }
 }
 
 const mapDispatchToProps = {

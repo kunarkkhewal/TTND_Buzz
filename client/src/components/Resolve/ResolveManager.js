@@ -6,6 +6,19 @@ import ResolveThread from './ResolveThread/ResolveThread'
 
 class ResolveManager extends React.Component {
 
+    constructor(props) {
+        super(props);
+        this.state = {
+            filter: "All Complaints"
+        }
+    }
+
+    handleOnChange = event => {
+        this.setState({
+            filter: event.target.value
+        })
+    }
+
     componentDidMount = () => {
         this.props.showComplaintList();
     }
@@ -14,6 +27,12 @@ class ResolveManager extends React.Component {
         return (
             <div className='resolve'>
                 <div className="complaint-title">Welcome Admin</div>
+                <select onChange={this.handleOnChange} name="filter">
+                    <option value="All Complaints">All Complaints</option>
+                    <option value="Pending">Pending</option>
+                    <option value="In Progress">In Progress</option>
+                    <option value="Resolved">Resolved</option>
+                </select>
                 <table className="table table-striped">
                     <thead className="thead-dark">
                         <tr>
@@ -26,9 +45,16 @@ class ResolveManager extends React.Component {
                     </thead>
                     <tbody>
                         {this.props.list.map((data, index) => {
-                            return (
-                                <ResolveThread list={data} key={index} />
-                            )
+                            console.log("in resolve manager -------- ", this.state.filter)
+                            if (this.state.filter === "All Complaints") {
+                                return (
+                                    <ResolveThread list={data} key={index} />
+                                )
+                            }else if(this.state.filter == data.status){
+                                return(
+                                    <ResolveThread list={data} key={index}/>
+                                )
+                            }
                         })}
                     </tbody>
                 </table>
