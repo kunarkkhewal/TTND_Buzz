@@ -14,9 +14,10 @@ export default function buzzReducer(state = initialState, action) {
         }
 
         case "SHOW_BUZZ": {
+            const morePost = state.buzzfeed.concat(...action.data)
             return {
                 ...state,
-                buzzfeed: action.data
+                buzzfeed: morePost
             };
         }
 

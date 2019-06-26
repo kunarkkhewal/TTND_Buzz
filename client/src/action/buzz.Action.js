@@ -38,10 +38,10 @@ const getBuzzFeedToState = (data) => {
     }
 }
 
-export const showBuzz = () => dispatch => {
+export const showBuzz = skip => dispatch => {
     axiosInstance({
         method: 'GET',
-        url: 'http://localhost:5000/dashboard/buzz',
+        url: `http://localhost:5000/dashboard/buzz/${skip}`,
     })
         .then(res => {
             console.log('data fetched from server');

@@ -6,12 +6,10 @@ const cloudinary = require('../config/cloudinary');
 const chalk = require('chalk');
 const verifyToken = require('../middlewares/jwtVerify')
 
-router.get('/', verifyToken, (req, res) => {
-    buzzOperation.fetchBuzz()
+router.get('/:skip', verifyToken, (req, res) => {
+    buzzOperation.fetchBuzz(parseInt(req.params.skip))
         .then(data => { res.send(data) })
         .catch()
-
-
 });
 
 
@@ -30,7 +28,7 @@ router.post('/', verifyToken, upload.single('attachment'), async (req, res) => {
         }
     }
 
-    console.log("req.user=>>>>>>>>>>>>>**", req.user)
+    console.log("req.user=>>>>>>>>>>>>>", req.user)
     let buzzData = new Buzz({
         description: formData.buzz,
         category: formData.category,

@@ -4,8 +4,8 @@ createBuzz = buzz => {
     return buzz.save();
 }
 
-fetchBuzz = () => {
-    return buzz.find().sort({ createdAt: -1 });
+fetchBuzz = skipValue => {
+    return buzz.find().sort({ createdAt: -1 }).limit(5).skip(skipValue);
 }
 
 fetchBuzzById = id => {
