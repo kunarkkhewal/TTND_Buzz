@@ -105,5 +105,5 @@ li.user-thumbnail {
 
 .reactions{
     display: flex;
-    justify-content: flex-start;
+    justify-content: flex-end;
 }

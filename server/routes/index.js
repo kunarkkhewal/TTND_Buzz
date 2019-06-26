@@ -2,7 +2,6 @@ const router = require('express').Router();
 const passport = require('passport');
 const jwt = require('jsonwebtoken');
 const chalk = require('chalk')
-require('dotenv').config();
 
 router.get(
     '/auth/google',
