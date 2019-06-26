@@ -2,6 +2,7 @@ import React from 'react';
 import './ResolveThread.css';
 import { updateComplaint } from '../../../action/resolve.Action';
 import { connect } from 'react-redux';
+import ComplaintDetail from '../../ComplaintDetail/ComplaintDetail'
 
 class ResolveThread extends React.Component {
 
@@ -14,7 +15,7 @@ class ResolveThread extends React.Component {
         return (
             <tr>
                 <td>{department}</td>
-                <td>{issueId}</td>
+                <td><ComplaintDetail issueId={issueId}/></td>
                 <td>{name}</td>
                 <td>{username}</td>
                 <td>

@@ -1,0 +1,13 @@
+div.modal-header{
+    margin: 0 auto;
+}
+
+div.modal-body{
+    margin: 0 auto;
+}
+
+div.modal-body img{
+    width: 200px;
+    height: auto;
+    border-radius:0; 
+}
