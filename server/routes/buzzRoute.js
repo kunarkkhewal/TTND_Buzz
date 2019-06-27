@@ -3,32 +3,31 @@ const buzzOperation = require('../database/controller/buzzOperation');
 const Buzz = require('../database/model/buzz')
 const upload = require('../middlewares/multer');
 const cloudinary = require('../config/cloudinary');
-const chalk = require('chalk');
 
 
 router.get('/:skip', (req, res) => {
     buzzOperation.fetchBuzz(parseInt(req.params.skip))
-        .then(data => { res.send(data) })
-        .catch()
+        .then(data => {
+            res.status(200).send(data)
+        })
+        .catch(err => {
+            res.status(404).send(err)
+        });
 });
 
-
-
 router.post('/', upload.single('attachment'), async (req, res) => {
-    console.log(chalk.blue(JSON.stringify(req.headers.authentication)))
     let formData = req.body;
-    var imageData = ''
+    var imageData = '';
+
     if (req.file) {
         let imagePath = req.file.path;
         if (imagePath) {
-            console.log('in image data', imagePath)
             await cloudinary.uploader.upload(imagePath, function (error, data) {
                 imageData = data.secure_url
             });
         }
     }
 
-    console.log("req.user=>>>>", req.user)
     let buzzData = new Buzz({
         description: formData.buzz,
         category: formData.category,
@@ -36,16 +35,16 @@ router.post('/', upload.single('attachment'), async (req, res) => {
         email: req.user.emailId,
         thumbnail: req.user.thumbnail
     });
+
     buzzOperation.createBuzz(buzzData)
         .then(data => {
-            console.log('buzz Data: ', data);
-            res.send(data);
+            res.status(200).send(data);
         })
         .catch(err => {
-            console.log('buzz Error: ', err)
-            res.send(err);
+            res.status(404).send(err);
         })
 });
+
 
 // code for like and dislike
 
@@ -61,9 +60,9 @@ router.patch('/like', async (req, res) => {
         req.user.emailId,
         status
     ).then(result => {
-        res.send(result);
+        res.status(200).send(result);
     }).catch(err => {
-        res.send(err);
+        res.status(404).send(err);
     })
 });
 
@@ -79,12 +78,10 @@ router.patch('/dislike', async (req, res) => {
         req.user.emailId,
         status
     ).then(result => {
-        res.send(result);
+        res.status(200).send(result);
     }).catch(err => {
-        res.send(err);
+        res.status(404).send(err);
     })
 });
-
-
 
 module.exports = router;

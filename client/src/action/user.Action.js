@@ -1,10 +1,9 @@
 import axiosInstance from '../utils/axiosInterceptor';
-import {SHOW_USER} from './actionType'
-import {USER_URL} from './actionURL'
+import { SHOW_USER } from './actionType'
+import { USER_URL } from './actionURL'
 
 const getUserToState = data => {
-    console.log('user action get user');
-    return{
+    return {
         type: SHOW_USER,
         data
     }
@@ -12,11 +11,13 @@ const getUserToState = data => {
 
 export const getUser = () => dispatch => {
     axiosInstance({
-        method:'GET',
+        method: 'GET',
         url: `${USER_URL}`,
     })
         .then(res => {
-            console.log('in user action ,', res)
             dispatch(getUserToState(res.data));
+        })
+        .catch(res => {
+            console.log("Error occured while fetching user details", res.err)
         });
 }

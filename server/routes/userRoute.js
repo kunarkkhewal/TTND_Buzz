@@ -1,11 +1,14 @@
 const router = require('express').Router();
 const userOperation = require('../database/controller/userOperations');
-const chalk = require('chalk');
-const verifyToken = require('../middlewares/jwtVerify')
 
-router.get('/', (req,res) => {
+router.get('/', (req, res) => {
     userOperation.findOne(req.user.googleId)
-        .then(data=>{res.send(data)})
+        .then(data => {
+            res.status(200).send(data)
+        })
+        .catch(err => {
+            res.status(404).send(err)
+        })
 })
 
 module.exports = router;

@@ -11,7 +11,6 @@ import { DASHBOARD_BUZZ_URL } from './actionURL';
 // POST REQUEST FOR BUZZ
 
 const addBuzzFeedToState = (data) => {
-    console.log("buzz action add");
     return {
         type: ADD_BUZZ,
         data
@@ -26,11 +25,10 @@ export const addBuzz = formData => dispatch => {
         config: { headers: { 'Content-Type': 'multipart/form-data' } }
     })
         .then(res => {
-            console.log('data saved to server and comeback');
             dispatch(addBuzzFeedToState(res.data));
         })
-        .catch(err => {
-            console.log("action buzz error:=> ", err)
+        .catch(res => {
+            console.log("Error occured at adding buzz => ", res.err)
         })
 }
 
@@ -39,7 +37,6 @@ export const addBuzz = formData => dispatch => {
 // GET REQUEST FOR BUZZ FEED
 
 const getBuzzFeedToState = (data) => {
-    console.log("buzz action show");
     return {
         type: SHOW_BUZZ,
         data
@@ -52,8 +49,10 @@ export const showBuzz = skip => dispatch => {
         url: `${DASHBOARD_BUZZ_URL}/${skip}`,
     })
         .then(res => {
-            console.log('data fetched from server');
             dispatch(getBuzzFeedToState(res.data));
+        })
+        .catch(res => {
+            console.log("Error occured at showing buzz => ", res.err)
         });
 }
 
@@ -76,13 +75,12 @@ export const postLike = buzzId => dispatch => {
     })
         .then(
             res => {
-                console.log('in like action from db')
                 dispatch(likeFromDB(res.data))
             }
         )
         .catch(
-            err => {
-                console.log("err in like", err)
+            res => {
+                console.log("Error occured while liking post", res.err)
             }
         )
 }
@@ -106,13 +104,12 @@ export const postDislike = buzzId => dispatch => {
     })
         .then(
             res => {
-                console.log('in dislike action from db')
                 dispatch(dislikeFromDB(res.data))
             }
         )
         .catch(
-            err => {
-                console.log("err in dislike", err)
+            res => {
+                console.log("Error occured while disliking post", res.err)
             }
         )
 }

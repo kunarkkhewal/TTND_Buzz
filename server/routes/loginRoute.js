@@ -1,7 +1,6 @@
 const router = require('express').Router();
 const passport = require('passport');
 const jwt = require('jsonwebtoken');
-const chalk = require('chalk')
 
 router.get(
     '/auth/google',
@@ -17,9 +16,8 @@ router.get(
         const userData = UserDetails.toJSON();
 
         jwt.sign(userData, process.env.SECRET, (err, token) => {
-            console.log(chalk.cyan("token is =>>>>>>", token));
             if (err) {
-                console.log(chalk.red(err));
+                res.status(400).send(err);
             }
             else {
                 res.redirect(`http://localhost:3000/token?q=${token}`);
