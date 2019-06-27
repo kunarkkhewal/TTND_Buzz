@@ -8,11 +8,8 @@ const chalk = require('chalk');
 require('dotenv').config();
 require('./config/cloudinary');
 
-const route = require('./routes/index');
-const userRoute = require('./routes/user');
-const buzz = require('./routes/buzz');
-const complaint = require('./routes/complaint');
-const resolve = require('./routes/resolve');
+const routes = require('./routes/routes');
+
 require('./config/passport');
 
 
@@ -24,11 +21,7 @@ app.use(cors());
 app.use(express.static('client/build'));
 app.use(passport.initialize());
 
-app.use('/', route);
-app.use('/user', userRoute)
-app.use('/dashboard/buzz', buzz);
-app.use('/dashboard/complaints', complaint);
-app.use('/dashboard/resolve', resolve);
+app.use('/',routes)
 
 
 app.listen(PORT, ()=>{
