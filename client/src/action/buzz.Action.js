@@ -1,11 +1,17 @@
 import axiosInstance from '../utils/axiosInterceptor';
+import {
+    ADD_BUZZ,
+    SHOW_BUZZ,
+    PUT_LIKE,
+    PUT_DISLIKE
+} from './actionType';
 
 // POST REQUEST FOR BUZZ
 
 const addBuzzFeedToState = (data) => {
     console.log("buzz action add");
     return {
-        type: "ADD_BUZZ",
+        type: ADD_BUZZ,
         data
     }
 }
@@ -19,7 +25,7 @@ export const addBuzz = formData => dispatch => {
     })
         .then(res => {
             console.log('data saved to server and comeback');
-            dispatch(addBuzzFeedToState(res.data)); //.data from route
+            dispatch(addBuzzFeedToState(res.data));
         })
         .catch(err => {
             console.log("action buzz error:=> ", err)
@@ -33,7 +39,7 @@ export const addBuzz = formData => dispatch => {
 const getBuzzFeedToState = (data) => {
     console.log("buzz action show");
     return {
-        type: "SHOW_BUZZ",
+        type: SHOW_BUZZ,
         data
     }
 }
@@ -55,7 +61,7 @@ export const showBuzz = skip => dispatch => {
 
 const likeFromDB = data => {
     return {
-        type: 'PUT_LIKE',
+        type: PUT_LIKE,
         data
     }
 }
@@ -85,7 +91,7 @@ export const postLike = buzzId => dispatch => {
 
 const dislikeFromDB = data => {
     return {
-        type: 'PUT_DISLIKE',
+        type: PUT_DISLIKE,
         data
     }
 }

@@ -1,9 +1,11 @@
 import axiosInstance from '../utils/axiosInterceptor';
+import {SHOW_USER} from './actionType'
+
 
 const getUserToState = data => {
     console.log('user action get user');
     return{
-        type: "SHOW_USER",
+        type: SHOW_USER,
         data
     }
 }

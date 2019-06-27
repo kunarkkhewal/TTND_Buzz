@@ -1,11 +1,16 @@
 import axiosInstance from '../utils/axiosInterceptor';
+import {
+    SHOW_COMPLAINT,
+    UPDATE_COMPLAINT_STATUS
+} from './actionType' 
+
 
 // GET REQUEST FOR COMPLAINT LIST
 
 const getComplaintListToState = data => {
     console.log("resolve action show:");
     return{
-        type: "SHOW_COMPLAINT",
+        type: SHOW_COMPLAINT,
         data
     }
 }
@@ -26,7 +31,7 @@ export const showComplaintList = () => dispatch => {
 const updateComplaintInState = data => {
     console.log("resolve action status update:");
     return{
-        type: "UPDATE_COMPLAINT_STATUS",
+        type: UPDATE_COMPLAINT_STATUS,
         data
     }
 }
