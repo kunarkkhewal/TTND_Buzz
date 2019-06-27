@@ -3,7 +3,9 @@ import InfiniteScroll from 'react-infinite-scroller';
 import { connect } from 'react-redux';
 import { showBuzz } from '../../../action/buzz.Action';
 import './BuzzFeed.css'
-import BuzzThread from '../BuzzThread/BuzzThread'
+import BuzzThread from '../BuzzThread/BuzzThread';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faFilter } from '@fortawesome/free-solid-svg-icons'
 
 class BuzzFeed extends React.Component {
 
@@ -45,13 +47,20 @@ class BuzzFeed extends React.Component {
         return (
             <div className="buzzfeed">
 
-                <div className="buzzfeed-header">Recent Buzz</div>
-                <select onChange={this.handleOnChange} name="filter">
-                    <option value="Most Recent">Most Recent Buzz</option>
-                    <option value="Activity">Activity Buzz</option>
-                    <option value="Lost and Found">Lost and Found Buzz</option>
-                    <option value="My Buzz">My Buzz</option>
-                </select>
+                <div className="buzzfeed-header">
+                    <span>Recent Buzz</span>
+                    <span class='buzz-filter'>
+                        {/* <span>{filter}</span> */}
+                        {/* <label htmlFor="buzz-filter">{filter}</label> */}
+                        <select id='buzz-filter' onChange={this.handleOnChange} name="filter">
+                            <option value="Most Recent">Most Recent Buzz</option>
+                            <option value="Activity">Activity Buzz</option>
+                            <option value="Lost and Found">Lost and Found Buzz</option>
+                            <option value="My Buzz">My Buzz</option>
+                        </select>
+                    </span>
+                </div>
+
 
                 <InfiniteScroll
                     pageStart={0}
@@ -83,6 +92,8 @@ class BuzzFeed extends React.Component {
         )
     }
 }
+
+const filter = <FontAwesomeIcon icon={faFilter}></FontAwesomeIcon>
 
 const mapStateToProps = state => {
     return {

@@ -3,7 +3,7 @@ import './BuzzForm.css';
 import { connect } from 'react-redux';
 import { addBuzz } from '../../../action/buzz.Action';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faChevronCircleRight, faImage } from '@fortawesome/free-solid-svg-icons'
+import { faChevronCircleRight, faImage, faFilter } from '@fortawesome/free-solid-svg-icons'
 
 class BuzzForm extends React.Component {
 
@@ -67,6 +67,7 @@ class BuzzForm extends React.Component {
 
 const rightArrow = <FontAwesomeIcon icon={faChevronCircleRight} />
 const image = <FontAwesomeIcon icon={faImage} />
+
 
 
 const mapStateToProps = state => {

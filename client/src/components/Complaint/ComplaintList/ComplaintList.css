@@ -4,8 +4,15 @@
 }
 
 .complaint-title{
-    font-size: 20px;
+    font-size: 18px;
+    font-weight: 500;
     background-color: lightgrey;
     text-align: start;
     padding: 2px 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.complaint-title select{
+    border: 1px solid #50a9ff;
 }

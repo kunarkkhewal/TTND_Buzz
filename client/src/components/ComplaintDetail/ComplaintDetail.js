@@ -37,9 +37,9 @@ class ComplaintDetail extends React.Component {
 
         return (
             <div>
-                <Button  onClick={this.handleOnClick}>
+                <a className='complaint' onClick={this.handleOnClick}>
                     {this.props.issueId}
-                </Button>
+                </a>
 
                 <Modal show={this.state.show} onHide={this.handleClose}>
                     <Modal.Header closeButton>

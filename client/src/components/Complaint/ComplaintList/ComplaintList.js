@@ -15,7 +15,7 @@ class ComplaintForm extends React.Component {
 
     handleOnChange = event => {
         this.setState({
-            filter: event.target.value  
+            filter: event.target.value
         })
     }
 
@@ -26,13 +26,18 @@ class ComplaintForm extends React.Component {
     render() {
         return (
             <div className="complaint-list">
-                <div className="complaint-title">Your complaints</div>
-                <select onChange={this.handleOnChange} name="filter">
-                    <option value="All Complaints">All Complaints</option>
-                    <option value="Pending">Pending</option>
-                    <option value="In Progress">In Progress</option>
-                    <option value="Resolved">Resolved</option>
-                </select>
+                <div className="complaint-title">
+                    <span>Your complaints</span>
+                    <span>
+                        <select onChange={this.handleOnChange} name="filter">
+                            <option value="All Complaints">All Complaints</option>
+                            <option value="Pending">Pending</option>
+                            <option value="In Progress">In Progress</option>
+                            <option value="Resolved">Resolved</option>
+                        </select>   
+                    </span>
+                </div>
+
                 <table className="table table-striped">
                     <thead className="thead-dark">
                         <tr>

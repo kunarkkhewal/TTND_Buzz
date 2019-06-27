@@ -16,7 +16,7 @@ class Dashboard extends Component {
         return (
             <div className='body'>
                 <Header history={this.props.history} />
-                <main className='container main'>
+                <main className='container-fluid main'>
                     <aside className='aside'>
                         <SideNavBar />
                     </aside>

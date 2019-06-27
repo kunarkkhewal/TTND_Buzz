@@ -11,3 +11,15 @@ div.modal-body img{
     height: auto;
     border-radius:0; 
 }
+
+a:not([href]):not([tabindex]) {
+    color: blue;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+a:not([href]):not([tabindex]):hover {
+    color: blue;
+    text-decoration: underline;
+    cursor: pointer;
+}

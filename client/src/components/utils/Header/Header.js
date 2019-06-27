@@ -51,7 +51,7 @@ class Header extends React.Component {
                                     </div>
                                 </div>
                             </div>
-                        <button className='logout' onClick={this.logout}>Logout</button>
+                        <button className='logout' onClick={this.logout}>Logout </button>
                     </span>
                 </nav>
                 <img src={companybanner} alt='companybanner' className='companybanner'></img>

@@ -26,13 +26,18 @@ class ResolveManager extends React.Component {
     render() {
         return (
             <div className='resolve'>
-                <div className="complaint-title">Welcome Admin</div>
-                <select onChange={this.handleOnChange} name="filter">
-                    <option value="All Complaints">All Complaints</option>
-                    <option value="Pending">Pending</option>
-                    <option value="In Progress">In Progress</option>
-                    <option value="Resolved">Resolved</option>
-                </select>
+                <div className="complaint-title">
+                    <span>Welcome Admin</span>
+                    <span>
+                        <select onChange={this.handleOnChange} name="filter">
+                            <option value="All Complaints">All Complaints</option>
+                            <option value="Pending">Pending</option>
+                            <option value="In Progress">In Progress</option>
+                            <option value="Resolved">Resolved</option>
+                        </select>
+                    </span>
+                </div>
+
                 <table className="table table-striped">
                     <thead className="thead-dark">
                         <tr>
@@ -50,9 +55,9 @@ class ResolveManager extends React.Component {
                                 return (
                                     <ResolveThread list={data} key={index} />
                                 )
-                            }else if(this.state.filter == data.status){
-                                return(
-                                    <ResolveThread list={data} key={index}/>
+                            } else if (this.state.filter == data.status) {
+                                return (
+                                    <ResolveThread list={data} key={index} />
                                 )
                             }
                         })}
