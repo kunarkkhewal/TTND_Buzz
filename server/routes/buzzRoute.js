@@ -6,7 +6,7 @@ const cloudinary = require('../config/cloudinary');
 const chalk = require('chalk');
 const verifyToken = require('../middlewares/jwtVerify')
 
-router.get('/:skip', verifyToken, (req, res) => {
+router.get('/:skip', (req, res) => {
     buzzOperation.fetchBuzz(parseInt(req.params.skip))
         .then(data => { res.send(data) })
         .catch()
@@ -14,7 +14,7 @@ router.get('/:skip', verifyToken, (req, res) => {
 
 
 
-router.post('/', verifyToken, upload.single('attachment'), async (req, res) => {
+router.post('/', upload.single('attachment'), async (req, res) => {
     console.log(chalk.blue(JSON.stringify(req.headers.authentication)))
     let formData = req.body;
     var imageData = ''
@@ -49,7 +49,7 @@ router.post('/', verifyToken, upload.single('attachment'), async (req, res) => {
 
 // code for like and dislike
 
-router.patch('/like', verifyToken, async (req, res) => {
+router.patch('/like', async (req, res) => {
     const buzzData = await buzzOperation.fetchBuzzById(req.body.buzzId);
     let emailId = req.user.emailId;
     const { like } = buzzData;
@@ -67,7 +67,7 @@ router.patch('/like', verifyToken, async (req, res) => {
     })
 });
 
-router.patch('/dislike', verifyToken, async (req, res) => {
+router.patch('/dislike', async (req, res) => {
     const buzzData = await buzzOperation.fetchBuzzById(req.body.buzzId);
     let emailId = req.user.emailId;
     const { dislike } = buzzData;

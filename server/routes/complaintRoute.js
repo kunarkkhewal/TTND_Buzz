@@ -6,16 +6,16 @@ const upload = require('../middlewares/multer');
 const cloudinary = require('../config/cloudinary');
 const chalk = require('chalk');
 const verifyToken = require('../middlewares/jwtVerify');
-const findAdmin = require('..//database/utils/findAdmin');
+const findAdmin = require('../database/utils/findAdmin');
 const mailer = require('../config/nodemailer');
 
-router.get('/', verifyToken, (req, res) => {
+router.get('/', (req, res) => {
     complaintOperation.fetchComplaint(req.user.emailId)
         .then(data => { res.send(data) })
         .catch(err => { res.send(err) })
 });
 
-router.post('/', verifyToken, upload.single('attachment'), async (req, res) => {
+router.post('/', upload.single('attachment'), async (req, res) => {
     const id = nanoid(9);
     let formData = req.body;
     console.log(chalk.yellow("in complaint: : :", JSON.stringify(req.body)))

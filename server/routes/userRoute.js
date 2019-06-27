@@ -3,7 +3,7 @@ const userOperation = require('../database/controller/userOperations');
 const chalk = require('chalk');
 const verifyToken = require('../middlewares/jwtVerify')
 
-router.get('/', verifyToken, (req,res) => {
+router.get('/', (req,res) => {
     userOperation.findOne(req.user.googleId)
         .then(data=>{res.send(data)})
 })
