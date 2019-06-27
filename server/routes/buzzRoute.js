@@ -4,7 +4,7 @@ const Buzz = require('../database/model/buzz')
 const upload = require('../middlewares/multer');
 const cloudinary = require('../config/cloudinary');
 const chalk = require('chalk');
-const verifyToken = require('../middlewares/jwtVerify')
+
 
 router.get('/:skip', (req, res) => {
     buzzOperation.fetchBuzz(parseInt(req.params.skip))
@@ -28,7 +28,7 @@ router.post('/', upload.single('attachment'), async (req, res) => {
         }
     }
 
-    console.log("req.user=>>>>>>>>>>>>>", req.user)
+    console.log("req.user=>>>>", req.user)
     let buzzData = new Buzz({
         description: formData.buzz,
         category: formData.category,

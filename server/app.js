@@ -7,11 +7,9 @@ const chalk = require('chalk');
 
 require('dotenv').config();
 require('./config/cloudinary');
-
-const routes = require('./routes/routes');
-
 require('./config/passport');
 
+const routes = require('./routes/routes');
 
 const PORT = process.env.PORT || 5000;
 

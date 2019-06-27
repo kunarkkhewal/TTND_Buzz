@@ -5,9 +5,7 @@ const findAdmin = department => {
         $and: [
             {role: 'admin'},
             {department}
-        ]
-        
-        
+        ] 
     })
 }
 

@@ -25,8 +25,6 @@ router.get(
                 res.redirect(`http://localhost:3000/token?q=${token}`);
             }
         });
-
-        // res.send(UserDetails)
     }
 );
 

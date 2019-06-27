@@ -1,5 +1,5 @@
 const dbConfig = {
-    dbURL: "mongodb://localhost:27017/ttndBuzz"
+    dbURL: process.env.DB_Config
 }
 
 module.exports = dbConfig;

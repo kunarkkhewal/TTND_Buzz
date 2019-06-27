@@ -1,7 +1,6 @@
 const router = require('express').Router();
 const resolveOperation = require('../database/controller/resolveOperations');
 const verifyToken = require('../middlewares/jwtVerify');
-const chalk = require('chalk');
 
 router.get('/', (req, res) => {
     resolveOperation.fetchComplaint(req.user.emailId)
