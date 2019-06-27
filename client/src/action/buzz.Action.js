@@ -6,6 +6,8 @@ import {
     PUT_DISLIKE
 } from './actionType';
 
+import { DASHBOARD_BUZZ_URL } from './actionURL';
+
 // POST REQUEST FOR BUZZ
 
 const addBuzzFeedToState = (data) => {
@@ -19,7 +21,7 @@ const addBuzzFeedToState = (data) => {
 export const addBuzz = formData => dispatch => {
     axiosInstance({
         method: 'post',
-        url: 'http://localhost:5000/dashboard/buzz',
+        url: `${DASHBOARD_BUZZ_URL}`,
         data: formData,
         config: { headers: { 'Content-Type': 'multipart/form-data' } }
     })
@@ -47,7 +49,7 @@ const getBuzzFeedToState = (data) => {
 export const showBuzz = skip => dispatch => {
     axiosInstance({
         method: 'GET',
-        url: `http://localhost:5000/dashboard/buzz/${skip}`,
+        url: `${DASHBOARD_BUZZ_URL}/${skip}`,
     })
         .then(res => {
             console.log('data fetched from server');
@@ -70,7 +72,7 @@ export const postLike = buzzId => dispatch => {
     axiosInstance({
         method: 'patch',
         data: buzzId,
-        url: 'http://localhost:5000/dashboard/buzz/like'
+        url: `${DASHBOARD_BUZZ_URL}/like`
     })
         .then(
             res => {
@@ -100,7 +102,7 @@ export const postDislike = buzzId => dispatch => {
     axiosInstance({
         method: 'patch',
         data: buzzId,
-        url: 'http://localhost:5000/dashboard/buzz/dislike'
+        url: `${DASHBOARD_BUZZ_URL}/dislike`
     })
         .then(
             res => {

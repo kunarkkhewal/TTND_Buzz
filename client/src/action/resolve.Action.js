@@ -3,7 +3,7 @@ import {
     SHOW_COMPLAINT,
     UPDATE_COMPLAINT_STATUS
 } from './actionType' 
-
+import {DASHBOARD_RESOLVE_URL} from './actionURL'
 
 // GET REQUEST FOR COMPLAINT LIST
 
@@ -18,7 +18,7 @@ const getComplaintListToState = data => {
 export const showComplaintList = () => dispatch => {
     axiosInstance({
         method: 'GET',
-        url: 'http://localhost:5000/dashboard/resolve',
+        url: `${DASHBOARD_RESOLVE_URL}`,
     })
         .then(res => {
             console.log('data fetched from db');
@@ -39,7 +39,7 @@ const updateComplaintInState = data => {
 export const updateComplaint = updatedData => dispatch => {
     axiosInstance({
         method: 'PATCH',
-        url: 'http://localhost:5000/dashboard/resolve',
+        url: `${DASHBOARD_RESOLVE_URL}`,
         data: updatedData
     })
         .then(res=>{

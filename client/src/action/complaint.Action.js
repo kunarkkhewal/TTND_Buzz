@@ -3,7 +3,7 @@ import {
     ADD_COMPLAINT,
     SHOW_COMPLAINT
 } from "./actionType";
-
+import {DASHBOARD_COMPLAINT_URL } from './actionURL'
 
 // POST REQUEST FOR COMPLAINT
 
@@ -18,7 +18,7 @@ const addComplaintToState = data => {
 export const addComplaint = complaintData => dispatch => {
     axiosInstance({
         method: 'post',
-        url: 'http://localhost:5000/dashboard/complaints',
+        url: `${DASHBOARD_COMPLAINT_URL}`,
         data: complaintData,
         config: {headers: {'Content-Type': 'multipart/form-data'}}
     })
@@ -45,7 +45,7 @@ const getComplaintListToState = data => {
 export const showComplaintList = () => dispatch => {
     axiosInstance({
         method: 'GET',
-        url: 'http://localhost:5000/dashboard/complaints',
+        url: `${DASHBOARD_COMPLAINT_URL}`,
     })
         .then(res => {
             console.log('data fetched from db');
