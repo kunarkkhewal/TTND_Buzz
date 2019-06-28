@@ -15,9 +15,9 @@ router.get(
 
         const userData = UserDetails.toJSON();
 
-        jwt.sign(userData, process.env.SECRET, (err, token) => {
+        jwt.sign(userData, process.env.SECRET, {expiresIn: '24h'}, (err, token) => {
             if (err) {
-                res.status(400).send(err);
+                res.status(400).send({status:0});
             }
             else {
                 res.redirect(`http://localhost:3000/token?q=${token}`);
