@@ -4,6 +4,9 @@ import { connect } from 'react-redux';
 import { showBuzz } from '../../../action/buzz.Action';
 import './BuzzFeed.css'
 import BuzzThread from '../BuzzThread/BuzzThread';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faFilter } from '@fortawesome/free-solid-svg-icons'
+
 
 class BuzzFeed extends React.Component {
 
@@ -29,7 +32,7 @@ class BuzzFeed extends React.Component {
 
 
     loadFunc = () => {
-        this.setState(this.setStateFunction(), ()=>{
+        this.setState(this.setStateFunction(), () => {
             this.props.showBuzz(this.state.skip)
         })
     }
@@ -41,13 +44,14 @@ class BuzzFeed extends React.Component {
 
 
     render() {
+        const filter = <FontAwesomeIcon icon={faFilter} />
+
         return (
             <div className="buzzfeed">
-
                 <div className="buzzfeed-header">
-                    <span>Recent Buzz</span>
                     <span class='buzz-filter'>
-                        <select id='buzz-filter' onChange={this.handleOnChange} name="filter">
+                        <span className='filtericon'>{filter}</span>
+                        <select id='buzz-filter' onChange={this.handleOnChange} name="filter" className='filterdropdown'>
                             <option value="Most Recent">Most Recent Buzz</option>
                             <option value="Activity">Activity Buzz</option>
                             <option value="Lost and Found">Lost and Found Buzz</option>

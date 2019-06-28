@@ -8,34 +8,68 @@ import { faThumbsUp, faThumbsDown } from '@fortawesome/free-solid-svg-icons'
 
 class BuzzThread extends React.Component {
 
+    constructor(props){
+        super(props);
+        this.state={
+            like: false,
+            dislike: false
+        }
+    }
+
     Like = () => {
         this.props.postLike({ buzzId: this.props.feed._id });
+        this.setState({
+            like: !this.state.like
+        })
     }
 
     Dislike = () => {
         this.props.postDislike({ buzzId: this.props.feed._id });
+        this.setState({
+            dislike: !this.state.dislike
+        })
     }
 
     render() {
         const { description, email, category, attachment, createdAt, like, dislike, thumbnail } = this.props.feed;
         return (
-            <ul className='buzz-thread'>
-                <div className='buzz-date'>{moment(createdAt).format('LL')}</div>
-                <div className='buzz'>
-                    <div className='user-info'>
-                        <li className='user-thumbnail'><img src={thumbnail} alt="" /></li>
-                        <li className='buzz-email'>{email}</li>
-                        <li className='buzz-time'>{moment(createdAt).fromNow()}</li>
-                        <li className={(category === 'Activity' ? "activity" : "lost-and-found")}>{category}</li>
+            <div className='buzzContainer'>
+                <div className='buzzHeader'>
+                    <div className='nameActivity'>
+                        <div className='userimgcontainer'>
+                            <img src={thumbnail} height={'45px'} width={'45px'} alt="" role='presentation' className='userimg' />
+                        </div>
+                        <div className='usernameactivity'>
+                            <span className='username'>{email}</span>
+                            <span className='buzzCategory'>
+                                <span className={(category === 'Activity')? "badge badge-primary":"badge badge-danger"}>{category}</span>
+                            </span>
+                            <div className='timestamp'>
+                                {moment(createdAt).fromNow()}
+                            </div>
+                        </div>
                     </div>
-                    <li className='buzz-description'>{description}</li>
-                    <li><img src={attachment} alt="" width="200px" height="auto" /></li>
-                    <div className='reactions'>
-                        <li onClick={this.Like}>{thumbsUp} {like.length}</li>
-                        <li onClick={this.Dislike}>{thumbsDown} {dislike.length}</li>
+
+                    <div className='deleteBuzz'>
+                        {/* <span>{removeIcon}</span> */}
+                        {/* {
+                            loginUser === emailId ? <span onClick={this.onDelete} className='deleteicon'>{removeIcon}</span> : null
+                        } */}
                     </div>
                 </div>
-            </ul>
+                <div className='buzzContentContainer'>
+                    <div className='buzzContent'>
+                        {description}
+                    </div>
+                    <div className='uploadedimg'>
+                        <img className='img-thumbnail' src={attachment} height={'200px'} width={'200px'} alt='' role='presentation' />
+                    </div>
+                </div>
+                <div className='buzzFooter'>
+                    <span className={(this.state.like === true ? "likeicon": "reactionicon")} onClick={this.Like}>{thumbsUp}&nbsp;{like.length}</span>
+                    <span className={(this.state.dislike === true ? "unlikeicon": "reactionicon")} onClick={this.Dislike}>{thumbsDown}&nbsp;{dislike.length}</span>
+                </div>
+            </div>
         )
     }
 }
