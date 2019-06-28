@@ -3,8 +3,8 @@ import {
     ADD_COMPLAINT,
     SHOW_COMPLAINT
 } from "./actionType";
-import { DASHBOARD_COMPLAINT_URL } from './actionURL'
-
+import { DASHBOARD_COMPLAINT_URL } from './actionURL';
+import {successAlert, errorAlert} from './actionAlert';
 
 // POST REQUEST FOR COMPLAINT
 
@@ -24,9 +24,11 @@ export const addComplaint = complaintData => dispatch => {
     })
         .then(res => {
             dispatch(addComplaintToState(res.data));
+            successAlert("Complaint Registered")
         })
         .catch(res => {
             console.log("Error occured in adding complaint", res.err)
+            errorAlert("Something went wrong while Registering Complaint")
         });
 }
 
@@ -50,5 +52,6 @@ export const showComplaintList = () => dispatch => {
         })
         .catch(res => {
             console.log('Error occured while fetching complaint', res.err)
+            errorAlert("Something went wrong while Fetching Complaints")
         })
 }

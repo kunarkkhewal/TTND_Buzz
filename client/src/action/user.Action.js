@@ -1,6 +1,7 @@
 import axiosInstance from '../utils/axiosInterceptor';
-import { SHOW_USER } from './actionType'
-import { USER_URL } from './actionURL'
+import { SHOW_USER } from './actionType';
+import { USER_URL } from './actionURL';
+import {errorAlert} from './actionAlert'
 
 const getUserToState = data => {
     return {
@@ -19,5 +20,6 @@ export const getUser = () => dispatch => {
         })
         .catch(res => {
             console.log("Error occured while fetching user details", res.err)
+            errorAlert("Something went wrong while getting User Info")
         });
 }

@@ -3,7 +3,8 @@ import {
     SHOW_COMPLAINT,
     UPDATE_COMPLAINT_STATUS
 } from './actionType'
-import { DASHBOARD_RESOLVE_URL } from './actionURL'
+import { DASHBOARD_RESOLVE_URL } from './actionURL';
+import {successAlert, errorAlert} from './actionAlert'
 
 // GET REQUEST FOR COMPLAINT LIST
 
@@ -24,6 +25,7 @@ export const showComplaintList = () => dispatch => {
         })
         .catch(res => {
             console.log("Error occured while fetching complaints", res.err)
+            errorAlert("Something went wrong while Getting Complaints")
         })
 }
 
@@ -44,8 +46,10 @@ export const updateComplaint = updatedData => dispatch => {
     })
         .then(res => {
             dispatch(updateComplaintInState(res.data))
+            successAlert("Status Updated successfully")
         })
         .catch(res => {
             console.log("Error occured while updating complaints", res.err)
+            errorAlert("Something went wrong while updating complaint")
         })
 }

@@ -5,8 +5,12 @@ import {
     PUT_LIKE,
     PUT_DISLIKE
 } from './actionType';
-
 import { DASHBOARD_BUZZ_URL } from './actionURL';
+import {successAlert, errorAlert, warningAlert, infoAlert} from './actionAlert';
+
+
+let like = false;
+let dislike = false
 
 // POST REQUEST FOR BUZZ
 
@@ -26,9 +30,11 @@ export const addBuzz = formData => dispatch => {
     })
         .then(res => {
             dispatch(addBuzzFeedToState(res.data));
+            successAlert("Buzz Created")
         })
         .catch(res => {
             console.log("Error occured at adding buzz => ", res.err)
+            errorAlert("Buzz Not Created, Something went wrong");
         })
 }
 
@@ -53,6 +59,7 @@ export const showBuzz = skip => dispatch => {
         })
         .catch(res => {
             console.log("Error occured at showing buzz => ", res.err)
+            errorAlert("Something went wrong while fetching buzz")
         });
 }
 
@@ -76,11 +83,19 @@ export const postLike = buzzId => dispatch => {
         .then(
             res => {
                 dispatch(likeFromDB(res.data))
+                if (like === false) {
+                    like = !like
+                    successAlert("You liked this post")
+                } else {
+                    like = !like
+                    warningAlert("Your like is removed from this post")
+                }
             }
         )
         .catch(
             res => {
                 console.log("Error occured while liking post", res.err)
+                errorAlert("Something went wrong")
             }
         )
 }
@@ -105,11 +120,19 @@ export const postDislike = buzzId => dispatch => {
         .then(
             res => {
                 dispatch(dislikeFromDB(res.data))
+                if (dislike === false) {
+                    dislike = !dislike
+                    infoAlert("You disliked this post")
+                } else {
+                    dislike = !dislike
+                    infoAlert("Your dislike is removed from this post")
+                }
             }
         )
         .catch(
             res => {
                 console.log("Error occured while disliking post", res.err)
+                errorAlert("something went wrong")
             }
         )
 }
