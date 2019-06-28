@@ -53,7 +53,7 @@ router.patch('/like', async (req, res) => {
     let emailId = req.user.emailId;
     const { like } = buzzData;
 
-    status = like.filter((item) => { return item.userId === emailId }).length === 0 ? true : false;
+    status = like.filter((item) => { return item.emailId === emailId }).length === 0 ? true : false;
 
     buzzOperation.likeBuzz(
         req.body.buzzId,
@@ -71,7 +71,7 @@ router.patch('/dislike', async (req, res) => {
     let emailId = req.user.emailId;
     const { dislike } = buzzData;
 
-    status = dislike.filter((item) => { return item.userId === emailId }).length === 0 ? true : false;
+    status = dislike.filter((item) => { return item.emailId === emailId }).length === 0 ? true : false;
 
     buzzOperation.dislikeBuzz(
         req.body.buzzId,

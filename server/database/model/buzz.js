@@ -8,8 +8,8 @@ const buzzSchema = new Schema({
     attachment: String,
     email: String,
     createdAt: {type: Date, default: Date.now}, 
-    like: [{userId: {type: String}}],
-    dislike: [{userId: {type: String}}],
+    like: [{emailId: {type: String}}],
+    dislike: [{emailId: {type: String}}],
     thumbnail: String
 });
 

@@ -20,12 +20,12 @@ likeBuzz = (id, emailId, status) => {
             {
                 $push: {
                     like: {
-                        userId: emailId
+                        emailId: emailId
                     }
                 },
                 $pull: {
                     dislike: {
-                        userId: emailId
+                        emailId: emailId
                     }
                 }
             },
@@ -42,7 +42,7 @@ likeBuzz = (id, emailId, status) => {
             {
                 $pull: {
                     like: {
-                        userId: emailId
+                        emailId: emailId
                     }
                 }
             },
@@ -62,12 +62,12 @@ dislikeBuzz = (id, emailId, status) => {
             {
                 $push: {
                     dislike: {
-                        userId: emailId
+                        emailId: emailId
                     }
                 },
                 $pull: {
                     like: {
-                        userId: emailId
+                        emailId: emailId
                     }
                 }
             },
@@ -84,7 +84,7 @@ dislikeBuzz = (id, emailId, status) => {
             {
                 $pull: {
                     dislike: {
-                        userId: emailId
+                        emailId: emailId
                     }
                 }
             },
