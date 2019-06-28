@@ -50,6 +50,9 @@ router.post('/', upload.single('attachment'), async (req, res) => {
     complaintOperation.createComplaint(complaintData)
         .then(data => {
             mailer({
+                issueId: data.issueId,
+                attachment: data.attachment,
+                department: data.department,
                 emailId: data.emailId,
                 name: data.name,
                 concern: data.concern,
@@ -62,7 +65,7 @@ router.post('/', upload.single('attachment'), async (req, res) => {
                 name: data.assignedTo.username,
                 concern: data.concern,
                 title: data.title,
-                subject: "Complaint has been Assigned to You",
+                subject: "A complaint has been Assigned to You",
             });
             res.status(200).send(data);
         })

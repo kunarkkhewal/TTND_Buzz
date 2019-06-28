@@ -10,16 +10,29 @@ const mail = (mailDetails) => {
         }
     });
 
-    const { emailId, title, concern, subject, } = mailDetails;
+    const { issueId, attachment, department, name, emailId, title, concern, subject, } = mailDetails;
 
     // send mail with defined transport object
     let info = transporter.sendMail({
         from: process.env.EMAIL_ID, // sender address
         to: emailId, // list of receivers
         subject: subject, // Subject line
+
         // plain text body
-        html: `<h5>Title:${title}</h5>
-            <p>Concern: ${concern}</p>` // html body
+        html: `<table>
+        <tr>
+            <th>Issue Id</th>
+            <td>${issueId}</td>
+        </tr>
+        <tr>
+            <th>Title</th>
+            <td>${title}</td>
+        </tr>
+        <tr>
+            <th>concern</th>
+            <td>${concern}</td>
+        </tr>
+    </table>` // html body
     });
 
 }
