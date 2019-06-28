@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 import SideNavBar from '../utils/SideNavBar/SideNavBar';
 import Complaint from '../Complaint/ComplaintManager'
 import Resolve from '../Resolve/ResolveManager';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, Redirect } from 'react-router-dom';
 import Buzz from '../Buzz/BuzzManager';
 import Header from '../utils/Header/Header';
-import ErrorRoute from '../Error';
+import ErrorRoute from '../utils/Error/Error';
 import './Dashboard.css';
 import { connect } from 'react-redux';
 
@@ -37,9 +37,10 @@ class Dashboard extends Component {
                                 />
                                 : null}
                             <Route
-                                exact path={`${this.props.match.path}/*`}
+                                path='/pagenotfound'
                                 component={ErrorRoute}
                             />
+                            <Redirect from='*' to="/pagenotfound" />
                         </Switch>
                     </section>
                 </main>

@@ -3,7 +3,7 @@ import { Route, Redirect, Switch } from 'react-router-dom';
 import Login from './components/utils/Login/Login';
 import Token from './components/utils/Token';
 import Dashboard from './components/Dashboard/Dashboard';
-import Error from './components/Error';
+import Error from '../src/components/utils/Error/Error';
 
 class Routes extends Component {
 
@@ -28,9 +28,10 @@ class Routes extends Component {
                     />
 
                     <Route
-                        path={'/*'}
+                        path='/pagenotfound'
                         component={Error}
                     />
+                    <Redirect from='*' to='/pagenotfound' />
                 </Switch>
             </div>
         )
