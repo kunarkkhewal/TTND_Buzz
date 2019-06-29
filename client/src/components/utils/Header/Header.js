@@ -1,7 +1,7 @@
 import React from 'react';
 import './Header.css';
 import companylogo from '../../../Assets/tothenewlogo.png';
-import companybanner from '../../../Assets/landscape-2373649_1920.jpg';
+import companybanner from '../../../Assets/background-3246124_1920.jpg'
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { getUser } from '../../../action/user.Action';

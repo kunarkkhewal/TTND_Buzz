@@ -1,6 +1,5 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Button, Modal } from 'react-bootstrap';
 import moment from 'moment'
 import './ComplaintDetail.css'
 
@@ -14,7 +13,10 @@ class ComplaintDetail extends React.Component {
             concern: "",
             createdAt: "",
             emailId: "",
-            show: false,
+            status: "",
+            title: "",
+            assignedTo: "",
+            department: ""
         }
     }
 
@@ -23,35 +25,85 @@ class ComplaintDetail extends React.Component {
             return element.issueId === this.props.issueId;
         });
         this.setState({
-            ...data[0],
-            show: true
+            ...data[0]
         })
     }
 
-    handleClose = () => {
-        this.setState({ show: false });
-    }
-
     render() {
-        const { name, attachment, concern, createdAt, emailId } = this.state;
+        const { name, attachment, concern, createdAt, status, title, assignedTo, department } = this.state;
 
         return (
-            <div>
-                <a className='complaint' onClick={this.handleOnClick}>
+            <div className="complaint-modal">
+                <button
+                    onClick={this.handleOnClick}
+                    type="button"
+                    className="btn modal-btn"
+                    data-toggle="modal"
+                    data-target={`#myModal${this.props.issueId}`}
+                    style={{ 'color': 'dodgerblue', 'textDecoration':'underline' }}
+                >
                     {this.props.issueId}
-                </a>
+                </button>
 
-                <Modal show={this.state.show} onHide={this.handleClose}>
-                    <Modal.Header closeButton>
-                        <Modal.Title>{this.props.issueId}</Modal.Title>
-                    </Modal.Header>
-                    <Modal.Body>
-                        <h6>Complaint By: {name}</h6>
-                        <h6>Concern: {concern}</h6>
-                        <h6>Created At: {moment(createdAt).format('LLLL')}</h6>
-                        <img className='thumbnail' src={attachment} alt=''/>
-                    </Modal.Body>
-                </Modal>
+                <div className="modal fade" id={`myModal${this.props.issueId}`}>
+                    <div className="modal-dialog">
+                        <div className="modal-content">
+                            <div className="modal-header">
+                                <h4 className="modal-title">Complain Details</h4>
+                            </div>
+                            <div className="modal-body">
+                                <table style={{ 'width': '100%' }}>
+                                    <tbody>
+                                        <tr style={{ 'border': 'none%' }}>
+                                            <th>Issue ID</th>
+                                            <td>{this.props.issueId}</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Title</th>
+                                            <td>{title}</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Details</th>
+                                            <td>{concern}</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Created At</th>
+                                            <td>{moment(createdAt).format('LL')}</td>
+                                        </tr>
+                                        {(attachment) ?
+                                            <tr>
+                                                <th>Image</th>
+                                                <td><img src={attachment} width={'100px'} height={'100px'} /></td>
+                                            </tr>
+                                            : null
+                                        }
+                                        <tr>
+                                            <th>Department</th>
+                                            <td>{department}</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Raised By</th>
+                                            <td>{name}</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Assigned To</th>
+                                            <td>{assignedTo.emailId}</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Status</th>
+                                            <td>{status}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+
+                            </div>
+                            <div className="modal-footer">
+                                <button type="button" className="btn btn-danger" data-dismiss="modal">Close</button>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
             </div>
         )
     }
