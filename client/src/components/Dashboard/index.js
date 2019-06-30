@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import SideNavBar from '../utils/SideNavBar/SideNavBar';
+import SideNavBar from '../utils/SideNavBar';
 import Complaint from '../Complaint/ComplaintManager'
 import Resolve from '../Resolve/ResolveManager';
 import { Route, Switch, Redirect } from 'react-router-dom';
 import Buzz from '../Buzz/BuzzManager';
-import Header from '../utils/Header/Header';
-import ErrorRoute from '../utils/Error/Error';
+import Header from '../utils/Header';
+import ErrorRoute from '../utils/Error';
 import './Dashboard.css';
 import { connect } from 'react-redux';
 

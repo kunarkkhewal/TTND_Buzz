@@ -2,12 +2,13 @@ import React from 'react';
 import './ResolveThread.css';
 import { updateComplaint } from '../../../action/resolve.Action';
 import { connect } from 'react-redux';
-import ComplaintDetail from '../../ComplaintDetail/ComplaintDetail'
+import ComplaintDetail from '../../ComplaintDetail'
 
 const ResolveThread = props => {
 
     const handleOnChange = event => {
-        this.props.updateComplaint({status:event.target.value, issueId: props.list.issueId});
+        console.log("***************************in resolve thread ")
+        props.updateComplaint({status:event.target.value, issueId: props.list.issueId});
     }
 
         const { department, title, name, emailId, concern, attachment, status, issueId, assignedTo: { username } } = props.list;

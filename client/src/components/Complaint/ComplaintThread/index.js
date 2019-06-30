@@ -1,6 +1,6 @@
 import React from 'react';
 import './ComplaintThread.css';
-import ComplaintDetail from '../../ComplaintDetail/ComplaintDetail';
+import ComplaintDetail from '../../ComplaintDetail';
 
 const ComplaintThread = props => {
     const { department, title, name, emailId, concern, attachment, status, issueId, assignedTo: { username } } = props.list;

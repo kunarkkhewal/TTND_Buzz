@@ -1,7 +1,7 @@
 import React from 'react';
 import './BuzzManager.css';
-import BuzzForm from './BuzzForm/BuzzForm';
-import BuzzFeed from './BuzzFeed/BuzzFeed';
+import BuzzForm from './BuzzForm';
+import BuzzFeed from './BuzzFeed';
 
 const Buzz = props => {
     return (

@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { showComplaintList } from '../../../action/complaint.Action';
 import './ComplaintList.css';
-import ComplaintThread from '../ComplaintThread/ComplaintThread'
+import ComplaintThread from '../ComplaintThread/'
 
 class ComplaintForm extends React.Component {
 

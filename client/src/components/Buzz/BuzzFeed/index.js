@@ -3,7 +3,7 @@ import InfiniteScroll from 'react-infinite-scroller';
 import { connect } from 'react-redux';
 import { showBuzz } from '../../../action/buzz.Action';
 import './BuzzFeed.css'
-import BuzzThread from '../BuzzThread/BuzzThread';
+import BuzzThread from '../BuzzThread';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faFilter } from '@fortawesome/free-solid-svg-icons'
 

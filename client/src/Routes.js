@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { Route, Redirect, Switch } from 'react-router-dom';
-import Login from './components/utils/Login/Login';
+import Login from './components/utils/Login/';
 import Token from './components/utils/Token';
-import Dashboard from './components/Dashboard/Dashboard';
-import Error from '../src/components/utils/Error/Error';
+import Dashboard from './components/Dashboard/';
+import Error from '../src/components/utils/Error/';
 
 class Routes extends Component {
 

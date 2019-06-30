@@ -2,7 +2,7 @@ import React from 'react';
 import './ResolveManager.css'
 import { connect } from 'react-redux';
 import { showComplaintList } from '../../action/resolve.Action';
-import ResolveThread from './ResolveThread/ResolveThread'
+import ResolveThread from './ResolveThread'
 
 class ResolveManager extends React.Component {
 
