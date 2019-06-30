@@ -36,11 +36,8 @@ class Dashboard extends Component {
                                     component={Resolve}
                                 />
                                 : null}
-                            <Route
-                                path='/pagenotfound'
-                                component={ErrorRoute}
-                            />
-                            <Redirect from='*' to="/pagenotfound" />
+                            
+                            <Redirect from='*' to="/" />
                         </Switch>
                     </section>
                 </main>

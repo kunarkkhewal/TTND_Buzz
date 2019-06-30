@@ -11,7 +11,7 @@
     left: 0;
     filter: blur(5px);
     right: 0;
-    background-image: url("https://media.glassdoor.com/l/5b/1e/b7/80/fun-ttn-d.jpg");
+    background-image: url('../../../Assets/fun-ttn-d.jpg');
     content: "";
     background-size: cover;
     box-shadow: inset 0 0 0 100vmax rgba(0, 0, 0, .5);

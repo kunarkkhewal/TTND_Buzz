@@ -26,7 +26,7 @@ class BuzzThread extends React.Component {
             } else {
                 this.setState({
                     like: !this.state.like,
-                    dislike : !this.state.dislike
+                    dislike: !this.state.dislike
                 })
             }
         } else {
@@ -47,7 +47,7 @@ class BuzzThread extends React.Component {
             } else {
                 this.setState({
                     dislike: !this.state.dislike,
-                    like : !this.state.like
+                    like: !this.state.like
                 })
             }
         } else {
@@ -56,7 +56,7 @@ class BuzzThread extends React.Component {
             })
         }
     }
-    
+
 
     render() {
         const { description, email, category, attachment, createdAt, like, dislike, thumbnail } = this.props.feed;
@@ -77,20 +77,17 @@ class BuzzThread extends React.Component {
                             </div>
                         </div>
                     </div>
-
-                    <div className='deleteBuzz'>
-                        {/* {
-                            loggedInUser === email ? <span onClick={this.Delete} className='deleteicon'>{trash}</span> : null
-                        } */}
-                    </div>
                 </div>
                 <div className='buzzContentContainer'>
                     <div className='buzzContent'>
                         {description}
                     </div>
-                    <div className='uploadedimg'>
-                        <img className='img-thumbnail' src={attachment} height={'200px'} width={'200px'} alt='' role='presentation' />
-                    </div>
+                    {(attachment !== "") ?
+                        <div className='uploadedimg'>
+                            <img className='img-thumbnail' src={attachment} height={'200px'} width={'200px'} alt='' role='presentation' />
+                        </div> :
+                        null}
+
                 </div>
                 <div className='buzzFooter'>
                     <span className={(this.state.like === true ? "likeicon" : "reactionicon")} onClick={this.Like}>{thumbsUp}&nbsp;{like.length}</span>
