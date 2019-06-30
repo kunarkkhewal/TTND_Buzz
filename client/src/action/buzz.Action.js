@@ -3,18 +3,12 @@ import {
     ADD_BUZZ,
     SHOW_BUZZ,
     PUT_LIKE,
-    PUT_DISLIKE
-} from './actionType';
-import {
+    PUT_DISLIKE,
     DASHBOARD_BUZZ_URL,
     LIKE_URL,
     DISLIKE_URL
-} from './actionURL';
-import { successAlert, errorAlert, warningAlert, infoAlert } from './actionAlert';
-
-
-let like = false;
-let dislike = false;
+} from '../utils/constants.js';
+import { successAlert, errorAlert} from './actionAlert';
 
 // POST REQUEST FOR BUZZ
 

@@ -1,7 +1,9 @@
 import axiosInstance from '../utils/axiosInterceptor';
-import { SHOW_USER } from './actionType';
-import { USER_URL } from './actionURL';
-import {errorAlert} from './actionAlert'
+import {
+    SHOW_USER,
+    USER_URL
+} from '../utils/constants';
+import { errorAlert } from './actionAlert'
 
 const getUserToState = data => {
     return {

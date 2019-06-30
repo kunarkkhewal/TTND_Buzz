@@ -1,9 +1,9 @@
 import axiosInstance from '../utils/axiosInterceptor';
 import {
     ADD_COMPLAINT,
-    SHOW_COMPLAINT
-} from "./actionType";
-import { DASHBOARD_COMPLAINT_URL } from './actionURL';
+    SHOW_COMPLAINT,
+    DASHBOARD_COMPLAINT_URL
+} from "../utils/constants";
 import {successAlert, errorAlert} from './actionAlert';
 
 // POST REQUEST FOR COMPLAINT
