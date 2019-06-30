@@ -10,7 +10,7 @@ const mail = (mailDetails) => {
         }
     });
 
-    const { issueId, attachment, department, name, emailId, title, concern, subject, } = mailDetails;
+    const { issueId, attachment, department, emailId, title, concern, subject, } = mailDetails;
 
     // send mail with defined transport object
     let info = transporter.sendMail({

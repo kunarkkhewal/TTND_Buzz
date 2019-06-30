@@ -7,7 +7,7 @@ const userSchema = new Schema({
     googleId: { type: String, required: true, unique: true },
     thumbnail: { type: String, required: true },
     role: { type: String, default: 'user' , lowercase: true},
-    department: { type: String, default: 'technology'}
+    department: { type: String, default: 'Technology'}
 });
 
 const userModel = mongoose.model('User', userSchema);

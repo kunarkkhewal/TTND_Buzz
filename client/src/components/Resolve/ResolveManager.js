@@ -50,7 +50,6 @@ class ResolveManager extends React.Component {
                     </thead>
                     <tbody>
                         {this.props.list.map((data, index) => {
-                            console.log("in resolve manager -------- ", this.state.filter)
                             if (this.state.filter === "All Complaints") {
                                 return (
                                     <ResolveThread list={data} key={index} />

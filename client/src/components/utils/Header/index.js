@@ -5,7 +5,6 @@ import companybanner from '../../../Assets/background-3246124_1920.jpg'
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { getUser } from '../../../action/user.Action';
-// import '../../../../node_modules/bootstrap/js/dist/modal';
 
 class Header extends React.Component {
 
@@ -23,7 +22,6 @@ class Header extends React.Component {
     render() {
 
         const { role, department, username, emailId, thumbnail } = this.props.user[0];
-        console.log("role=>>>>>>>>>>>>>>>", role)
         return (
             <header>
                 <nav>

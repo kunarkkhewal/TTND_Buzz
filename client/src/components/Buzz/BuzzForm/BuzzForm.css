@@ -60,13 +60,10 @@ select:hover{
 }
 
 .font-awesome{
-    /* width: 20px; */
-    /* font-size: 50px; */
     color: blue;
 }
 
 .font-awesome:hover{
-    /* background-color: blue; */
     color: orange;
 }
 

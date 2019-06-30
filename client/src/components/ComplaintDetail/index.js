@@ -40,7 +40,7 @@ class ComplaintDetail extends React.Component {
                     className="btn modal-btn"
                     data-toggle="modal"
                     data-target={`#myModal${this.props.issueId}`}
-                    style={{ 'color': 'dodgerblue', 'textDecoration':'underline' }}
+                    style={{ 'color': 'steelblue', 'textDecoration':'underline' }}
                 >
                     {this.props.issueId}
                 </button>

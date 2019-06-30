@@ -3,7 +3,7 @@ import './ComplaintThread.css';
 import ComplaintDetail from '../../ComplaintDetail';
 
 const ComplaintThread = props => {
-    const { department, title, name, emailId, concern, attachment, status, issueId, assignedTo: { username } } = props.list;
+    const { department,status, issueId, assignedTo: { username } } = props.list;
     return (
         <tr>
             <td>{department}</td>

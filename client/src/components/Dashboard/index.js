@@ -5,7 +5,6 @@ import Resolve from '../Resolve/ResolveManager';
 import { Route, Switch, Redirect } from 'react-router-dom';
 import Buzz from '../Buzz/BuzzManager';
 import Header from '../utils/Header';
-import ErrorRoute from '../utils/Error';
 import './Dashboard.css';
 import { connect } from 'react-redux';
 

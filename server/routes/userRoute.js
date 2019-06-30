@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const userOperation = require('../database/controller/userOperations');
 
+// GET USER INFORMATION
 router.get('/', (req, res) => {
     userOperation.findOne(req.user.googleId)
         .then(data => {

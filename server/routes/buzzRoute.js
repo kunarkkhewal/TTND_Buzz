@@ -4,7 +4,7 @@ const Buzz = require('../database/model/buzz')
 const upload = require('../middlewares/multer');
 const cloudinary = require('../config/cloudinary');
 
-
+// GET BUZZ
 router.get('/:skip', (req, res) => {
     buzzOperation.fetchBuzz(parseInt(req.params.skip))
         .then(data => {
@@ -15,6 +15,7 @@ router.get('/:skip', (req, res) => {
         });
 });
 
+// POST BUZZ
 router.post('/', upload.single('attachment'), async (req, res) => {
     let formData = req.body;
     var imageData = '';
@@ -46,8 +47,7 @@ router.post('/', upload.single('attachment'), async (req, res) => {
 });
 
 
-// code for like and dislike
-
+// LIKE BUZZ
 router.patch('/like', async (req, res) => {
     const buzzData = await buzzOperation.fetchBuzzById(req.body.buzzId);
     let emailId = req.user.emailId;
@@ -66,6 +66,8 @@ router.patch('/like', async (req, res) => {
     })
 });
 
+
+// DISLIKE BUZZ
 router.patch('/dislike', async (req, res) => {
     const buzzData = await buzzOperation.fetchBuzzById(req.body.buzzId);
     let emailId = req.user.emailId;

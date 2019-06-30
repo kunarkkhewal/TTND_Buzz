@@ -11,7 +11,7 @@ export default function userReducer(state = initialState, action) {
         case SHOW_USER: {
             return {
                 ...state,
-                userData: [action.data, ...state.userData]
+                userData: [action.data]
             };
         }
 

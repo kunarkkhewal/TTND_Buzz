@@ -7,6 +7,7 @@ const cloudinary = require('../config/cloudinary');
 const findAdmin = require('../database/utils/findAdmin');
 const mailer = require('../config/nodemailer');
 
+// GET COMPLAINTS
 router.get('/', (req, res) => {
     complaintOperation.fetchComplaint(req.user.emailId)
         .then(data => {
@@ -17,6 +18,7 @@ router.get('/', (req, res) => {
         })
 });
 
+// POST COMPLAINTS
 router.post('/', upload.single('attachment'), async (req, res) => {
     const id = nanoid(9);
     let formData = req.body;

@@ -46,7 +46,6 @@ class BuzzForm extends React.Component {
                     <textarea name="buzz" id="buzz" required cols="30" rows="10" placeholder='Share your thoughts'></textarea>
                     <div className="lowerBar">
                         <div className="category">
-                            {/* <label htmlFor="category">Category</label> */}
                             <select name="category" id="category">
                                 <option value="Activity">Activity</option>
                                 <option value="Lost and Found">Lost and Found</option>

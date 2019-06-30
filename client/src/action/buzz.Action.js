@@ -31,7 +31,7 @@ export const addBuzz = formData => dispatch => {
             successAlert("Buzz Created")
         })
         .catch(res => {
-            console.log("Error occured at adding buzz => ", res.err)
+            console.log("Error occurred at adding buzz => ", res.err)
             errorAlert("Buzz Not Created, Something went wrong");
         })
 }

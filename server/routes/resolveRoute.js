@@ -2,6 +2,7 @@ const router = require('express').Router();
 const resolveOperation = require('../database/controller/resolveOperations');
 const mailer = require('../config/nodemailer');
 
+// GET COMPLAINTS
 router.get('/', (req, res) => {
     resolveOperation.fetchComplaint(req.user.emailId)
         .then(data => {
@@ -12,6 +13,7 @@ router.get('/', (req, res) => {
         })
 });
 
+// UPDATE COMPLAINT
 router.patch('/', (req, res) => {
     resolveOperation.updateComplaint(req.body.status, req.body.issueId)
         .then(data => {

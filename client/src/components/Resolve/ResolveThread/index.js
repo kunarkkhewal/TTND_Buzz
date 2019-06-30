@@ -7,11 +7,10 @@ import ComplaintDetail from '../../ComplaintDetail'
 const ResolveThread = props => {
 
     const handleOnChange = event => {
-        console.log("***************************in resolve thread ")
         props.updateComplaint({status:event.target.value, issueId: props.list.issueId});
     }
 
-        const { department, title, name, emailId, concern, attachment, status, issueId, assignedTo: { username } } = props.list;
+        const { department, name, status, issueId, assignedTo: { username } } = props.list;
         return (
             <tr>
                 <td>{department}</td>
