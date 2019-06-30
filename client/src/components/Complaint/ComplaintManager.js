@@ -3,16 +3,14 @@ import './ComplaintManager.css'
 import ComplaintForm from './ComplaintForm/ComplaintForm';
 import ComplaintList from './ComplaintList/ComplaintList';
 
-class Complaint extends React.Component{
+const Complaint = props => {
 
-    render(){
-        return(
-            <div>
-                <ComplaintForm/>
-                <ComplaintList/>
-            </div>
-        )
-    }
+    return (
+        <div>
+            <ComplaintForm />
+            <ComplaintList />
+        </div>
+    )
 }
 
 export default Complaint;
