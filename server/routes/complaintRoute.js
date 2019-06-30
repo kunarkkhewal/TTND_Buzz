@@ -61,6 +61,9 @@ router.post('/', upload.single('attachment'), async (req, res) => {
                 text: "Your Complaint will be Resolved soon"
             });
             mailer({
+                issueId: data.issueId,
+                attachment: data.attachment,
+                department: data.department,
                 emailId: data.assignedTo.emailId,
                 name: data.assignedTo.username,
                 concern: data.concern,

@@ -19,18 +19,26 @@ const mail = (mailDetails) => {
         subject: subject, // Subject line
 
         // plain text body
-        html: `<table>
+        html: `<table style="border: 1px solid black; border-collapse:collapse;">
         <tr>
-            <th>Issue Id</th>
+            <th>Complaint Id</th>
             <td>${issueId}</td>
+        </tr>
+        <tr>
+            <th>Department</th>
+            <td>${department}</td>
         </tr>
         <tr>
             <th>Title</th>
             <td>${title}</td>
         </tr>
         <tr>
-            <th>concern</th>
+            <th>Concern</th>
             <td>${concern}</td>
+        </tr>
+        <tr>
+            <th>Attachment</th>
+            <td><img src=${attachment}  alt=""></td>
         </tr>
     </table>` // html body
     });
