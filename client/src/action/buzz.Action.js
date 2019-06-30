@@ -5,8 +5,12 @@ import {
     PUT_LIKE,
     PUT_DISLIKE
 } from './actionType';
-import { DASHBOARD_BUZZ_URL } from './actionURL';
-import {successAlert, errorAlert, warningAlert, infoAlert} from './actionAlert';
+import {
+    DASHBOARD_BUZZ_URL,
+    LIKE_URL,
+    DISLIKE_URL
+} from './actionURL';
+import { successAlert, errorAlert, warningAlert, infoAlert } from './actionAlert';
 
 
 let like = false;
@@ -78,7 +82,7 @@ export const postLike = buzzId => dispatch => {
     axiosInstance({
         method: 'patch',
         data: buzzId,
-        url: `${DASHBOARD_BUZZ_URL}/like`
+        url: `${LIKE_URL}`
     })
         .then(
             res => {
@@ -108,7 +112,7 @@ export const postDislike = buzzId => dispatch => {
     axiosInstance({
         method: 'patch',
         data: buzzId,
-        url: `${DASHBOARD_BUZZ_URL}/dislike`
+        url: `${DISLIKE_URL}`
     })
         .then(
             res => {

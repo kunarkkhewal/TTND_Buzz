@@ -16,15 +16,13 @@ class App extends Component {
     render() {
         return (
             <div className="loginDiv">
-                <div className="card text-center" style={{ width: '18rem' }}>
+                <div className="card" style={{ width: '18rem' }}>
                     <img src={ttnd} className="card-img-top" alt="..." />
                     <div className="card-body">
-                        <h5 className="card-title">Create Your Own Buzz</h5>
+                        <h5 className="card-title">Welcome To TTND-Buzz</h5>
                         <a href="http://localhost:5000/auth/google" class="button">
-                            <div className="btn-inner">
-                                <span className="google">{google}</span>
+                                <span className="google-logo">{google}</span>
                                 <span class="button-label">Sign in with Google</span>
-                            </div>
                         </a>
                     </div>
                 </div>

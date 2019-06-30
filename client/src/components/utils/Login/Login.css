@@ -21,6 +21,8 @@ a.button{
     margin-top: 0%;
     background-color: #E04A32;
     text-decoration: none;
+    width: 85%;
+    position: relative;
 }
 
 a.button span{
@@ -32,14 +34,15 @@ a.button:hover{
     text-decoration: none;
 }
 
-span.google{
+span.google-logo{
     font-size: 25px;
     font-weight: 700;
     margin: 0 20px;
 }
 
 span.button-label{
-    
+    position: absolute;
+    top: 15%;
 }
 
 div.btn-inner{
@@ -60,7 +63,7 @@ img.card-img-top {
 }
 
 .card-body {
-    padding: 0em 0em 2em 0em !important;
+    padding: 1em 0em 2em 0em !important;
 }
 
 .card-title {
