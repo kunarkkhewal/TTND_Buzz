@@ -3,7 +3,7 @@ import {
     SHOW_USER,
     USER_URL
 } from '../utils/constants';
-import { errorAlert } from './actionAlert'
+import { errorAlert } from '../utils/alerts'
 
 const getUserToState = data => {
     return {

@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { addBuzz } from '../../../action/buzz.Action';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faChevronCircleRight, faImage, faFilter } from '@fortawesome/free-solid-svg-icons'
+import {warningAlert} from '../../../utils/alerts'
 
 class BuzzForm extends React.Component {
 
@@ -19,12 +20,18 @@ class BuzzForm extends React.Component {
     onSubmit = event => {
         event.preventDefault();
 
-        const formData = new FormData()
-        formData.append("buzz", event.target[0].value);
-        formData.append("category", event.target[1].value);
-        formData.append("attachment", event.target[2].files[0]);
+        if (event.target[0].value.replace(/^\s+|\s+$/gm, '') === "") {
+            warningAlert("Text area left Empty")
+        } else {
+            const formData = new FormData()
+            formData.append("buzz", event.target[0].value);
+            formData.append("category", event.target[1].value);
+            formData.append("attachment", event.target[2].files[0]);
 
-        this.props.addBuzz(formData)
+            this.props.addBuzz(formData)
+        }
+
+
 
         event.target.reset();
 

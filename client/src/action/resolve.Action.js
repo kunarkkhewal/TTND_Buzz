@@ -4,7 +4,7 @@ import {
     UPDATE_COMPLAINT_STATUS, 
     DASHBOARD_RESOLVE_URL
 } from '../utils/constants'
-import { successAlert, errorAlert } from './actionAlert'
+import { successAlert, errorAlert } from '../utils/alerts'
 
 // GET REQUEST FOR COMPLAINT LIST
 

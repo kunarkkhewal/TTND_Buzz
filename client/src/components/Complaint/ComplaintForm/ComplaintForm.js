@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { addComplaint } from '../../../action/complaint.Action';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronCircleRight, faImage } from '@fortawesome/free-solid-svg-icons';
+import { warningAlert } from '../../../utils/alerts'
 
 class ComplaintForm extends React.Component {
 
@@ -20,13 +21,19 @@ class ComplaintForm extends React.Component {
     onSubmit = event => {
         event.preventDefault();
 
-        const complaintData = new FormData()
-        complaintData.append("department", event.target[0].value);
-        complaintData.append("title", event.target[1].value);
-        complaintData.append("concern", event.target[2].value);
-        complaintData.append("attachment", event.target[3].files[0]);
+        if (event.target[2].value.replace(/^\s+|\s+$/gm, '') === "" || event.target[1].value.replace(/^\s+|\s+$/gm, '') === "") {
+            warningAlert("Text area left Empty")
+        } else {
+            const complaintData = new FormData()
+            complaintData.append("department", event.target[0].value);
+            complaintData.append("title", event.target[1].value);
+            complaintData.append("concern", event.target[2].value);
+            complaintData.append("attachment", event.target[3].files[0]);
 
-        this.props.addComplaint(complaintData);
+            this.props.addComplaint(complaintData);
+
+        }
+
 
         event.target.reset();
 
@@ -53,7 +60,7 @@ class ComplaintForm extends React.Component {
                             </label>
                             <input type="file" name="attachment" accept='image/*' id="attachment" />
                         </div>
-                        
+
                         <div className="font-awesome">
                             <label htmlFor="post-complaint" className="post-complaint">
                                 {rightArrow}

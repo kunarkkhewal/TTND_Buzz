@@ -8,7 +8,7 @@ import {
     LIKE_URL,
     DISLIKE_URL
 } from '../utils/constants.js';
-import { successAlert, errorAlert} from './actionAlert';
+import { successAlert, errorAlert} from '../utils/alerts';
 
 // POST REQUEST FOR BUZZ
 
