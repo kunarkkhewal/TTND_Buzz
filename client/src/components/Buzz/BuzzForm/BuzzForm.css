@@ -76,6 +76,10 @@ select:hover{
     display: none;
 }
 
+.attachment-div{
+    width: 30px;
+}
+
 form{
     display: block;
 }
@@ -85,4 +89,7 @@ form textarea{
     width: 100%;
 }
 
-
+.attachment-name{
+    padding-top: 2%;
+    left: -50px;
+}

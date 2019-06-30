@@ -25,7 +25,6 @@ class Header extends React.Component {
         return (
             <header>
                 <nav>
-                    {console.log('in header wala part getting user', this.props.user[0])}
                     <Link to='/dashboard/buzz'>
                         <img src={companylogo} alt='logo' className='companylogo'></img></Link>
                     <span>

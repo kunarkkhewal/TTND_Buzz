@@ -17,6 +17,12 @@ class BuzzForm extends React.Component {
         }
     }
 
+    handleOnChange = event => {
+        this.setState({
+            attachment: event.target.files[0].name
+        })
+    }
+
     onSubmit = event => {
         event.preventDefault();
 
@@ -38,7 +44,6 @@ class BuzzForm extends React.Component {
     }
 
     render() {
-        console.log('in buzz form cheking state:=>  ', this.props.state)
         return (
             <div className='buzzForm rounded-lg' >
                 <div className='formTitle'>Create buzz</div>
@@ -50,12 +55,13 @@ class BuzzForm extends React.Component {
                                 <option value="Activity">Activity</option>
                                 <option value="Lost and Found">Lost and Found</option>
                             </select>
-                            <div className="font-awesome">
+                            <div className="font-awesome attachment-div">
                                 <label htmlFor="attachment">
                                     {image}
                                 </label>
-                                <input type="file" name="attachment" accept='image/*' id="attachment" />
+                                <input onChange={this.handleOnChange} type="file" name="attachment" accept='image/*' id="attachment" />
                             </div>
+                            <span className="attachment-name">{this.state.attachment}</span>  
                         </div>
                         <div className="font-awesome">
                             <label htmlFor="post-buzz">

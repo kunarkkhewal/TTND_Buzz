@@ -18,6 +18,12 @@ class ComplaintForm extends React.Component {
         }
     }
 
+    handleOnChange = event => {
+        this.setState({
+            attachment: event.target.files[0].name
+        })
+    }
+
     onSubmit = event => {
         event.preventDefault();
 
@@ -54,11 +60,14 @@ class ComplaintForm extends React.Component {
                     </div>
                     <textarea name="concern" id="concern" cols="30" rows="10" placeholder='Concern' required></textarea>
                     <div className="form-bottom">
-                        <div className="font-awesome">
-                            <label htmlFor="attachment">
-                                {image}
-                            </label>
-                            <input type="file" name="attachment" accept='image/*' id="attachment" />
+                        <div>
+                            <div className="font-awesome attachment-complaint">
+                                <label htmlFor="attachment">
+                                    {image}
+                                </label>
+                                <input onChange={this.handleOnChange} type="file" name="attachment" accept='image/*' id="attachment" />
+                            </div>
+                            <span className="attachment-complaint-name">{this.state.attachment}</span>
                         </div>
 
                         <div className="font-awesome">

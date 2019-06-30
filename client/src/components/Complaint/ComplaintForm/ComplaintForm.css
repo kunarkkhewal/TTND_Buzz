@@ -47,6 +47,7 @@
 .form-bottom{
     display: flex;
     justify-content: space-between;
+    position: relative;
 }
 
 .font-awesome{
@@ -65,4 +66,14 @@
 
 .font-awesome input{
     display: none;
+}
+
+.attachment-complaint{
+    display: inline-block;
+    width: 40px;
+}
+
+.attachment-complaint-name{
+    position: absolute;
+    top: 15%;
 }
