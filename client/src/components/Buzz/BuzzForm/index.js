@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { addBuzz } from '../../../action/buzz.Action';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faChevronCircleRight, faImage, faFilter } from '@fortawesome/free-solid-svg-icons'
-import {warningAlert} from '../../../utils/alerts'
+import { warningAlert, savingAlert } from '../../../utils/alerts'
 
 class BuzzForm extends React.Component {
 
@@ -35,9 +35,13 @@ class BuzzForm extends React.Component {
             formData.append("attachment", event.target[2].files[0]);
 
             this.props.addBuzz(formData)
+
+            savingAlert("Your buzz is getting saved")
         }
 
-
+        this.setState({
+            attachment: ''
+        })
 
         event.target.reset();
 
@@ -61,7 +65,7 @@ class BuzzForm extends React.Component {
                                 </label>
                                 <input onChange={this.handleOnChange} type="file" name="attachment" accept='image/*' id="attachment" />
                             </div>
-                            <span className="attachment-name">{this.state.attachment}</span>  
+                            <span className="attachment-name">{this.state.attachment}</span>
                         </div>
                         <div className="font-awesome">
                             <label htmlFor="post-buzz">

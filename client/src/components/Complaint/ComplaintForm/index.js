@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { addComplaint } from '../../../action/complaint.Action';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronCircleRight, faImage } from '@fortawesome/free-solid-svg-icons';
-import { warningAlert } from '../../../utils/alerts'
+import { warningAlert, savingAlert } from '../../../utils/alerts'
 
 class ComplaintForm extends React.Component {
 
@@ -37,9 +37,12 @@ class ComplaintForm extends React.Component {
             complaintData.append("attachment", event.target[3].files[0]);
 
             this.props.addComplaint(complaintData);
-
+            savingAlert("Your Complaint is getting saved")
         }
 
+        this.setState({
+            attachment: ''
+        })
 
         event.target.reset();
 
