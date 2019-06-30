@@ -8,9 +8,9 @@ import { faThumbsUp, faThumbsDown } from '@fortawesome/free-solid-svg-icons'
 
 class BuzzThread extends React.Component {
 
-    constructor(props){
+    constructor(props) {
         super(props);
-        this.state={
+        this.state = {
             like: false,
             dislike: false
         }
@@ -18,17 +18,45 @@ class BuzzThread extends React.Component {
 
     Like = () => {
         this.props.postLike({ buzzId: this.props.feed._id });
-        this.setState({
-            like: !this.state.like
-        })
+        if (this.state.like === false) {
+            if (this.state.dislike === false) {
+                this.setState({
+                    like: !this.state.like
+                })
+            } else {
+                this.setState({
+                    like: !this.state.like,
+                    dislike : !this.state.dislike
+                })
+            }
+        } else {
+            this.setState({
+                like: !this.state.like
+            })
+        }
+
     }
 
     Dislike = () => {
         this.props.postDislike({ buzzId: this.props.feed._id });
-        this.setState({
-            dislike: !this.state.dislike
-        })
+        if (this.state.dislike === false) {
+            if (this.state.like === false) {
+                this.setState({
+                    dislike: !this.state.dislike
+                })
+            } else {
+                this.setState({
+                    dislike: !this.state.dislike,
+                    like : !this.state.like
+                })
+            }
+        } else {
+            this.setState({
+                dislike: !this.state.dislike
+            })
+        }
     }
+    
 
     render() {
         const { description, email, category, attachment, createdAt, like, dislike, thumbnail } = this.props.feed;
@@ -42,7 +70,7 @@ class BuzzThread extends React.Component {
                         <div className='usernameactivity'>
                             <span className='username'>{email}</span>
                             <span className='buzzCategory'>
-                                <span className={(category === 'Activity')? "badge badge-primary":"badge badge-danger"}>{category}</span>
+                                <span className={(category === 'Activity') ? "badge badge-primary" : "badge badge-danger"}>{category}</span>
                             </span>
                             <div className='timestamp'>
                                 {moment(createdAt).fromNow()}
@@ -51,9 +79,8 @@ class BuzzThread extends React.Component {
                     </div>
 
                     <div className='deleteBuzz'>
-                        {/* <span>{removeIcon}</span> */}
                         {/* {
-                            loginUser === emailId ? <span onClick={this.onDelete} className='deleteicon'>{removeIcon}</span> : null
+                            loggedInUser === email ? <span onClick={this.Delete} className='deleteicon'>{trash}</span> : null
                         } */}
                     </div>
                 </div>
@@ -66,8 +93,8 @@ class BuzzThread extends React.Component {
                     </div>
                 </div>
                 <div className='buzzFooter'>
-                    <span className={(this.state.like === true ? "likeicon": "reactionicon")} onClick={this.Like}>{thumbsUp}&nbsp;{like.length}</span>
-                    <span className={(this.state.dislike === true ? "unlikeicon": "reactionicon")} onClick={this.Dislike}>{thumbsDown}&nbsp;{dislike.length}</span>
+                    <span className={(this.state.like === true ? "likeicon" : "reactionicon")} onClick={this.Like}>{thumbsUp}&nbsp;{like.length}</span>
+                    <span className={(this.state.dislike === true ? "unlikeicon" : "reactionicon")} onClick={this.Dislike}>{thumbsDown}&nbsp;{dislike.length}</span>
                 </div>
             </div>
         )
@@ -80,7 +107,7 @@ const thumbsDown = <FontAwesomeIcon icon={faThumbsDown} />
 
 const mapDispatchToProps = {
     postLike,
-    postDislike
+    postDislike,
 }
 
 export default connect(null, mapDispatchToProps)(BuzzThread);
