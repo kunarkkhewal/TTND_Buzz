@@ -96,10 +96,16 @@ dislikeBuzz = (id, emailId, status) => {
     }
 }
 
+// DELETE
+deletePost = (id) => {
+    return buzz.findByIdAndRemove({ _id: id });
+}
+
 module.exports = {
     createBuzz,
     fetchBuzz,
     fetchBuzzById,
     likeBuzz,
-    dislikeBuzz
+    dislikeBuzz,
+    deletePost
 }

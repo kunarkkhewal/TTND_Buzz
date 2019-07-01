@@ -28,6 +28,7 @@ textarea{
 
 div.lowerBar{
     display: flex;
+    align-items: center;
     justify-content: space-between;
     width: 100%;
 }
@@ -35,6 +36,7 @@ div.lowerBar{
 div.category{
     display: flex;
     justify-content: flex-start;
+    align-items: center;
     /* outline: none; */
 }
 
@@ -90,6 +92,6 @@ form textarea{
 }
 
 .attachment-name{
-    padding-top: 2%;
-    left: -50px;
+    /* padding-top: 2%; */
+    align-items: center;
 }

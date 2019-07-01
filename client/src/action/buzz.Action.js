@@ -4,11 +4,13 @@ import {
     SHOW_BUZZ,
     PUT_LIKE,
     PUT_DISLIKE,
+    DELETE_BUZZ,
     DASHBOARD_BUZZ_URL,
     LIKE_URL,
-    DISLIKE_URL
+    DISLIKE_URL,
+    DELETE_URL
 } from '../utils/constants.js';
-import { successAlert, errorAlert} from '../utils/alerts';
+import { successAlert, errorAlert } from '../utils/alerts';
 
 // POST REQUEST FOR BUZZ
 
@@ -119,4 +121,28 @@ export const postDislike = buzzId => dispatch => {
                 errorAlert("Something Went Wrong while disliking post");
             }
         )
+}
+
+// FOR DELETE
+
+const deletePostFromDb = (data) => {
+    return {
+        type: DELETE_BUZZ,
+        data
+    }
+}
+
+export const deleteBuzz = buzzId => dispatch => {
+    axiosInstance({
+        method: 'delete',
+        url: `${DELETE_URL}/${buzzId}`,
+    }).then(res => {
+        if (res.status === 200) {
+            console.log("in res...", res.data);
+            dispatch(deletePostFromDb(res.data));
+        }
+    }).catch((err) => {
+        console.log("Error occurred while deleting post", err);
+        errorAlert("Something Went Wrong while Deleting post");
+    })
 }

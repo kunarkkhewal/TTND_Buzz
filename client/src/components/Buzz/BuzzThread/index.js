@@ -1,10 +1,10 @@
 import React from 'react';
 import './BuzzThread.css'
 import { connect } from 'react-redux';
-import { postLike, postDislike } from '../../../action/buzz.Action';
+import { postLike, postDislike, deleteBuzz } from '../../../action/buzz.Action';
 import moment from 'moment';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faThumbsUp, faThumbsDown } from '@fortawesome/free-solid-svg-icons'
+import { faThumbsUp, faThumbsDown, faTrash } from '@fortawesome/free-solid-svg-icons'
 
 class BuzzThread extends React.Component {
 
@@ -14,6 +14,10 @@ class BuzzThread extends React.Component {
             like: false,
             dislike: false
         }
+    }
+
+    onDelete = () => {
+        this.props.deleteBuzz( this.props.feed._id)
     }
 
     Like = () => {
@@ -77,6 +81,11 @@ class BuzzThread extends React.Component {
                             </div>
                         </div>
                     </div>
+                    <div className='deleteBuzz'>
+                        {
+                            this.props.loggedInUserEmail === email ? <span onClick={this.onDelete} className='deleteicon'>{trash}</span> : null
+                        }
+                    </div>
                 </div>
                 <div className='buzzContentContainer'>
                     <div className='buzzContent'>
@@ -100,11 +109,13 @@ class BuzzThread extends React.Component {
 
 const thumbsUp = <FontAwesomeIcon icon={faThumbsUp} />
 const thumbsDown = <FontAwesomeIcon icon={faThumbsDown} />
+const trash = <FontAwesomeIcon icon={faTrash} />
 
 
 const mapDispatchToProps = {
     postLike,
     postDislike,
+    deleteBuzz
 }
 
 export default connect(null, mapDispatchToProps)(BuzzThread);

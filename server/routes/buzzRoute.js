@@ -86,4 +86,15 @@ router.patch('/dislike', async (req, res) => {
     })
 });
 
+
+// DELETE BUZZ
+router.delete('/:buzzId', (req, res) => {
+    const id = req.params.buzzId;
+    buzzOperation.deletePost(id).then((data) => {
+        res.status(200).send(data.id);
+    }).catch(err => {
+        res.status(404).send(err);
+    })
+})
+
 module.exports = router;

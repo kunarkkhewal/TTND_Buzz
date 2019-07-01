@@ -5,6 +5,7 @@ export const ADD_BUZZ = "ADD_BUZZ";
 export const SHOW_BUZZ = "SHOW_BUZZ";
 export const PUT_LIKE = 'PUT_LIKE';
 export const PUT_DISLIKE = 'PUT_DISLIKE';
+export const DELETE_BUZZ = 'DELETE_BUZZ'
 //COMPLAINT ACTION TYPE
 export const ADD_COMPLAINT = "ADD_COMPLAINT";
 export const SHOW_COMPLAINT = "SHOW_COMPLAINT";
@@ -22,3 +23,4 @@ export const DASHBOARD_RESOLVE_URL = `${BASE_URL}/dashboard/resolve`;
 export const USER_URL = `${BASE_URL}/user`;
 export const LIKE_URL = `${DASHBOARD_BUZZ_URL}/like`;
 export const DISLIKE_URL = `${DASHBOARD_BUZZ_URL}/dislike`;
+export const DELETE_URL = `${DASHBOARD_BUZZ_URL}`;

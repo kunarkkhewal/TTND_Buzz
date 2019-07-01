@@ -45,9 +45,10 @@ class BuzzFeed extends React.Component {
 
     render() {
         const filter = <FontAwesomeIcon icon={faFilter} />
-
+        const loggedInUserEmail = this.props.user[0].emailId;
+        
         return (
-            <div className="buzzfeed">
+            <div className="buzzfeed"><span className="attachment-name">{this.state.attachment}</span>
                 <div className="buzzfeed-header">
                     <span class='buzz-filter'>
                         <span className='filtericon'>{filter}</span>
@@ -70,16 +71,16 @@ class BuzzFeed extends React.Component {
                     {this.props.feed.map((data, index) => {
                         if (this.state.filter === "Most Recent") {
                             return (
-                                <BuzzThread feed={data} key={index} />
+                                <BuzzThread feed={data} loggedInUserEmail={loggedInUserEmail} key={index} />
                             )
                         } else if (this.state.filter === data.category) {
                             return (
-                                <BuzzThread feed={data} key={index} />
+                                <BuzzThread feed={data} loggedInUserEmail={loggedInUserEmail} key={index} />
                             )
                         } else if (this.state.filter === "My Buzz") {
-                            if (data.email === this.props.user[0].emailId) {
+                            if (data.email === loggedInUserEmail) {
                                 return (
-                                    <BuzzThread feed={data} key={index} />
+                                    <BuzzThread feed={data} loggedInUserEmail={loggedInUserEmail} key={index} />
                                 )
                             }
 
