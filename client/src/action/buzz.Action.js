@@ -138,7 +138,6 @@ export const deleteBuzz = buzzId => dispatch => {
         url: `${DELETE_URL}/${buzzId}`,
     }).then(res => {
         if (res.status === 200) {
-            console.log("in res...", res.data);
             dispatch(deletePostFromDb(res.data));
         }
     }).catch((err) => {

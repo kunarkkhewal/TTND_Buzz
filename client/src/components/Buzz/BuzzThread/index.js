@@ -4,7 +4,8 @@ import { connect } from 'react-redux';
 import { postLike, postDislike, deleteBuzz } from '../../../action/buzz.Action';
 import moment from 'moment';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faThumbsUp, faThumbsDown, faTrash } from '@fortawesome/free-solid-svg-icons'
+import { faThumbsUp, faThumbsDown, faTrash } from '@fortawesome/free-solid-svg-icons';
+import { deleteAlert } from '../../../utils/alerts'
 
 class BuzzThread extends React.Component {
 
@@ -17,7 +18,12 @@ class BuzzThread extends React.Component {
     }
 
     onDelete = () => {
-        this.props.deleteBuzz(this.props.feed._id)
+        let val = deleteAlert()
+        val.then((result) => {
+            if (result.value) {
+                this.props.deleteBuzz(this.props.feed._id)
+            }
+        })
     }
 
     Like = () => {
