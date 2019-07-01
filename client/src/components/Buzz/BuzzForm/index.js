@@ -3,7 +3,7 @@ import './BuzzForm.css';
 import { connect } from 'react-redux';
 import { addBuzz } from '../../../action/buzz.Action';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faChevronCircleRight, faImage, faFilter } from '@fortawesome/free-solid-svg-icons'
+import { faChevronCircleRight, faImage } from '@fortawesome/free-solid-svg-icons'
 import { warningAlert, savingAlert } from '../../../utils/alerts'
 
 class BuzzForm extends React.Component {
@@ -48,6 +48,9 @@ class BuzzForm extends React.Component {
     }
 
     render() {
+        const rightArrow = <FontAwesomeIcon icon={faChevronCircleRight} />
+        const image = <FontAwesomeIcon icon={faImage} />
+
         return (
             <div className='buzzForm rounded-lg' >
                 <div className='formTitle'>Create buzz</div>
@@ -81,8 +84,7 @@ class BuzzForm extends React.Component {
     }
 }
 
-const rightArrow = <FontAwesomeIcon icon={faChevronCircleRight} />
-const image = <FontAwesomeIcon icon={faImage} />
+
 
 
 

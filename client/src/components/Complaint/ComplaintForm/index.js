@@ -49,11 +49,14 @@ class ComplaintForm extends React.Component {
     }
 
     render() {
+        const rightArrow = <FontAwesomeIcon icon={faChevronCircleRight} />
+        const image = <FontAwesomeIcon icon={faImage} />
+
         return (
             <div className='complaint-form rounded-lg'>
                 <div className="complaint-form-title">Complaint Form</div>
                 <form onSubmit={this.onSubmit} encType='multipart/form-data'>
-                    <div class="form-top">
+                    <div className="form-top">
                         <select name="department" id="department" required>
                             <option value="Hardware">Hardware</option>
                             <option value="Infrastructure">Infrastructure</option>
@@ -87,9 +90,6 @@ class ComplaintForm extends React.Component {
     }
 }
 
-
-const rightArrow = <FontAwesomeIcon icon={faChevronCircleRight} />
-const image = <FontAwesomeIcon icon={faImage} />
 
 const mapStateToProps = state => {
     return { state }

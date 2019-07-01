@@ -54,11 +54,14 @@ class ResolveManager extends React.Component {
                                 return (
                                     <ResolveThread list={data} key={index} />
                                 )
-                            } else if (this.state.filter == data.status) {
+                            } else if (this.state.filter === data.status) {
                                 return (
                                     <ResolveThread list={data} key={index} />
                                 )
                             }
+                            return (
+                                <ResolveThread list={data} key={index} />
+                            )
                         })}
                     </tbody>
                 </table>

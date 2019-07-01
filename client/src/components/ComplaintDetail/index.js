@@ -73,7 +73,7 @@ class ComplaintDetail extends React.Component {
                                         {(attachment) ?
                                             <tr>
                                                 <th>Image</th>
-                                                <td><img src={attachment} width={'100px'} height={'100px'} /></td>
+                                                <td><img src={attachment} width={'100px'} height={'100px'} alt='' /></td>
                                             </tr>
                                             : null
                                         }

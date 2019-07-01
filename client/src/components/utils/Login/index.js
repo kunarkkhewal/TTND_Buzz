@@ -14,6 +14,8 @@ class App extends Component {
     }
 
     render() {
+        const google = <FontAwesomeIcon icon={faGoogle} />
+
         return (
             <div className="loginDiv">
                 <div className="card" style={{ width: '18rem' }}>
@@ -21,8 +23,8 @@ class App extends Component {
                     <div className="card-body">
                         <h5 className="card-title">Welcome To TTND-Buzz</h5>
                         <a href="http://localhost:5000/auth/google" class="button">
-                                <span className="google-logo">{google}</span>
-                                <span class="button-label">Sign in with Google</span>
+                            <span className="google-logo">{google}</span>
+                            <span class="button-label">Sign in with Google</span>
                         </a>
                     </div>
                 </div>
@@ -31,6 +33,6 @@ class App extends Component {
     }
 }
 
-const google = <FontAwesomeIcon icon={faGoogle} />
+
 
 export default App;

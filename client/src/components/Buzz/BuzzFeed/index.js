@@ -50,7 +50,7 @@ class BuzzFeed extends React.Component {
         return (
             <div className="buzzfeed"><span className="attachment-name">{this.state.attachment}</span>
                 <div className="buzzfeed-header">
-                    <span class='buzz-filter'>
+                    <span className='buzz-filter'>
                         <span className='filtericon'>{filter}</span>
                         <select id='buzz-filter' onChange={this.handleOnChange} name="filter" className='filterdropdown'>
                             <option value="Most Recent">Most Recent Buzz</option>
@@ -83,8 +83,10 @@ class BuzzFeed extends React.Component {
                                     <BuzzThread feed={data} loggedInUserEmail={loggedInUserEmail} key={index} />
                                 )
                             }
-
                         }
+                        return (
+                            <BuzzThread feed={data} loggedInUserEmail={loggedInUserEmail} key={index} />
+                        )
                     })}
 
                 </InfiniteScroll>

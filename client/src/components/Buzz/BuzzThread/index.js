@@ -17,7 +17,7 @@ class BuzzThread extends React.Component {
     }
 
     onDelete = () => {
-        this.props.deleteBuzz( this.props.feed._id)
+        this.props.deleteBuzz(this.props.feed._id)
     }
 
     Like = () => {
@@ -63,7 +63,11 @@ class BuzzThread extends React.Component {
 
 
     render() {
+        const thumbsUp = <FontAwesomeIcon icon={faThumbsUp} />
+        const thumbsDown = <FontAwesomeIcon icon={faThumbsDown} />
+        const trash = <FontAwesomeIcon icon={faTrash} />
         const { description, email, category, attachment, createdAt, like, dislike, thumbnail } = this.props.feed;
+
         return (
             <div className='buzzContainer'>
                 <div className='buzzHeader'>
@@ -93,7 +97,7 @@ class BuzzThread extends React.Component {
                     </div>
                     {(attachment !== "") ?
                         <div className='uploadedimg'>
-                            <img className='img-thumbnail' src={attachment} height={'200px'} width={'200px'} alt='' role='presentation' />
+                            <img className='img-thumbnail' src={attachment} maxheight={'450px'} maxwidth={'450px'} alt='' role='presentation' />
                         </div> :
                         null}
 
@@ -106,10 +110,6 @@ class BuzzThread extends React.Component {
         )
     }
 }
-
-const thumbsUp = <FontAwesomeIcon icon={faThumbsUp} />
-const thumbsDown = <FontAwesomeIcon icon={faThumbsDown} />
-const trash = <FontAwesomeIcon icon={faTrash} />
 
 
 const mapDispatchToProps = {
