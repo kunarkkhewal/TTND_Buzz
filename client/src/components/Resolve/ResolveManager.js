@@ -59,9 +59,7 @@ class ResolveManager extends React.Component {
                                     <ResolveThread list={data} key={index} />
                                 )
                             }
-                            return (
-                                <ResolveThread list={data} key={index} />
-                            )
+                            return;
                         })}
                     </tbody>
                 </table>

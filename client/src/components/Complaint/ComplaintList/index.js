@@ -58,9 +58,7 @@ class ComplaintForm extends React.Component {
                                     <ComplaintThread list={data} key={index} />
                                 )
                             }
-                            return (
-                                <ComplaintThread list={data} key={index} />
-                            )
+                            return;
                         })}
                     </tbody>
                 </table>

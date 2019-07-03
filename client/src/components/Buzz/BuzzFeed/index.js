@@ -84,9 +84,7 @@ class BuzzFeed extends React.Component {
                                 )
                             }
                         }
-                        return (
-                            <BuzzThread feed={data} loggedInUserEmail={loggedInUserEmail} key={index} />
-                        )
+                        return;
                     })}
 
                 </InfiniteScroll>
