@@ -9,13 +9,13 @@ import { deleteAlert } from '../../../utils/alerts'
 
 class BuzzThread extends React.Component {
 
-    constructor(props) {
-        super(props);
-        this.state = {
-            like: false,
-            dislike: false
-        }
-    }
+    // constructor(props) {
+    //     super(props);
+    //     this.state = {
+    //         like: false,
+    //         dislike: false
+    //     }
+    // }
 
     onDelete = () => {
         let val = deleteAlert()
@@ -26,45 +26,32 @@ class BuzzThread extends React.Component {
         })
     }
 
+    checkUserLike = (email, like) => {
+        const liked = like.find((item) => (item.emailId == email));
+        if (liked) {
+            return 'liked'
+        }
+        else {
+            return ''
+        }
+    };
+    checkUserDislike = (email, dislike) => {
+        const disliked = dislike.find((item) => (item.emailId == email));
+        if (disliked) {
+            return 'disliked'
+        }
+        else {
+            return ''
+        }
+    };
+
+
     Like = () => {
         this.props.postLike({ buzzId: this.props.feed._id });
-        if (this.state.like === false) {
-            if (this.state.dislike === false) {
-                this.setState({
-                    like: !this.state.like
-                })
-            } else {
-                this.setState({
-                    like: !this.state.like,
-                    dislike: !this.state.dislike
-                })
-            }
-        } else {
-            this.setState({
-                like: !this.state.like
-            })
-        }
-
     }
 
     Dislike = () => {
         this.props.postDislike({ buzzId: this.props.feed._id });
-        if (this.state.dislike === false) {
-            if (this.state.like === false) {
-                this.setState({
-                    dislike: !this.state.dislike
-                })
-            } else {
-                this.setState({
-                    dislike: !this.state.dislike,
-                    like: !this.state.like
-                })
-            }
-        } else {
-            this.setState({
-                dislike: !this.state.dislike
-            })
-        }
     }
 
 
@@ -73,6 +60,8 @@ class BuzzThread extends React.Component {
         const thumbsDown = <FontAwesomeIcon icon={faThumbsDown} />
         const trash = <FontAwesomeIcon icon={faTrash} />
         const { description, email, category, attachment, createdAt, like, dislike, thumbnail } = this.props.feed;
+        const liked = this.checkUserLike(email, like);
+        const disliked = this.checkUserDislike(email, dislike);
 
         return (
             <div className='buzzContainer'>
@@ -109,8 +98,8 @@ class BuzzThread extends React.Component {
 
                 </div>
                 <div className='buzzFooter'>
-                    <span className={(this.state.like === true ? "likeicon" : "reactionicon")} onClick={this.Like}>{thumbsUp}&nbsp;{like.length}</span>
-                    <span className={(this.state.dislike === true ? "unlikeicon" : "reactionicon")} onClick={this.Dislike}>{thumbsDown}&nbsp;{dislike.length}</span>
+                    <span className={`reactionicon ${liked}`} onClick={this.Like}>{thumbsUp}&nbsp;{like.length}</span>
+                    <span className={`reactionicon ${disliked}`} onClick={this.Dislike}>{thumbsDown}&nbsp;{dislike.length}</span>
                 </div>
             </div>
         )

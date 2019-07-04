@@ -112,13 +112,13 @@ ul li {
     color:grey;
 }
 
-.likeicon{
+.liked{
     margin-left: 10px;
     margin-right: 10px;
     cursor: pointer;
     color:green;
 }
-.unlikeicon{
+.disliked{
     margin-left: 10px;
     margin-right: 10px;
     cursor: pointer;
