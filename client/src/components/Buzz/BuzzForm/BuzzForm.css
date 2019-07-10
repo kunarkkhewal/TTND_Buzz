@@ -91,7 +91,17 @@ form textarea{
     width: 100%;
 }
 
+.attachment-span{
+    width: 300px;
+    border: 1px solid lightgrey;
+    border-radius: 50px;
+}
+
 .attachment-name{
-    /* padding-top: 2%; */
     align-items: center;
+    padding-left: 20px;
+}
+
+.attachment-clear{
+    color: red;
 }

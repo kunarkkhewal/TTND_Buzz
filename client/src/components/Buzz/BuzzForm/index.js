@@ -3,7 +3,7 @@ import './BuzzForm.css';
 import { connect } from 'react-redux';
 import { addBuzz } from '../../../action/buzz.Action';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faChevronCircleRight, faImage } from '@fortawesome/free-solid-svg-icons'
+import { faChevronCircleRight, faImage, faWindowClose } from '@fortawesome/free-solid-svg-icons'
 import { warningAlert, savingAlert } from '../../../utils/alerts'
 
 class BuzzForm extends React.Component {
@@ -13,13 +13,22 @@ class BuzzForm extends React.Component {
         this.state = {
             buzz: '',
             category: 'Activity',
-            attachment: ''
+            attachment: '',
+            attachment_name: ''
         }
     }
 
-    handleOnChange = event => {
+    handleClear = () => {
         this.setState({
-            attachment: event.target.files[0].name
+            attachment: ''
+        })
+    }
+
+    handleFileChange = event => {
+        console.log('handle file change called')
+        this.setState({
+            attachment: event.target.value,
+            attachment_name: event.target.files[0].name
         })
     }
 
@@ -33,6 +42,7 @@ class BuzzForm extends React.Component {
             formData.append("buzz", event.target[0].value);
             formData.append("category", event.target[1].value);
             formData.append("attachment", event.target[2].files[0]);
+            console.log("=======================", event.target[2].files[0])
 
             this.props.addBuzz(formData)
 
@@ -50,6 +60,7 @@ class BuzzForm extends React.Component {
     render() {
         const rightArrow = <FontAwesomeIcon icon={faChevronCircleRight} />
         const image = <FontAwesomeIcon icon={faImage} />
+        const clear = <FontAwesomeIcon icon={faWindowClose} />
 
         return (
             <div className='buzzForm rounded-lg' >
@@ -66,9 +77,14 @@ class BuzzForm extends React.Component {
                                 <label htmlFor="attachment">
                                     {image}
                                 </label>
-                                <input onChange={this.handleOnChange} type="file" name="attachment" accept='image/*' id="attachment" />
+                                <input onChange={this.handleFileChange} type="file" value={this.state.attachment} name="attachment" accept='image/*' id="attachment" />
                             </div>
-                            <span className="attachment-name">{this.state.attachment}</span>
+                            {(this.state.attachment !== "") ?
+                                <span className='attachment-span'>
+                                    <span className="attachment-clear" onClick={this.handleClear}>{clear}</span>
+                                    <span className="attachment-name">{this.state.attachment_name}</span>
+                                </span>
+                                : null}
                         </div>
                         <div className="font-awesome">
                             <label htmlFor="post-buzz">
