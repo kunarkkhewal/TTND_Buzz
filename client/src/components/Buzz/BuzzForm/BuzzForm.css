@@ -92,16 +92,17 @@ form textarea{
 }
 
 .attachment-span{
-    width: 300px;
+    width: 350px;
+    padding: 5px 10px;
     border: 1px solid lightgrey;
     border-radius: 50px;
 }
 
 .attachment-name{
-    align-items: center;
-    padding-left: 20px;
+    margin-left: 10px;
 }
 
 .attachment-clear{
     color: red;
+    cursor: pointer;
 }

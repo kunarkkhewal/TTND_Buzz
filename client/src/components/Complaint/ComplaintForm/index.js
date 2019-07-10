@@ -3,7 +3,7 @@ import './ComplaintForm.css';
 import { connect } from 'react-redux';
 import { addComplaint } from '../../../action/complaint.Action';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faChevronCircleRight, faImage } from '@fortawesome/free-solid-svg-icons';
+import { faChevronCircleRight, faImage, faWindowClose } from '@fortawesome/free-solid-svg-icons';
 import { warningAlert, savingAlert } from '../../../utils/alerts'
 
 class ComplaintForm extends React.Component {
@@ -14,13 +14,21 @@ class ComplaintForm extends React.Component {
             department: '',
             title: '',
             concern: '',
-            attachment: ''
+            attachment: '',
+            attachment_name: '',
         }
     }
 
-    handleOnChange = event => {
+    handleClear = () => {
         this.setState({
-            attachment: event.target.files[0].name
+            attachment: ''
+        })
+    }
+
+    handleFileChange = event => {
+        this.setState({
+            attachment: event.target.value,
+            attachment_name: event.target.files[0].name
         })
     }
 
@@ -51,6 +59,7 @@ class ComplaintForm extends React.Component {
     render() {
         const rightArrow = <FontAwesomeIcon icon={faChevronCircleRight} />
         const image = <FontAwesomeIcon icon={faImage} />
+        const clear = <FontAwesomeIcon icon={faWindowClose} />
 
         return (
             <div className='complaint-form rounded-lg'>
@@ -71,9 +80,14 @@ class ComplaintForm extends React.Component {
                                 <label htmlFor="attachment">
                                     {image}
                                 </label>
-                                <input onChange={this.handleOnChange} type="file" name="attachment" accept='image/*' id="attachment" />
+                                <input onChange={this.handleFileChange} value={this.state.attachment} type="file" name="attachment" accept='image/*' id="attachment" />
                             </div>
-                            <span className="attachment-complaint-name">{this.state.attachment}</span>
+                            {(this.state.attachment !== "") ?
+                                <span className='attachment-span'>
+                                    <span className="attachment-clear" onClick={this.handleClear}>{clear}</span>
+                                    <span className="attachment-complaint-name">{this.state.attachment_name}</span>
+                                </span>
+                                : null}
                         </div>
 
                         <div className="font-awesome">

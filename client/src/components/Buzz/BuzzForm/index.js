@@ -25,7 +25,6 @@ class BuzzForm extends React.Component {
     }
 
     handleFileChange = event => {
-        console.log('handle file change called')
         this.setState({
             attachment: event.target.value,
             attachment_name: event.target.files[0].name

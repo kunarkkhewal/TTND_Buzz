@@ -72,3 +72,16 @@
     display: inline-block;
     width: 40px;
 }
+
+.attachment-span{
+    width: 500px;
+    padding: 10px;
+}
+
+.attachment-complaint-name{
+    margin-left: 10px;
+}
+
+.attachment-clear{
+    cursor: pointer;
+}
