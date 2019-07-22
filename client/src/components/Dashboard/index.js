@@ -2,12 +2,15 @@ import React, { Component } from 'react';
 import SideNavBar from '../utils/SideNavBar';
 import Complaint from '../Complaint/ComplaintManager'
 import Resolve from '../Resolve/ResolveManager';
-import { Route, Switch, Redirect } from 'react-router-dom';
+import {
+    Route,
+    Switch,
+    Redirect
+} from 'react-router-dom';
 import Buzz from '../Buzz/BuzzManager';
 import Header from '../utils/Header';
 import './Dashboard.css';
 import { connect } from 'react-redux';
-
 
 class Dashboard extends Component {
 
@@ -34,8 +37,8 @@ class Dashboard extends Component {
                                     exact path="/dashboard/resolve"
                                     component={Resolve}
                                 />
-                                : null}
-                            
+                                : null
+                            }
                             <Redirect from='*' to="/" />
                         </Switch>
                     </section>

@@ -30,7 +30,16 @@ class ComplaintDetail extends React.Component {
     }
 
     render() {
-        const { name, attachment, concern, createdAt, status, title, assignedTo, department } = this.state;
+        const {
+            name,
+            attachment,
+            concern,
+            createdAt,
+            status,
+            title,
+            assignedTo,
+            department
+        } = this.state;
 
         return (
             <div className="complaint-modal">
@@ -40,11 +49,10 @@ class ComplaintDetail extends React.Component {
                     className="btn modal-btn"
                     data-toggle="modal"
                     data-target={`#myModal${this.props.issueId}`}
-                    style={{ 'color': 'steelblue', 'textDecoration':'underline' }}
+                    style={{ 'color': 'steelblue', 'textDecoration': 'underline' }}
                 >
                     {this.props.issueId}
                 </button>
-
                 <div className="modal fade" id={`myModal${this.props.issueId}`}>
                     <div className="modal-dialog">
                         <div className="modal-content">
@@ -95,12 +103,10 @@ class ComplaintDetail extends React.Component {
                                         </tr>
                                     </tbody>
                                 </table>
-
                             </div>
                             <div className="modal-footer">
                                 <button type="button" className="btn btn-danger" data-dismiss="modal">Close</button>
                             </div>
-
                         </div>
                     </div>
                 </div>

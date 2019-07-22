@@ -1,21 +1,21 @@
 import React from 'react';
 import './BuzzThread.css'
 import { connect } from 'react-redux';
-import { postLike, postDislike, deleteBuzz } from '../../../action/buzz.Action';
+import {
+    postLike,
+    postDislike, 
+    deleteBuzz
+} from '../../../action/buzz.Action';
 import moment from 'moment';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faThumbsUp, faThumbsDown, faTrash } from '@fortawesome/free-solid-svg-icons';
+import {
+    faThumbsUp,
+    faThumbsDown,
+    faTrash
+} from '@fortawesome/free-solid-svg-icons';
 import { deleteAlert } from '../../../utils/alerts'
 
 class BuzzThread extends React.Component {
-
-    // constructor(props) {
-    //     super(props);
-    //     this.state = {
-    //         like: false,
-    //         dislike: false
-    //     }
-    // }
 
     onDelete = () => {
         let val = deleteAlert()
@@ -34,7 +34,8 @@ class BuzzThread extends React.Component {
         else {
             return ''
         }
-    };
+    }
+
     checkUserDislike = (email, dislike) => {
         const disliked = dislike.find((item) => (item.emailId == email));
         if (disliked) {
@@ -43,8 +44,7 @@ class BuzzThread extends React.Component {
         else {
             return ''
         }
-    };
-
+    }
 
     Like = () => {
         this.props.postLike({ buzzId: this.props.feed._id });
@@ -53,7 +53,6 @@ class BuzzThread extends React.Component {
     Dislike = () => {
         this.props.postDislike({ buzzId: this.props.feed._id });
     }
-
 
     render() {
         const thumbsUp = <FontAwesomeIcon icon={faThumbsUp} />
@@ -105,7 +104,6 @@ class BuzzThread extends React.Component {
         )
     }
 }
-
 
 const mapDispatchToProps = {
     postLike,

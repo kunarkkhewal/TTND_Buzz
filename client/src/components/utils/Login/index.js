@@ -8,14 +8,12 @@ class App extends Component {
 
     componentDidMount = () => {
         if (localStorage.getItem('token')) {
-            console.log('in login=>>>>', this.props)
             this.props.history.push('/dashboard/buzz')
         }
     }
 
     render() {
         const google = <FontAwesomeIcon icon={faGoogle} />
-
         return (
             <div className="loginDiv">
                 <div className="card" style={{ width: '18rem' }}>
@@ -32,7 +30,5 @@ class App extends Component {
         );
     }
 }
-
-
 
 export default App;

@@ -17,37 +17,42 @@ class Header extends React.Component {
         this.props.getUser();
     }
 
-
-
     render() {
 
-        const { role, department, username, emailId, thumbnail } = this.props.user[0];
+        const {
+            role,
+            department,
+            username,
+            emailId,
+            thumbnail
+        } = this.props.user[0];
+        
         return (
             <header>
                 <nav>
                     <Link to='/dashboard/buzz'>
                         <img src={companylogo} alt='logo' className='companylogo'></img></Link>
                     <span>
-                            {/* <!-- Button trigger modal --> */}
-                            <button type="button" className="img" data-toggle="modal" data-target="#exampleModal">
+                        {/* <!-- Button trigger modal --> */}
+                        <button type="button" className="img" data-toggle="modal" data-target="#exampleModal">
                             <img src={thumbnail} alt="" />
-                            </button>
-                            {/* <!-- Modal --> */}
-                            <div className="modal fade" id="exampleModal" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                <div className="modal-dialog" role="document">
-                                    <div className="modal-content">
-                                        <div className="modal-header">
-                                            <h5 className="modal-title" id="exampleModalLabel">{username}</h5>
-                                        </div>
-                                        <div className="modal-body">
-                                            <img src={thumbnail} alt=""/>
-                                            <h6>{emailId}</h6>
-                                            <h6>{department}</h6>
-                                            <h6>{role}</h6>
-                                        </div>
+                        </button>
+                        {/* <!-- Modal --> */}
+                        <div className="modal fade" id="exampleModal" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div className="modal-dialog" role="document">
+                                <div className="modal-content">
+                                    <div className="modal-header">
+                                        <h5 className="modal-title" id="exampleModalLabel">{username}</h5>
+                                    </div>
+                                    <div className="modal-body">
+                                        <img src={thumbnail} alt="" />
+                                        <h6>{emailId}</h6>
+                                        <h6>{department}</h6>
+                                        <h6>{role}</h6>
                                     </div>
                                 </div>
                             </div>
+                        </div>
                         <button className='logout' onClick={this.logout}>Logout </button>
                     </span>
                 </nav>

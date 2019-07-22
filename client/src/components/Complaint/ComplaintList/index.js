@@ -37,7 +37,6 @@ class ComplaintForm extends React.Component {
                         </select>   
                     </span>
                 </div>
-
                 <table className="table table-striped">
                     <thead className="thead-dark">
                         <tr>
@@ -62,13 +61,10 @@ class ComplaintForm extends React.Component {
                         })}
                     </tbody>
                 </table>
-
             </div>
         )
     }
-
 }
-
 
 const mapStateToProps = state => {
     return { list: state.ComplaintReducer.complaintList }

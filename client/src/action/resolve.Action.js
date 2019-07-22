@@ -1,10 +1,13 @@
 import axiosInstance from '../utils/axiosInterceptor';
 import {
     SHOW_COMPLAINT,
-    UPDATE_COMPLAINT_STATUS, 
+    UPDATE_COMPLAINT_STATUS,
     DASHBOARD_RESOLVE_URL
 } from '../utils/constants'
-import { successAlert, errorAlert } from '../utils/alerts'
+import {
+    successAlert,
+    errorAlert
+} from '../utils/alerts'
 
 // GET REQUEST FOR COMPLAINT LIST
 

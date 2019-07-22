@@ -10,7 +10,10 @@ import {
     DISLIKE_URL,
     DELETE_URL
 } from '../utils/constants.js';
-import { successAlert, errorAlert } from '../utils/alerts';
+import {
+    successAlert,
+    errorAlert
+} from '../utils/alerts';
 
 // POST REQUEST FOR BUZZ
 

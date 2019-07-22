@@ -12,7 +12,6 @@ const initialState = {
 
 export default function buzzReducer(state = initialState, action) {
     let type = action.type;
-
     switch (type) {
         case ADD_BUZZ: {
             return {
@@ -20,7 +19,6 @@ export default function buzzReducer(state = initialState, action) {
                 buzzfeed: [action.data, ...state.buzzfeed]
             };
         }
-
         case SHOW_BUZZ: {
             const morePost = state.buzzfeed.concat(...action.data)
             return {
@@ -51,7 +49,6 @@ export default function buzzReducer(state = initialState, action) {
                 buzzfeed: deleteBuzz
             }
         }
-
         default: {
             return state;
         }

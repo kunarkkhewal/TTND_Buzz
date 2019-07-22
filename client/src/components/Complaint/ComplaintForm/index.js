@@ -3,8 +3,15 @@ import './ComplaintForm.css';
 import { connect } from 'react-redux';
 import { addComplaint } from '../../../action/complaint.Action';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faChevronCircleRight, faImage, faWindowClose } from '@fortawesome/free-solid-svg-icons';
-import { warningAlert, savingAlert } from '../../../utils/alerts'
+import {
+    faChevronCircleRight,
+    faImage,
+    faWindowClose
+} from '@fortawesome/free-solid-svg-icons';
+import {
+    warningAlert,
+    savingAlert
+} from '../../../utils/alerts'
 
 class ComplaintForm extends React.Component {
 
@@ -34,7 +41,6 @@ class ComplaintForm extends React.Component {
 
     onSubmit = event => {
         event.preventDefault();
-
         if (event.target[2].value.replace(/^\s+|\s+$/gm, '') === "" || event.target[1].value.replace(/^\s+|\s+$/gm, '') === "") {
             warningAlert("Text area left Empty")
         } else {
@@ -43,17 +49,13 @@ class ComplaintForm extends React.Component {
             complaintData.append("title", event.target[1].value);
             complaintData.append("concern", event.target[2].value);
             complaintData.append("attachment", event.target[3].files[0]);
-
             this.props.addComplaint(complaintData);
             savingAlert("Your Complaint is getting saved")
         }
-
         this.setState({
             attachment: ''
         })
-
         event.target.reset();
-
     }
 
     render() {
@@ -89,7 +91,6 @@ class ComplaintForm extends React.Component {
                                 </span>
                                 : null}
                         </div>
-
                         <div className="font-awesome">
                             <label htmlFor="post-complaint" className="post-complaint">
                                 {rightArrow}
@@ -97,13 +98,11 @@ class ComplaintForm extends React.Component {
                             <input id='post-complaint' type="submit" value="Post" />
                         </div>
                     </div>
-
                 </form>
             </div>
         )
     }
 }
-
 
 const mapStateToProps = state => {
     return { state }

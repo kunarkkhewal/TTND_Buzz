@@ -3,8 +3,15 @@ import './BuzzForm.css';
 import { connect } from 'react-redux';
 import { addBuzz } from '../../../action/buzz.Action';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faChevronCircleRight, faImage, faWindowClose } from '@fortawesome/free-solid-svg-icons'
-import { warningAlert, savingAlert } from '../../../utils/alerts'
+import {
+    faChevronCircleRight,
+    faImage,
+    faWindowClose
+} from '@fortawesome/free-solid-svg-icons'
+import {
+    warningAlert,
+    savingAlert
+} from '../../../utils/alerts'
 
 class BuzzForm extends React.Component {
 
@@ -41,19 +48,14 @@ class BuzzForm extends React.Component {
             formData.append("buzz", event.target[0].value);
             formData.append("category", event.target[1].value);
             formData.append("attachment", event.target[2].files[0]);
-            console.log("=======================", event.target[2].files[0])
-
             this.props.addBuzz(formData)
-
             savingAlert("Your buzz is getting saved")
         }
 
         this.setState({
             attachment: ''
         })
-
         event.target.reset();
-
     }
 
     render() {
@@ -94,14 +96,9 @@ class BuzzForm extends React.Component {
                     </div>
                 </form>
             </div>
-
         )
     }
 }
-
-
-
-
 
 const mapStateToProps = state => {
     return { state }

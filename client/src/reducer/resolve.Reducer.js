@@ -17,7 +17,6 @@ export default function ResolveReducer(state = initialState, action) {
                 resolveList: action.data
             };
         }
-
         case UPDATE_COMPLAINT_STATUS: {
             const list = state.resolveList.map(element => {
                 if (action.data.issueId === element.issueId) {
@@ -26,11 +25,8 @@ export default function ResolveReducer(state = initialState, action) {
                     return element;
                 }
             })
-
-
             return { ...state, resolveList: list };
         }
-
         default: {
             return state;
         }

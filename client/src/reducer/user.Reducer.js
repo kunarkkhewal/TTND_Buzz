@@ -14,7 +14,6 @@ export default function userReducer(state = initialState, action) {
                 userData: [action.data]
             };
         }
-
         default: {
             return state;
         }

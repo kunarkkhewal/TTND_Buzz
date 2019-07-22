@@ -17,14 +17,12 @@ export default function complaintReducer(state= initialState, action){
                 complaintList:[action.data, ...state.complaintList]
             };
         }
-
         case SHOW_COMPLAINT: {
             return {
                 ...state,
                 complaintList: action.data
             };
         }
-
         default: {
             return state;
         }

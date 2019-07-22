@@ -4,7 +4,10 @@ import {
     SHOW_COMPLAINT,
     DASHBOARD_COMPLAINT_URL
 } from "../utils/constants";
-import {successAlert, errorAlert} from '../utils/alerts';
+import {
+    successAlert,
+    errorAlert
+} from '../utils/alerts';
 
 // POST REQUEST FOR COMPLAINT
 
