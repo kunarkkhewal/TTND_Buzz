@@ -19,9 +19,7 @@ passport.use(
             callbackURL: "http://localhost:5000/auth/google/callback"
         },
         function (accessToken, refreshToken, profile, done) {
-
             let googleId = profile.id;
-
             let department;
             let role;
 
@@ -40,7 +38,7 @@ passport.use(
             userOperations.findOne(googleId)
                 .then(data => {
                     if (!data) {
-                        var userData = new User({
+                        const userData = new User({
                             username: profile._json.name,
                             emailId: profile._json.email,
                             googleId: profile._json.sub,

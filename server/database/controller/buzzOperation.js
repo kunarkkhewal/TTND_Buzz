@@ -96,7 +96,6 @@ dislikeBuzz = (id, emailId, status) => {
     }
 }
 
-// DELETE
 deletePost = (id) => {
     return buzz.findByIdAndRemove({ _id: id });
 }

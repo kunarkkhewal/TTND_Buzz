@@ -18,7 +18,7 @@ router.get('/:skip', (req, res) => {
 // POST BUZZ
 router.post('/', upload.single('attachment'), async (req, res) => {
     let formData = req.body;
-    var imageData = '';
+    let imageData = '';
 
     if (req.file) {
         let imagePath = req.file.path;
@@ -29,7 +29,7 @@ router.post('/', upload.single('attachment'), async (req, res) => {
         }
     }
 
-    let buzzData = new Buzz({
+    const buzzData = new Buzz({
         description: formData.buzz,
         category: formData.category,
         attachment: imageData,
@@ -50,11 +50,9 @@ router.post('/', upload.single('attachment'), async (req, res) => {
 // LIKE BUZZ
 router.patch('/like', async (req, res) => {
     const buzzData = await buzzOperation.fetchBuzzById(req.body.buzzId);
-    let emailId = req.user.emailId;
+    const emailId = req.user.emailId;
     const { like } = buzzData;
-
     status = like.filter((item) => { return item.emailId === emailId }).length === 0 ? true : false;
-
     buzzOperation.likeBuzz(
         req.body.buzzId,
         req.user.emailId,
@@ -66,15 +64,12 @@ router.patch('/like', async (req, res) => {
     })
 });
 
-
 // DISLIKE BUZZ
 router.patch('/dislike', async (req, res) => {
     const buzzData = await buzzOperation.fetchBuzzById(req.body.buzzId);
-    let emailId = req.user.emailId;
+    const emailId = req.user.emailId;
     const { dislike } = buzzData;
-
     status = dislike.filter((item) => { return item.emailId === emailId }).length === 0 ? true : false;
-
     buzzOperation.dislikeBuzz(
         req.body.buzzId,
         req.user.emailId,
@@ -85,7 +80,6 @@ router.patch('/dislike', async (req, res) => {
         res.status(404).send(err);
     })
 });
-
 
 // DELETE BUZZ
 router.delete('/:buzzId', (req, res) => {

@@ -11,11 +11,9 @@ router.get(
     '/auth/google/callback',
     passport.authenticate('google', { failureRedirect: '/', session: false }),
     function (req, res) {
-        let UserDetails = req.user;
-
+        const UserDetails = req.user;
         const userData = UserDetails.toJSON();
-
-        jwt.sign(userData, process.env.SECRET, {expiresIn: '24h'}, (err, token) => {
+        jwt.sign(userData, process.env.SECRET, (err, token) => {
             if (err) {
                 res.status(400).send({status:0});
             }

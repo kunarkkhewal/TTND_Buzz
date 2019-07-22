@@ -21,9 +21,8 @@ router.get('/', (req, res) => {
 // POST COMPLAINTS
 router.post('/', upload.single('attachment'), async (req, res) => {
     const id = nanoid(9);
-    let formData = req.body;
-    var imageData = ''
-
+    const formData = req.body;
+    let imageData = ''
     if (req.file) {
         let imagePath = req.file.path;
         if (imagePath) {
@@ -32,10 +31,9 @@ router.post('/', upload.single('attachment'), async (req, res) => {
             });
         }
     }
-
+    
     const assignedToAdmin = await findAdmin(req.body.department);
-
-    let complaintData = new Complaint({
+    const complaintData = new Complaint({
         department: formData.department,
         title: formData.title,
         concern: formData.concern,
